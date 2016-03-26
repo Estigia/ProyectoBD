@@ -1,18 +1,36 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>{{ titulo }}</title>
-		<h2>{{ titulo }}</h2>
+		<link rel="stylesheet" type="text/css" href='{% static "css/estilos.css" %}'>
+		<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
+		<h2>
+			<DIV ALIGN=center>{{ titulo }}</DIV>
+		</h2>
 	</head>
+    <header>
+		<nav>
+			<ul>
+				<li><a href="/"><span class="primero"><i class="icon icon-home3"></i></span>Inicio</a></li>
+				<li><a href="/registro"><span class="segundo"><i class="icon icon-envelop"></i></span>Registrarse</a></li>
+				<li><a href="#"><span class="tercero"><i class="icon icon-folder"></i></span>Registros</a>
+					<ul>
+						<li><a href='/regArmas'>Registrar Armas</a></li>
+						<li><a href='/regLocalizacion'>Registrar Localizacion</a></li>
+						<li><a href='/registros'>Crear Registro</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#"><span class="cuarto"><i class="icon icon-flag"></i></span>Acerca de</a></li>
+				<li><a href="#"><span class="quinto"><i class="icon icon-heart"></i></span>Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
 	<body>
-		<ul>
-			<li><a href='/'>Inicio</a></li>
-			<li><a href='/registro'>Registrarse</a></li>
-			<li><a href='/regArmas'>Registrar Armas</a></li>
-			<li><a href='/regLocalizacion'>Registrar Localizacion</a></li>
-			<li><a href='/registros'>Crear Registro</a></li>
-		</ul>
-		{% block content %}
-		{% endblock %}
+		<DIV ALIGN=center>
+			{% block content %}
+			{% endblock %}
+		</DIV>
 	</body>
 </html>
