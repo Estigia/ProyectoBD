@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^registro/', 'home.views.registro', name='Registro'),	
     url(r'^$', 'home.views.inicio', name='inicio'),	
     url(r'^regArmas/', 'Armas.views.Arma', name='arma'),	
+    url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='arma'),
 ]
