@@ -4,15 +4,15 @@ from .models import Departamento,Municipio,Localizacion
 # Register your models here.
 
 class DepartamentoAdmin(admin.ModelAdmin):
-	list_display = ["id","nombre"]
+	list_display = ["id","departamento"]
 	form = DepartamentoForm
 
 class MunicipioAdmin(admin.ModelAdmin):
-	list_display = ["id","nombre"]
+	list_display = ["id","municipio"]
 	form = MunicipioForm
 
 class LocalizacionAdmin(admin.ModelAdmin):
-	list_display = ["direccion","tipo"]
+	list_display = ["direccion","especifico"]
 	form = LocalizacionForm
 
 admin.site.register(Departamento,DepartamentoAdmin)
