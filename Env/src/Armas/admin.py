@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .forms import ArmaForm, Tipo_ArmaAdmin
+from .models import Arma,Tipo_Arma
 
-# Register your models here.
+class Tipo_ArmaAdmin(admin.ModelAdmin):
+	list_display = ["id","__unicode__"]
+	form = Tipo_ArmaArma
+
+class ArmaAdmin(admin.ModelAdmin):
+	list_display = ["id","calibre","no_casquillos","marca","categoria","serial","Tipo_Arma_id"]
+	form = ArmaForm
+
+admin.site.register(Tipo_Arma, Tipo_ArmaAdmin)
+admin.site.register(Arma, ArmaAdmin)

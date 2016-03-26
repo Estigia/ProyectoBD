@@ -18,6 +18,12 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+<<<<<<< HEAD
     url(r'^registro/', 'home.views.registro', name='Registro'),	
     url(r'^$', 'home.views.inicio', name='Inicio'),	
+=======
+    url(r'^$', 'home.views.inicio', name='inicio'),	
+    url(r'^regArmas/', 'arma.views.Arma', name='arma'),	
+
+>>>>>>> a771d04068d70e92c1d0bd8dd3aa492e33d777f5
 ]
