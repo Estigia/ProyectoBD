@@ -11,6 +11,6 @@ class SignForm(forms.ModelForm):
 					"nombre_usuario",
 					"correo"]
 
-class InicioForm(form.Form):
+class InicioForm(forms.Form):
 	usuario = forms.CharField()
 	contrasena = forms.CharField(widget=forms.PasswordInput())

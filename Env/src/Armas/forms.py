@@ -16,8 +16,6 @@ class Tipo_ArmaForm(forms.ModelForm):
 	class Meta:
 		model = Tipo_Arma
 
-		fields = ["objeto",
-
+		fields = ["objeto"
 
 					]
-						

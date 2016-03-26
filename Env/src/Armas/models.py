@@ -13,7 +13,7 @@ class Arma(models.Model):
 	calibre = models.CharField(max_length=20)	
 	no_casquillos = models.SmallIntegerField(blank=True, null=True)
 	marca = models.CharField(max_length=45, blank=True, null=True)
-	categoria = models.BooleanField(blank=True, null=True)
+	categoria = models.BooleanField(blank=True, null=None)
 	serial = models.CharField(max_length=45, blank=True,null=True)
 	Tipo_Arma_id = models.ForeignKey('Tipo_Arma', on_delete=models.CASCADE);
 

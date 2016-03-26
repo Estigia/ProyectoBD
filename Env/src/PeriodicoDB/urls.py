@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^registro/', 'home.views.registro', name='Registro'),	
     url(r'^$', 'home.views.inicio', name='inicio'),	
-    url(r'^regArmas/', 'arma.views.Arma', name='arma'),	
+    url(r'^regArmas/', 'Armas.views.Arma', name='arma'),	
 ]
