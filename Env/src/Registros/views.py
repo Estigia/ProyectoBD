@@ -7,8 +7,8 @@ def registro(request):
 
 	context = {
 		"form" :form,
-		"fomr2" : form2,
-		"title": "Registros"
+		"form2" : form2,
+		"titulo": "Registros"
 	}
 
 	if form.is_valid():
@@ -16,4 +16,4 @@ def registro(request):
 	if form2.is_valid():
 		form2.save()
 
-	return reder(request,'registros.html',context)
+	return render(request,'registros.html',context)

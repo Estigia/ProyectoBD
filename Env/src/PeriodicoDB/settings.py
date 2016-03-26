@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'Armas',
     'localizaciones',
+    'Registros',
 ]
 
 MIDDLEWARE_CLASSES = [

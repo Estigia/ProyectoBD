@@ -15,11 +15,11 @@ class VictimaForm(forms.ModelForm):
 	class Meta:
 		model = Victima
 
-		fieldas = ["nombres",
+		fields = ["nombres",
 					"apellidos",
 					"edad",
 					"muerto_herido",
 					"profesion",
 					"cui",
-					"Sexo",
+					"sexo",
 				]
