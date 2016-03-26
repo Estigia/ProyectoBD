@@ -1,5 +1,5 @@
 from django import forms
-from .model import Municipio,Departamento,Localizacion
+from .models import Municipio,Departamento,Localizacion
 
 class LocalizacionForm(forms.ModelForm):
 	class Meta:
@@ -8,10 +8,10 @@ class LocalizacionForm(forms.ModelForm):
 
 class MunicipioForm(forms.ModelForm):
 	class Meta:
-		model = Departamento
+		model = Municipio
 		fields = ["nombre"]
 
 class DepartamentoForm(forms.ModelForm):
 	class Meta:
-		model = Municipio
+		model = Departamento
 		fields = ["nombre"]
