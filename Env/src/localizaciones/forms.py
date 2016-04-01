@@ -9,7 +9,7 @@ class LocalizacionForm(forms.ModelForm):
 class MunicipioForm(forms.ModelForm):
 	class Meta:
 		model = Municipio
-		fields = ["municipio","Departamento_id"]
+		fields = ["Departamento_id","municipio"]
 
 class DepartamentoForm(forms.ModelForm):
 	class Meta:

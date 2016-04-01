@@ -12,7 +12,7 @@ class MunicipioAdmin(admin.ModelAdmin):
 	form = MunicipioForm
 
 class LocalizacionAdmin(admin.ModelAdmin):
-	list_display = ["direccion","especifico"]
+	list_display = ["direccion","especifico", "Municipio_id"]
 	form = LocalizacionForm
 
 admin.site.register(Departamento,DepartamentoAdmin)
