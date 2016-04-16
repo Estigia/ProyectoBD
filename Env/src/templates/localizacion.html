@@ -1,52 +1,68 @@
 {% extends 'base.html' %}
-
-
-
-{% block asd %}
-<script>
-function cambiar(s1,s2){
-	var s1 = document.getElementById(s1);
-	var s2 = document.getElementById(s2);
-
-	s2.innerHTML = "";
-	if(s1.value == "3"){
-		var optionArray = ["|","3|Guatemala","mixco|Mixco"];
-	} else if(s1.value == "Quetzaltenango"){
-		var optionArray = ["|","quetzaltenango|Quetzaltenango","salcaja|Salcaja"];
-	} else if(s1.value == "Peten"){
-		var optionArray = ["|","flores|Flores"];
-	}
-	for(var option in optionArray){
-		var pair = optionArray[option].split("|");
-		var newOption = document.createElement("option");
-		newOption.value = pair[0];
-		newOption.innerHTML = pair[1];
-		s2.options.add(newOption);
-	}
-}
-</script>
-{% endblock %}
-
-
 {% block content %}
 	<form method = 'POST', action=''>
 		{% csrf_token %}	
 		
 		Departamento:
-		<select id="dep" name="dep" onchange="cambiar(this.id,'muni')">
-		  <option value=""></option>
-		  <option value="3">Guatemala</option>
-		  <option value="Quetzaltenango">Quetzaltenango</option>
-		  <option value="Peten">Peten</option>
+
+		<select id='dep' name='dep'>
+		<option selected></option>
+		{% for elemento in Departamentos %}
+			<option value="{{elemento.id}}">{{elemento.departamento}}</option>					
+		{% endfor %}
 		</select>
 
-		<p></p>
+		
 
 		Municipio:
-		<select id="muni" name="muni"></select>
+		<select id='muni' name='muni'></select>
 
 		{{form.as_p}}
 		<input type='submit' value='Registrar localizacion'>
 {% endblock %}	
+
+{% block js %}
+{% csrf_token %}
+<script type="text/javascript">	
+	$('#dep').on('change', funcion);
+	$('#muni').on('chance', func);
+
+	function func(){
+		var id = $(this).val();
+		console.log(id);
+	}
+
+	function funcion(){
+		var id = $(this).val();
+		console.log(id);
+		$.ajax({
+			data : {'id' : id},
+			url : '/regLocal/Local',
+			type : 'get',
+			success: function(data){
+				var s2 = document.getElementById('muni');
+				console.log(s2);
+				s2.innerHTML = "";
+				//var html = '<table class="table table-stripped"><thead><th>Municipio</th>';
+				for (var i=0; i< data.length; i++){
+				//	html += '<tr><td>'+data[i].fields.municipio+'</tr></td>';
+					
+				//	console.log(data[i].fields.municipio);
+
+				//	console.log(data.length);
+
+					var newOption = document.createElement("option");
+					newOption.value = data[i].fields.id;
+					newOption.innerHTML = data[i].fields.municipio;
+					s2.options.add(newOption);
+				}
+				
+				//html += '</tbody></table>';
+				//$('#muni').html(html);			
+			}
+		})
+	}
+</script>
+{% endblock %}
 	
 </form>	

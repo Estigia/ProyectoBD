@@ -1,9 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-	<head>		
-			{% block asd %}
-			{% endblock %}
+	<head>				
 		<title>{{ titulo }}</title>
 		<link rel="stylesheet" type="text/css" href='{% static "css/estilos.css" %}'>
 		<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
@@ -34,5 +32,12 @@
 			{% block content %}
 			{% endblock %}
 		</DIV>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	{% block js %}
+	{% endblock %}
+
+	
 	</body>
+
+	
 </html>

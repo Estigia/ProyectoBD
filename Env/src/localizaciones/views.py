@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import ListView, TemplateView
+from django.core import serializers
+from django.http import HttpResponse
 from .forms import LocalizacionForm,MunicipioForm,DepartamentoForm
 from .models import Municipio,Departamento,Localizacion
 
@@ -12,7 +15,7 @@ def localizacion(request):
 	#form3 = LocalizacionForm(request.POST or None)
 	form = LocalizacionForm(request.POST or None)
 	Departamentos = Departamento.objects.all()
-	Municipios = Municipio.objects.filter(Departamento_id = 1)
+	Municipios = Municipio.objects.all()
 
 	context = {
 
@@ -36,3 +39,8 @@ def localizacion(request):
 
 	return render(request,'localizacion.html',context)
 
+def BusquedaMunicipio(request):
+		id_Departamento = request.GET['id']
+		muni = Municipio.objects.filter(Departamento_id= id_Departamento)		
+		data = serializers.serialize('json', muni, fields = {'id','municipio'})
+		return HttpResponse(data, content_type='application/json')
