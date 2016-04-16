@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .forms import SignForm, InicioForm
+from .forms import UserCreationForm, InicioForm
 from .models import Usuario
 
 # Create your views here.
 def registro(request):
 
-	form = SignForm(request.POST or None)
+	form = UserCreationForm(request.POST or None)
 	context = {
 		"form":form,
 		"titulo": "Registro"
@@ -18,14 +18,23 @@ def registro(request):
 
 def inicio(request):
 
-	form = InicioForm(request.POST or None)
-	context = {
-		"form":form,
-		"titulo": "Inicio"
-	}
+    if request.user.is_authenticated():
 
-	#if form.is_valid():
+    	context = {
+    		"titulo": "Login"
+    	}
 
-	return render(request,'inicio.html',context)
+    	return render(request,'login.html',context)
+    	
+    else:
+
+		form = InicioForm(request.POST or None)
+		context = {
+			"form":form,
+			"titulo": "Inicio"
+		}
+		#if form.is_valid():
+		return render(request,'inicio.html',context)
+	 	
 
 
