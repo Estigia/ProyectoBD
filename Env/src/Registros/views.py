@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .forms import RegistroForm, VictimaForm
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def registro(request):
 	form = RegistroForm(request.POST or None)
 	form2 = VictimaForm(request.POST or None)
