@@ -18,6 +18,7 @@ def registro(request):
 
 def inicio(request):
 
+
     if request.user.is_authenticated():
 
     	context = {
@@ -25,8 +26,10 @@ def inicio(request):
     	}
 
     	return render(request,'login.html',context)
-    	
+
     else:
+		
+
 
 		form = InicioForm(request.POST or None)
 		context = {
@@ -34,7 +37,4 @@ def inicio(request):
 			"titulo": "Inicio"
 		}
 		#if form.is_valid():
-		return render(request,'inicio.html',context)
-	 	
-
-
+		return render(request,'home.html',context)
