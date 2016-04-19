@@ -1,43 +1,60 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-	<head>				
-		<title>{{ titulo }}</title>
-		<link rel="stylesheet" type="text/css" href='{% static "css/estilos.css" %}'>
-		<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
-		<h2>
-			<DIV ALIGN=center>{{ titulo }}</DIV>
-		</h2>
-	</head>
-    <header>
-		<nav>
-			<ul>
-				<li><a href="/"><span class="primero"><i class="icon icon-home3"></i></span>Inicio</a></li>
-				<li><a href="/registro"><span class="segundo"><i class="icon icon-envelop"></i></span>Registrarse</a></li>
-				<li><a href="#"><span class="tercero"><i class="icon icon-folder"></i></span>Registros</a>
-					<ul>
-						<li><a href='/regArmas'>Registrar Armas</a></li>
-						<li><a href='/regLocalizacion'>Registrar Localizacion</a></li>
-						<li><a href='/registros'>Crear Registro</a></li>
-					</ul>
-				</li>
-				
-				<li><a href="#"><span class="cuarto"><i class="icon icon-flag"></i></span>Acerca de</a></li>
-				<li><a href="#"><span class="quinto"><i class="icon icon-heart"></i></span>Contacto</a></li>
-			</ul>
-		</nav>
-	</header>
-	<body>
-		<DIV ALIGN=center>
-			{% block content %}
-			{% endblock %}
-		</DIV>
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	{% block js %}
-	{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-	
-	</body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href='{% static "css/default.css" %}' rel="stylesheet" type="text/css" media="all" />
+<link href='{% static "css/fonts.css" %}' rel="stylesheet" type="text/css" media="all" />
+</head>
 
-	
+
+
+<header>
+  <div id="header-wrapper">
+    <div id="header" class="container">
+      <div id="logo">
+        <!-- Aca debe ir imagen -->
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="/" accesskey="1" title="">Inicio</a></li>
+          <li><a href="#" accesskey="2" title="">Registros</a></li>
+          <li><a href="#" accesskey="3" title="">Acerca de</a></li>
+          <li><a href="#" accesskey="4" title="">Contacto</a></li>
+          <li><a href="/registro" accesskey="5" title="">Iniciar sesion</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="banner" class="container">
+      <div class="title">
+        <h2>Policia Nacional Civil de Guatemala</h2>
+        <span class="byline">Sistema de estadistica y control de hechos violentos</span>
+      </div>
+      <ul class="actions">
+        <li><a href="#" class="button">Entrar</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<body>
+{% block content %}
+{% endblock %}
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+{% block js %}
+
+{% endblock %}
+
+<div id="copyright" class="container">
+  <p>&copy;  asdasd </p>
+</div>
+
+</body>
 </html>
