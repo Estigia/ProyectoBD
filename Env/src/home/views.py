@@ -36,8 +36,6 @@ def inicio(request):
     	}
 
     	return render(request,'login.html',context)
-<<<<<<< HEAD
-    
     if request.POST:
 
     	form = InicioForm(request.POST or None)
@@ -71,17 +69,3 @@ def inicio(request):
     	"titulo": "Inicio"
     }
     return render(request,'inicio.html',context)
-=======
-
-    else:
-		
-
-
-		form = InicioForm(request.POST or None)
-		context = {
-			"form":form,
-			"titulo": "Inicio"
-		}
-		#if form.is_valid():
-		return render(request,'home.html',context)
->>>>>>> 19b25fabd2db51c2131fe54077737ea897810d0e

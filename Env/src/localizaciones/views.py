@@ -15,7 +15,7 @@ def localizacion(request):
 	#form3 = LocalizacionForm(request.POST or None)
 	form = LocalizacionForm(request.POST or None)
 	Departamentos = Departamento.objects.all()
-	Municipios = Municipio.objects.all()
+	Municipios = Municipio.objects.all()	
 
 	context = {
 
@@ -42,5 +42,7 @@ def localizacion(request):
 def BusquedaMunicipio(request):
 		id_Departamento = request.GET['id']
 		muni = Municipio.objects.filter(Departamento_id= id_Departamento)		
-		data = serializers.serialize('json', muni, fields = {'id','municipio'})
+		print muni
+		data = serializers.serialize('json', muni, fields = ('municipio'))
+		print data		
 		return HttpResponse(data, content_type='application/json')

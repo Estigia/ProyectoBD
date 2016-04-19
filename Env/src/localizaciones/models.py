@@ -16,7 +16,9 @@ class Municipio(models.Model):
 	id = models.AutoField(primary_key = True)
 	municipio = models.CharField(max_length = 45)
 	Departamento_id = models.ForeignKey("Departamento", on_delete = models.CASCADE)
+	
 	def __unicode__(self):
+		#return '%d %s' % (self.id, self.municipio)
 		return self.municipio
 
 class Localizacion(models.Model):
