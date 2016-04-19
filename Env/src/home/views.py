@@ -58,7 +58,7 @@ def inicio(request):
     				return HttpResponseRedirect('/')
     		else:
     			return HttpResponseRedirect('/')
-    
+
     else:
     	form = InicioForm()
 
