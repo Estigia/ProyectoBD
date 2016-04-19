@@ -1,13 +1,45 @@
-{% extends 'base.html' %}	
+{% extends 'base.html' %}
 
 
 {% block content %}
 
-<form method = 'POST', action=''>
-	{% csrf_token %}
-	{{form.as_p}}
-	{{form2.as_p}}
-	<input type='submit' value='Registrarse'>
-</form>	
+<div id="wrapper">
+  <div id="three-column" class="container">
+    <div class="boxA">
+      <h2>Iniciar sesión</h2>
+    </div>
+
+    <div class="boxB">
+
+    </div>
+
+    <div class="boxC">
+      <h2>Registrarse    </h2>
+      <form method = 'POST', action=''>
+  			{% csrf_token %}
+  			{{form.as_p}}
+  			{{form2.as_p}}
+  			<span class="byline"><input type='submit' value='Registrarse'></span>
+  		</form>
+    </div>
+
+  </div>
+</div>
+
+<!-- <div id="section">
+  <div id="segundoBloque">
+		<div class = "title">
+      <h2>Iniciar sesión</h2>
+    </div>
+		<form method = 'POST', action=''>
+			{% csrf_token %}
+			{{form.as_p}}
+			{{form2.as_p}}
+			<span class="byline"><input type='submit' value='Registrarse'></span>
+		</form>
+  </div>
+</div> -->
+
+
 
 {% endblock %}
