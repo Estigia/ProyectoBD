@@ -68,4 +68,4 @@ def inicio(request):
     	"form": form,
     	"titulo": "Inicio"
     }
-    return render(request,'inicio.html',context)
+    return render(request,'home.html',context)
