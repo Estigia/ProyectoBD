@@ -21,14 +21,14 @@ from localizaciones.views import BusquedaMunicipio
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^registro/', 'home.views.registro', name='Registro'),	
-    url(r'^$', 'home.views.inicio', name='inicio'),	
-    url(r'^regArmas/', 'Armas.views.Arma', name='arma'),	
+    url(r'^registro/', 'home.views.registro', name='Registro'),
+    url(r'^$', 'home.views.inicio', name='inicio'),
+    url(r'^regArmas/', 'Armas.views.Arma', name='arma'),
     url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='localizacion'),
     url(r'^regLocal/', BusquedaMunicipio, name='Local'),
     url(r'^registros/', 'Registros.views.registro', name='registros'),
 
-    
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
