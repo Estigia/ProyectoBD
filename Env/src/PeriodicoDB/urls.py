@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='localizacion'),
     url(r'^regLocal/', BusquedaMunicipio, name='Local'),
     url(r'^registros/', 'Registros.views.registro', name='registros'),
-
+    url(r'^logout/','home.views.cerrar', name='logout'),
 
 ]
 if settings.DEBUG:
