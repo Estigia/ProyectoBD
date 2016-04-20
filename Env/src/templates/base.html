@@ -15,10 +15,36 @@
 
 
 <header>
+
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#"> </a></h1>
+		</div>
+		<div id="menu">
+      <ul>
+        <li><a href="/" accesskey="1" title="">Inicio</a></li>
+        <li><a href="#" accesskey="2" title="">Acerca de</a></li>
+        <li><a href="#" accesskey="3" title="">Contacto</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="#" accesskey="4" title="">Registros</a></li>
+        <li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
+        {% else %}
+        <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
+        {% endif %}
+      </ul>
+		</div>
+	</div>
+</div>
+
+</header>
+
+<!--
+<header>
   <div id="header-wrapper">
     <div id="header" class="container">
       <div id="logo">
-        <!-- Aca debe ir imagen -->
+           Aca debe ir imagen
       </div>
       <div id="menu">
         <ul>
@@ -41,7 +67,7 @@
       </div>
     </div>
   </div>
-</header>
+</header> -->
 
 
 <body>
