@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {'packages': ['geochart']});
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['States',   'Population', 'Area'], 
+        //Guatemala-----------------------      
+        // ['Amatitlan',      1,    1],
+        // ['Chinautla',      1,    1],
+        //  ['Chuarrancho',      1,    1],
+        //  ['Ciudad de Guatemala',      1,    1],
+        //  ['Fraijanes',      1,    1],
+        //  ['Mixco',      1,    1],
+        //  ['Palencia',      1,    1],
+        //  ['San Jose del Golfo',      1,    1],
+        // ['San Jose Pinula',      1,    1],
+        //  ['San Juan Sacatepequez',      1,    1],
+        // ['San Miguel Petapa',      1,    1],
+        //  ['San Pedro Ayampuc',      1,    1],
+        //  ['Sacatepequez',      1,    1],
+        // ['San Raymundo',      1,    1],
+        //  ['Santa Catarina Pinula',      1,    1],
+        //  ['Villa Canales',      1,    1],
+         //Quetzaltenango-----------------------
+         //['Almolonga',      1,    1],
+         // ['Cabrican',      1,    1],
+         // ['Cajola',      1,    1],
+         // ['Cantel',      1,    1],
+         // ['Coatepeque',      1,    1],
+         // ['Colomba Costa Cuca',      1,    1],
+         // ['Concepcion Chiquirichapa',      1,    1],
+          //['El Palmar Quetzaltenango',      1,    1],
+         // ['Flores Costa Cuca',      1,    1],
+         //['Genova',      1,    1],
+         //['Huitan',      1,    1],
+         //['La Esperanza Quetzaltenango',      1,    1],
+         // ['Olintepeque',      1,    1],
+         // ['Palestina de Los Altos',      1,    1],
+         // ['Quetzaltenango',      1,    1],
+         // ['Salcaja',      1,    1],
+         // ['San Carlos Sija',      1,    1],
+        //  ['San Francisco La Union Quetzaltenango',      1,    1],
+        //  ['San Juan Ostuncalco',      1,    1],
+        //  ['San Martin Sacatepequez',      1,    1],
+        //  ['San Mateo',      1,    1],
+        // ['San Miguel Siguila',      1,    1],
+        //  ['Sibilia',      1,    1],
+        //  ['Zunil',      1,    1],
+        //Alta Verapaz---------------------------------
+        // ['Chahal',      1,    1],
+        // ['Chisec',      1,    1],
+        // ['Coban',      1,    1],
+        // ['Fray Bartolome de las Casas',      1,    1],
+        // ['Santa Catalina La Tinta',      1,    1],
+        // ['Lanquin',      1,    1],
+        // ['Panzos',      1,    1],
+        // ['Raxruha',      1,    1],
+        // ['San Cristobal Verapaz',      1,    1],
+        // ['San Juan Chamelco',      1,    1],  
+        // ['San Pedro Carcha',      1,    1],  
+        // ['Santa Cruz Verapaz',      1,    1],    
+        //*verificar*****['Santa Maria Cahabon',      1,    1],
+        // ['Senahu',      1,    1],
+        // ['Tamahu',      1,    1],
+        // ['Tactic',      1,    1],
+        // ['Tucuru',      1,    1],
+      //Baja Verapaz------------------
+      // ['Cubulco',      1,    1],
+      // ['Granados',      1,    1],
+      // ['Purulha',      1,    1],
+      // ['Rabinal',      1,    1],
+      // ['Salama',      1,    1],
+      // ['San Jeronimo',      1,    1],
+      // ['San Miguel Chicaj',      1,    1],
+      // ['Santa Cruz el Chol',      1,    1],
+      //Chimaltenango-------------------
+      // ['Acatenango',      1,    1],
+      // ['Chimaltenango',      1,    1],
+      // ['El Tejar',      1,    1],
+      // ['Parramos',      1,    1],
+      // ['Patzicia',      1,    1],
+      // ['Patzun',      1,    1],
+      // ['Pochuta',      1,    1],
+      // ['San Andres Itzapa',      1,    1],
+      // ['San Jose Poaquil',      1,    1],
+      // ['San Juan Comalapa',      1,    1],
+      // ['San Martin Jilotepeque',      1,    1],
+      // ['Santa Apolonia',      1,    1],
+      // ['Santa Cruz Balanya',      1,    1],
+      // ['Tecpan',      1,    1],
+      // ['Yepocapa',      1,    1],
+      // ['Zaragoza',      1,    1],
+      //Chiquimula----------------
+      // ['Camotan',      1,    1],
+      // ['Chiquimula',      1,    1],
+      // ['Concepcion Las Minas',      1,    1],
+      // ['Esquipulas',      1,    1],
+      // ['Ipala',      1,    1],
+      // ['Jocotan',      1,    1],
+      // ['Olopa',      1,    1],
+      // ['Quetzaltepeque',      1,    1],
+      // ['San Jacinto',      1,    1],
+      // ['San Jose la Arada',      1,    1],
+      // ['San Juan Ermita',      1,    1],
+      //El Progreso--------------------
+      // ['El Jicaro',      1,    1],
+      // ['Guastatoya',      1,    1],
+      // ['Morazan',      1,    1],
+      // ['San Agustin Acasaguastlan',      1,    1],
+      // ['San Antonio La Paz',      1,    1],
+      // ['San Cristobal Acasaguastlan',      1,    1],
+      // ['Sanarate',      1,    1],
+      // ['Sansare',      1,    1],
+      // Escuintla--------------------
+      // ['Escuintla',      1,    1],
+      // ['Guanagazapa',      1,    1],
+      // ['Iztapa',      1,    1],
+      // ['La Democracia',      1,    1],
+      // ['La Gomera',      1,    1],
+      // ['Masagua',      1,    1],
+      // ['Nueva Concepcion',      1,    1],
+      // ['Palin',      1,    1],
+      // ['San Jose',      1,    1],
+      // ['San Vicente Pacaya',      1,    1],
+      // ['Santa Lucia Cotzumalguapa',      1,    1],
+      // ['Sipacate',      1,    1],
+      // ['Siquinala',      1,    1],
+      // ['Tiquisate',      1,    1],
+      //Huehuetenango-----------------
+      // ['Aguacatan',      1,    1],
+      // ['Chiantla',      1,    1],
+      // ['Colotenango',      1,    1],
+      // ['Concepcion Huista',      1,    1],
+      // ['Cuilco',      1,    1],
+      // ['Huehuetenango',      1,    1],
+      // ['Jacaltenango',      1,    1],
+      // ['La Democracia Huehuetenango',      1,    1],
+      // ['La Libertad Huehuetenango',      1,    1],
+      // ['Malacatancito',      1,    1],
+      // ['Nenton',      1,    1],
+      // ['Petatan',      1,    1],
+      // ['San Antonio Huista',      1,    1],
+      // ['San Gaspar Ixchil',      1,    1],
+      // ['San Ildefonso Ixtahuacan',      1,    1],
+      // ['San Juan Atitlan',      1,    1],
+      // ['San Juan Ixcoy',      1,    1],
+      // ['San Mateo Ixtatan',      1,    1],
+      // ['San Miguel Acatan',      1,    1],
+      // ['San Pedro Necta',      1,    1],
+      
+      ]);
+
+
+      var options = {
+        region: 'GT',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
