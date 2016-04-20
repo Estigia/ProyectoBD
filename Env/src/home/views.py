@@ -7,22 +7,21 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def registro(request):
+    if not request.user.is_authenticated():
 
-	if not request.user.is_authenticated():
+        form = UserCreationForm(request.POST or None)
+        context = {
+            "form":form,
+            "titulo": "Registro"
+        }
 
-		form = UserCreationForm(request.POST or None)
-		context = {
-			"form":form,
-			"titulo": "Registro"
-		}
+        if form.is_valid():
+            form.save()
 
-		if form.is_valid():
-			form.save()
+        return render(request,'registro.html',context)
 
-		return render(request,'registro.html',context)
-
-    HttpResponseRedirect('/')
-
+    return HttpResponseRedirect('/')
+    
 def inicio(request):
 
 
