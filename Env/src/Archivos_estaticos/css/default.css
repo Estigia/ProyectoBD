@@ -372,7 +372,7 @@
 
 	#menu ul
 	{
-		display: inline-block;
+		/*display: inline-block;*/
 	}
 
 	#menu li
@@ -405,6 +405,30 @@
 
 	#menu .icon
 	{
+	}
+
+	#menu > li {
+		display: inline-block;
+		padding: 10px 5px;
+		width: 90px;
+	}
+
+
+	.carlos li ul{
+		display: none;
+		width: 100px;
+	}
+	.carlos li ul li{
+		display: block;
+		width: 100%;
+		border: 1px solid #FFFFFF;
+		/*margin-top: 5px;*/
+	}
+	.carlos li:hover > ul{
+		display: block;
+	}
+	.fin{
+		clear: both;
 	}
 
 /*********************************************************************************/
@@ -572,7 +596,7 @@
 		color: rgba(0,0,0,.5);
 	}
 
-	
+
 
 /***********************/
 
@@ -582,4 +606,19 @@
 		text-align: right;
 		color: rgba(0,0,0,0.6);
 		align-content: right;
+		margin: 0 auto;;
+	}
+	#bloqueForms .formularios p label{
+		background: #FFF;
+		display: block;
+		float: left;
+		width: 48%;
+	}
+	#bloqueForms h2{
+		text-align: center;
+		margin: 20px;;
+	}
+	#bloqueForms .formularios{
+		margin: 0 auto;
+		width: 400px;
 	}

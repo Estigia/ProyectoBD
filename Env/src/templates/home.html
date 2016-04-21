@@ -26,8 +26,14 @@
           <li><a href="#" accesskey="2" title="">Acerca de</a></li>
           <li><a href="#" accesskey="3" title="">Contacto</a></li>
           {% if user.is_authenticated %}
-          <li><a href="#" accesskey="4" title="">Registros</a></li>
-          <li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
+          <li><a href="#" accesskey="4" title="">Registros</a>
+  					<ul>
+  						<li><a href="/registros" accesskey="1" title="">Registro</a></li>
+  						<li><a href="/regArmas" accesskey="1" title="">Arma</a></li>
+  						<li><a href="/regLocalizacion" accesskey="1" title="">Localización</a></li>
+  					</ul>
+  				</li>
+  				<li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
           {% else %}
           <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
           {% endif %}
