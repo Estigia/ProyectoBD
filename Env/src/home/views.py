@@ -14,15 +14,15 @@ def registro(request):
             "form":form,
             "titulo": "Registro"
         }
-
-		if form.is_valid():
+        if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/')
 
-		return render(request,'registro.html',context)
+        return render(request,'registro.html',context)
 
 	return HttpResponseRedirect('/')
-    
+
+
 def inicio(request):
 
 
