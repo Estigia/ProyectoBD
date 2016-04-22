@@ -1,21 +1,17 @@
 from django import forms
 from .models import Arma
-from .models import Tipo_Arma
+
 class ArmaForm(forms.ModelForm):
 	class Meta:
 		model = Arma
 
-		fields = ["calibre",
+		fields = ["categoria",
+					"objeto",
+					"calibre",
 					"no_casquillos",
-					"marca",
-					"categoria",
-					"serial",
-					]	
+					"marca",					
+					"serial"					
+				]	
 
-class Tipo_ArmaForm(forms.ModelForm):
-	class Meta:
-		model = Tipo_Arma
 
-		fields = ["objeto"
 
-					]
