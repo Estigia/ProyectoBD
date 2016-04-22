@@ -315,6 +315,7 @@
 			position: relative;
 			padding: 5em 0em 7em 0em;
 	    background-color:#FFF;
+
 	}
 
 /*********************************************************************************/
@@ -535,10 +536,12 @@
 /*********************************************************************************/
 
 
+
 	#segundoBloque
 	{
 		text-align: center;
 		color: rgba(0,0,0,0.6);
+
 	}
 
 
@@ -560,10 +563,23 @@
 	{
 		font-weight: bold;
 		color: rgba(0,0,0,0.8);
+		text-align: center;
 	}
 
 	#segundoBloque .title .byline
 	{
 		text-align: center;
 		color: rgba(0,0,0,.5);
+	}
+
+	
+
+/***********************/
+
+
+	#bloqueForms
+	{
+		text-align: right;
+		color: rgba(0,0,0,0.6);
+		align-content: right;
 	}
