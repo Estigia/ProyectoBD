@@ -16,6 +16,11 @@ header
 	position: relative; 
 }
 
+select
+{
+	width: 130px;
+}
+
 form
  {
  	/*background:#000;*/
