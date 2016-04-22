@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method = 'POST', action=''>
-	{% csrf_token %}
-	{{form.as_p}}
-	{{form2.as_p}}
-	<input type='submit' value='Registrar Arma'>
-</form>	
+
+<div id="section">
+  <div id="bloqueForms">
+		<div class = "title">
+      <h2>Registrar arma</h2>
+    </div>
+    <div class = "formularios">
+			<form method = 'POST', action=''>
+				{% csrf_token %}
+				{{form.as_p}}
+				{{form2.as_p}}
+				<input type='submit' value='Registrar'>
+			</form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

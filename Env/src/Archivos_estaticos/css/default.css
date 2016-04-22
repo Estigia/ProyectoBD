@@ -384,12 +384,16 @@
 
 	#menu li a, #menu li span
 	{
-		padding: 1em 1.5em;
+		/*padding: 1em 1.5em;*/
+		padding-left: 14px;
+		padding-right: 14px;
 		letter-spacing: 1px;
 		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 0.8em;
+		align-items:  left;
+		font-size: 1em;
 		color: rgba(255,255,255,0.80);
+		background-color: black;
 	}
 
 	#menu li:hover a, #menu li.active a, #menu li.active span
@@ -407,25 +411,28 @@
 	{
 	}
 
-	#menu > li {
+	/*#menu > li {
 		display: inline-block;
 		padding: 10px 5px;
 		width: 90px;
-	}
+	}*/
 
 
-	.carlos li ul{
+	.submenu li ul{
 		display: none;
-		width: 100px;
+		width: 80px;
 	}
-	.carlos li ul li{
-		display: block;
-		width: 100%;
-		border: 1px solid #FFFFFF;
-		/*margin-top: 5px;*/
+
+	.submenu li ul li{
+		text-align: left;
+		display: none;
+		width: 90%;
+		padding-top: 5px;
+		
 	}
-	.carlos li:hover > ul{
-		display: block;
+	.submenu li:hover > ul{
+		display:inherit;
+
 	}
 	.fin{
 		clear: both;
@@ -603,7 +610,7 @@
 
 	#bloqueForms
 	{
-		text-align: right;
+		text-align: left;
 		color: rgba(0,0,0,0.6);
 		align-content: right;
 		margin: 0 auto;;

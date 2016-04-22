@@ -1,72 +1,85 @@
 {% extends 'base.html' %}
 {% block content %}
-	<form method = 'POST', action=''>
-		{% csrf_token %}	
-		
-		Departamento:
 
-		<select id='dep' name='dep'>
-		<option selected></option>
-		{% for elemento in Departamentos %}
-			<option value="{{elemento.id}}">{{elemento.departamento}}</option>								
-		{% endfor %}
-		</select>
 
-		
+<div id="section">
+  <div id="bloqueForms">
+		<div class = "title">
+      <h2>Nueva </h2>
+    </div>
+    <div class = "formularios">
 
-		<!-- Municipio:
-		<select id='muni' name='muni'></select> -->
 
-		{{form.as_p}}
-		<input type='submit' value='Registrar localizacion'>
-{% endblock %}	
+			<form method = 'POST', action=''>
+				{% csrf_token %}
 
-{% block js %}
-{% csrf_token %}
-<script type="text/javascript">	
-	$('#dep').on('change', funcion);
-	$('#muni').on('change', func);
-	//document.getElementById("id_Municipio_id").width=100px;
-	document.getElementById("id_Municipio_id").length=0;
+				Departamento:
 
-	function func(){
-		var id = $(this).val();
-		console.log(id);
-	}
+				<select id='dep' name='dep'>
+				<option selected></option>
+				{% for elemento in Departamentos %}
+					<option value="{{elemento.id}}">{{elemento.departamento}}</option>
+				{% endfor %}
+				</select>
 
-	function funcion(){
-		var id = $(this).val();
-		console.log(id);
 
-		$.ajax({
-			data : {'id' : id},
-			url : '/regLocal/Local',
-			type : 'get',
-			success: function(data){
-				var s2 = document.getElementById('id_Municipio_id');
-				//console.log(s2);
-				s2.innerHTML = ""
-;				//var html = '<table class="table table-stripped"><thead><th>Municipio</th>';
-				for (var i=0; i< data.length; i++){
-				//	html += '<tr><td>'+data[i].fields.municipio+'</tr></td>';
-					
-				//	console.log(data[i].fields.municipio);
 
-				//	console.log(data.length);
+				<!-- Municipio:
+				<select id='muni' name='muni'></select> -->
 
-					var newOption = document.createElement("option");
-					newOption.value = data[i].pk;
-					console.log(data[i].pk);
-					newOption.innerHTML = data[i].fields.municipio;
-					s2.options.add(newOption);
-				}
-				
-				//html += '</tbody></table>';
-				//$('#muni').html(html);			
+				{{form.as_p}}
+				<input type='submit' value='Registrar localizacion'>
+		{% endblock %}
+
+		{% block js %}
+		{% csrf_token %}
+		<script type="text/javascript">
+			$('#dep').on('change', funcion);
+			$('#muni').on('change', func);
+			//document.getElementById("id_Municipio_id").width=100px;
+			document.getElementById("id_Municipio_id").length=0;
+
+			function func(){
+				var id = $(this).val();
+				console.log(id);
 			}
-		})
-	}
-</script>
-{% endblock %}
-	
-</form>	
+
+			function funcion(){
+				var id = $(this).val();
+				console.log(id);
+
+				$.ajax({
+					data : {'id' : id},
+					url : '/regLocal/Local',
+					type : 'get',
+					success: function(data){
+						var s2 = document.getElementById('id_Municipio_id');
+						//console.log(s2);
+						s2.innerHTML = ""
+		;				//var html = '<table class="table table-stripped"><thead><th>Municipio</th>';
+						for (var i=0; i< data.length; i++){
+						//	html += '<tr><td>'+data[i].fields.municipio+'</tr></td>';
+
+						//	console.log(data[i].fields.municipio);
+
+						//	console.log(data.length);
+
+							var newOption = document.createElement("option");
+							newOption.value = data[i].pk;
+							console.log(data[i].pk);
+							newOption.innerHTML = data[i].fields.municipio;
+							s2.options.add(newOption);
+						}
+
+						//html += '</tbody></table>';
+						//$('#muni').html(html);
+					}
+				})
+			}
+		</script>
+		{% endblock %}
+
+		</form>
+    </div>
+  </div>
+</div>
