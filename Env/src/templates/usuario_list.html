@@ -2,18 +2,28 @@
 
 {% block content %}
 
-    <h1>Usuarios</h1>
+
+<div id="section">
+  <div id="segundoBloque">
+    <div class = "title">
+      <h1>Usuarios</h1>
+    </div>
     <ul>
         {% for dato in usuarios %}
             <li>
                 <p>{{ dato.nombre }}</p>
                 <p>
                 	<a href={% url 'appHome:detail' dato.id %}>Ver</a>
-                    <a href={% url 'appHome:edit' dato.id %}>Editar</a> | 
+                  <a> | </a>
+                  <a href={% url 'appHome:edit' dato.id %}>Editar</a>
                 </p>
-
             </li>
         {% endfor %}
     </ul>
+  </div>
+</div>
+
+
+
 
 {% endblock %}

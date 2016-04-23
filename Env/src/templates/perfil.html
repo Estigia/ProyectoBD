@@ -2,10 +2,22 @@
 
 {% block content %}
 
-<h1>Bienvenido {{user.get_full_name}}</h1>
-<p>
-	<a href = {% url 'appHome:list' %}>Usuarios</a>
-	<a href= {% url 'registros:list' %}>Registros</a>
-</p>
+
+
+<div id="section">
+	<div id="segundoBloque">
+		<div class = "title">
+			<h1>Bienvenido {{user.get_full_name}}</h1>
+		</div>
+		<p>
+			<a href = {% url 'appHome:list' %}>Usuarios</a>
+			<a> | </a>
+			<a href= {% url 'registros:list' %}>Registros</a>
+		</p>
+	</div>
+</div>
+
+
+
 
 {% endblock %}
