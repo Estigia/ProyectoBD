@@ -1,81 +1,90 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method = 'POST', action=''>
-	{% csrf_token %}
-	{{form.categoria}}
-	<div id='fg'>
-		Calibre:
-		{{form.calibre}}<br/>
-		No Casquillos:
-		{{form.no_casquillos}}<br/>
-		Marca:
-		{{form.marca}}<br/>
-		Objeto:
-		{{form.objeto}}<br/>
-		Serial:
-		{{form.serial}}<br/>
-	</div>
-	
-	<div id='bn'>
-		Marca:
-		{{form.marca}}<br/>
-		Objeto:
-		{{form.objeto}}
-	</div>
 
-	<div id='ot'>
-		Marca:
-		{{form.marca}}<br/>	
-		Objeto:
-		{{form.objeto}}
-	</div>
+<div id="section">
+  <div id="bloqueForms">
+		<div class = "title">
+      <h2>Nueva arma</h2>
+    </div>
+    <div class = "formularios">
+      <form method = 'POST', action=''>
+      	{% csrf_token %}
+      	{{form.categoria}}
+      	<div id='fg'>
+      		Calibre:
+      		{{form.calibre}}<br/>
+      		No Casquillos:
+      		{{form.no_casquillos}}<br/>
+      		Marca:
+      		{{form.marca}}<br/>
+      		Objeto:
+      		{{form.objeto}}<br/>
+      		Serial:
+      		{{form.serial}}<br/>
+      	</div>
 
-	<br/>
-	<hr>
+      	<div id='bn'>
+      		Marca:
+      		{{form.marca}}<br/>
+      		Objeto:
+      		{{form.objeto}}
+      	</div>
 
-	<input type='submit' value='Registrar Arma'>
-	{% endblock %}
+      	<div id='ot'>
+      		Marca:
+      		{{form.marca}}<br/>
+      		Objeto:
+      		{{form.objeto}}
+      	</div>
 
+      	<br/>
+      	<hr>
 
-	{% block js %}
-	{% csrf_token %}
-	<script type="text/javascript">	
-		$('#id_categoria').on('change', funcion);
-		$formulario_Fg=$('#fg');
-		$formulario_Bn=$('#bn');
-		$formulario_Ot=$('#ot');
-		$formulario_Fg.hide();
-		$formulario_Bn.hide();
-		$formulario_Ot.hide();
-
-		function funcion(){
-			$formulario_Fg.hide();
-			$formulario_Bn.hide();
-			$formulario_Ot.hide();
-
-			var id = $(this).val();
-			console.log(id);
-			console.log("aula 220 8:30-10")
-
-			if(id == 'Fg'){
-				console.log("hola");	
-				$formulario_Fg.show();								
-			}
-			if(id == 'Bn'){
-				console.log("hola");	
-				$formulario_Bn.show();							
-			}
-			if(id == 'Ot'){
-				console.log("hola");	
-				$formulario_Ot.show();							
-			}
-			
-		}
-	</script>
-
-	{% endblock %}
-
-</form>	
+      	<input type='submit' value='Registrar Arma'>
+      	{% endblock %}
 
 
+      	{% block js %}
+      	{% csrf_token %}
+      	<script type="text/javascript">
+      		$('#id_categoria').on('change', funcion);
+      		$formulario_Fg=$('#fg');
+      		$formulario_Bn=$('#bn');
+      		$formulario_Ot=$('#ot');
+      		$formulario_Fg.hide();
+      		$formulario_Bn.hide();
+      		$formulario_Ot.hide();
+      		function funcion(){
+      			$formulario_Fg.hide();
+      			$formulario_Bn.hide();
+      			$formulario_Ot.hide();
+      			var id = $(this).val();
+      			console.log(id);
+      			console.log("aula 220 8:30-10")
+      			if(id == 'Fg'){
+      				console.log("hola");
+              $formulario_Fg.show();
+
+      			}
+      			if(id == 'Bn'){
+      				console.log("hola");
+      				$formulario_Bn.show();
+      			}
+      			if(id == 'Ot'){
+      				console.log("hola");
+      				$formulario_Ot.show();
+      			}
+
+      		}
+      	</script>
+
+      	{% endblock %}
+
+      </form>
+    </div>
+		<br></br>
+		<br></br>
+		<li><a href="/registro" accesskey="1" title="">Registrarse</a></li>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Usuarios</h1>
+    <ul>
+        {% for dato in usuarios %}
+            <li>
+                <p>{{ dato.nombre }}</p>
+                <p>
+                	<a href={% url 'appHome:detail' dato.id %}>Ver</a>
+                    <a href={% url 'appHome:edit' dato.id %}>Editar</a> | 
+                </p>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

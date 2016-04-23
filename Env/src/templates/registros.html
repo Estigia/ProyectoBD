@@ -1,11 +1,24 @@
-{% extends 'base.html' %}	
+{% extends 'base.html' %}
 
 
 {% block content %}
 
-<form method = 'POST', action=''>
-	{% csrf_token %}
-	{{form.as_p}}
-	<input type='submit' value='Guardar'>
+
+<div id="section">
+  <div id="bloqueForms">
+		<div class = "title">
+      <h2>Nuevo Registro</h2>
+    </div>
+    <div class = "formularios">
+			<form method = 'POST', action=''>
+				{% csrf_token %}
+				{{form.as_p}}
+				<input type='submit' value='Guardar'>
+			</form>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

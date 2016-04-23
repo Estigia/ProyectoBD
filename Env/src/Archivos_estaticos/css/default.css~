@@ -380,7 +380,6 @@
 		display: block;
 		float: left;
 		text-align: center;
-
 	}
 
 	#menu li a, #menu li span
@@ -401,7 +400,6 @@
 		text-transform: uppercase;
 		font-size: 0.8em;
 		color: rgba(255,255,255,0.80);
-		padding-bottom:12px;
 	}
 
 	#menu li:hover a, #menu li.active a, #menu li.active span
@@ -428,19 +426,22 @@
 
 	.submenu li ul{
 		display: none;
-		width: 10px;
+		width: 140px;
+		padding-top: 20px:
 	}
 
 	.submenu li ul li{
-		text-align: left;
 		display: none;
-		width: 90%;
-		padding-top: 5px;
+		position:absolute;
+		padding: 5px 0px 5px 5px;
+		margin: auto;
+		width: 35%;
 
 	}
+
 	.submenu li:hover > ul{
 		display:inherit;
-
+		background-color: red;
 	}
 	.fin{
 		clear: both;
@@ -546,7 +547,7 @@
 	{
 		position: relative;
 		padding: 7em 0em 7em 0em;
-		background: rgb(64,64,64);
+		background: #2651a8;
 		background-size: cover;
 		text-align: center;
 	}
