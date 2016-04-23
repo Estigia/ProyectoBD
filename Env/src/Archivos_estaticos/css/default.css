@@ -542,7 +542,8 @@
 	#tercerBloque
 	{
 		position: relative;
-		padding: 7em 0em 7em 0em;
+		/*padding: 7em 0em 7em 0em;*/
+		margin-top: 0;
 		background: #2651a8;
 		background-size: cover;
 		text-align: center;
@@ -557,7 +558,7 @@
 
 	#tercerBloque a
 	{
-		color: rgba(255,255,255,1);
+		color: rgba(255,255,255,0.8);
 	}
 
 	#tercerBloque .button

@@ -41,12 +41,14 @@ def registro(request):
         }
 
         if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')
+            
+            form.save()
+            return HttpResponseRedirect('/')
 
         return render(request,'registro.html',context)
 
-	return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+    
 
 
 def inicio(request):
