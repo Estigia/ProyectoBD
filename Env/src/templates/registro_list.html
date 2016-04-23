@@ -7,6 +7,9 @@
         {% for dato in registros %}
             <li>
                 <p>Registro No.: {{ dato.id }}  Victima: {{dato.get_full_name}}</p>
+                <p>
+                	<a href={% url 'registros:detail' dato.id %}>Ver</a>
+                </p>
             </li>
         {% endfor %}
     </ul>

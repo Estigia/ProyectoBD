@@ -2,12 +2,39 @@
 
 {% block content %}
 
-<h1>{{usuario.get_full_name}}</h1>
-<p>Nombre de usuario: <i>{{usuario.nombre_usuario}}</i></p>
-<p>Correo: <i>{{usuario.correo}}</i></p>
-<p>Institucion: <i>{{usuario.institucion}}</i></p>
-<p>Ultima conexion: <i>{{usuario.ultima_conexion}}</i></p>
-<p>Tipo de Usuario: <i>{{usuario.Tipo_Usuario_id}}</i></p>
-<p>Activo: <i>{{usuario.is_active}}</i></p>
+<table>
+	
+	<caption><h1>{{usuario.get_full_name}}</h1></caption>
+
+	<thead>
+		<tr>
+			
+			<th scope = "col">Nombre de usuario</th>
+			<th scope = "col">Correo</th>
+			<th scope = "col">Institucion</th>
+			<th scope = "col">Ultima conexion</th>
+			<th scope = "col">Tipo de Usuario</th>
+			<th scope = "col">Activo</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr>
+			
+			<td>{{usuario.nombre_usuario}}</td>
+			<td>{{usuario.correo}}</td>
+			<td>{{usuario.institucion}}
+			<td>{{usuario.ultima_conexion}}</td>
+			<td>{{usuario.Tipo_Usuario_id}}</td>
+			<td>{{usuario.is_active}}</td>
+
+
+		</tr>
+
+	</tbody>
+
+</table>
+
 
 {% endblock %}

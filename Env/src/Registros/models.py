@@ -34,7 +34,7 @@ class Registro(models.Model):
 		return str(self.id)
 
 	def get_full_name(self):
-		return nombres + apellidos
+		return self.nombres + " " + self.apellidos
 
 	Municipio = models.ForeignKey('localizaciones.Municipio')
 	Arma = models.ForeignKey('Armas.Arma')

@@ -7,7 +7,15 @@ from django.http import HttpResponse
 from localizaciones.models import Municipio, Departamento
 from Armas.models import Arma
 from django.contrib.auth.decorators import login_required
+from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import UpdateView
 
+
+class RegistroDetail(LoginRequiredMixin,DetailView):
+	login_url = 'inicio'
+	model = Registro
+	template_name = 'registro_detail.html'
 
 @login_required(login_url='inicio')
 def registro(request):
