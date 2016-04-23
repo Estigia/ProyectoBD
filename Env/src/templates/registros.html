@@ -14,17 +14,17 @@
 	{% csrf_token %}
 
 	Tipo de Arma:
-	<select id='armas' name='armas'>		
+	<select id='armas' name='armas'>
 		<option value="Fg">Arma de Fuego</option>
 		<option value="Bn">Arma Blanca</option>
-		<option value="Ot" selected>Otro</option>		
+		<option value="Ot" selected>Otro</option>
 	</select>
 	<br/>
 	Arma:
 		{{form.Arma}}<br/>
 	No Casquillos:
 		{{form.no_casquillos}}<br/>
-	Nombres: 
+	Nombres:
 		{{form.nombres}}<br/>
 	Apellidos:
 		{{form.apellidos}}<br/>
@@ -56,14 +56,14 @@
 	<select id='dep' name='dep'>
 		<option selected></option>
 		{% for elemento in Departamentos %}
-			<option value="{{elemento.id}}">{{elemento.departamento}}</option>								
+			<option value="{{elemento.id}}">{{elemento.departamento}}</option>
 		{% endfor %}
 	</select>
 
 	Municipio:
 		{{form.Municipio}}
 
-	
+
 
 	<input type='submit' value='Guardar'>
 
@@ -71,38 +71,38 @@
 
 {% block js %}
 {% csrf_token %}
-<script type="text/javascript">	
+<script type="text/javascript">
 
-	$('#dep').on('change', BusquedaMunicipio);	
+	$('#dep').on('change', BusquedaMunicipio);
 	$('#armas').on('change', BusquedaArma);
 	document.getElementById("id_Municipio").length=0;
 	document.getElementById("id_Arma").length=0;
-	
+
 
 	function BusquedaMunicipio(){
-		var id = $(this).val();		
-		console.log(id);		
+		var id = $(this).val();
+		console.log(id);
 		$.ajax({
 			data : {'id' : id},
 			url : '/regLocal/Local',
 			type : 'get',
 			success: function(data){
 				var s2 = document.getElementById('id_Municipio');
-				
-				s2.innerHTML = "";				
-				for (var i=0; i< data.length; i++){			
+
+				s2.innerHTML = "";
+				for (var i=0; i< data.length; i++){
 					var newOption = document.createElement("option");
 					newOption.value = data[i].pk;
 					newOption.innerHTML = data[i].fields.municipio;
 					s2.options.add(newOption);
-				}		
+				}
 			}
 		})
 	}
 
 	function BusquedaArma(){
 		var id = $(this).val();
-		console.log(id);		
+		console.log(id);
 
 		$.ajax({
 			data : {'id' : id},
@@ -111,8 +111,8 @@
 			success: function(data){
 				var s2 = document.getElementById('id_Arma');
 
-				s2.innerHTML = "";				
-				for (var i=0; i< data.length; i++){			
+				s2.innerHTML = "";
+				for (var i=0; i< data.length; i++){
 					var newOption = document.createElement("option");
 					newOption.value = data[i].pk;
 					newOption.innerHTML = data[i].fields.objeto;
@@ -130,8 +130,7 @@
 </form>
 
 
-			
+
     </div>
   </div>
 </div>
-
