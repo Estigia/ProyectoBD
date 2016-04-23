@@ -8,7 +8,8 @@ class RegistroForm(forms.ModelForm):
 		model = Registro
 
 		fields = ["Arma",
-					"no_casquillos",					
+					"no_casquillos",	
+					"serial",				
 					"nombres",
 					"apellidos",
 					"edad",

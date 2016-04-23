@@ -22,6 +22,8 @@ class Registro(models.Model):
 	ubicacion = models.TextField()
 
 	no_casquillos = models.SmallIntegerField(blank=True, null=True)
+	serial = models.CharField(max_length=45, blank=True,null=True)
+	
 	fiscal = models.CharField(max_length=60, blank=True, null=True)
 	fecha = models.DateTimeField()
 	fecha_registro = models.DateTimeField(auto_now=False, auto_now_add=True)

@@ -13,8 +13,7 @@ class Arma(models.Model):
 	calibre = models.CharField(max_length=20, blank=True, null=True)	
 	marca = models.CharField(max_length=45, blank=True, null=True)
 	categoria = models.CharField(max_length=2,choices=Categoria_Choices, default='Ot')
-	objeto = models.CharField(max_length=45)
-	serial = models.CharField(max_length=45, blank=True,null=True)
+	objeto = models.CharField(max_length=45)	
 	
 	def __unicode__(self):
 		return self.objeto

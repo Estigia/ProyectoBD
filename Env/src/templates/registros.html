@@ -21,10 +21,16 @@
 	</select>
 	<br/>
 	Arma:
-		{{form.Arma}} <a href = "/regArmas">Registrar nueva arma</a><br/>
-	No Casquillos:
-		{{form.no_casquillos}}<br/>
-	Nombres:
+
+		{{form.Arma}}<a href = "/regArmas">Registrar nueva arma</a><br/>
+	<div id='fg'>
+		No Casquillos:
+			{{form.no_casquillos}}<br/>
+		Serial:
+			{{form.serial}}<br/>
+	</div>
+	Nombres: 
+		{{form.Arma}} 
 		{{form.nombres}}<br/>
 	Apellidos:
 		{{form.apellidos}}<br/>
@@ -75,13 +81,14 @@
 
 	$('#dep').on('change', BusquedaMunicipio);
 	$('#armas').on('change', BusquedaArma);
+	$formulario_Fg=$('#fg');
+	$formulario_Fg.hide();
 	document.getElementById("id_Municipio").length=0;
 	document.getElementById("id_Arma").length=0;
 
 
 	function BusquedaMunicipio(){
-		var id = $(this).val();
-		console.log(id);
+		var id = $(this).val();		
 		$.ajax({
 			data : {'id' : id},
 			url : '/regLocal/Local',
@@ -102,7 +109,12 @@
 
 	function BusquedaArma(){
 		var id = $(this).val();
-		console.log(id);
+		$formulario_Fg.hide();
+		console.log(id);	
+
+		if(id == 'Fg'){
+			$formulario_Fg.show();								
+		}	
 
 		$.ajax({
 			data : {'id' : id},
@@ -110,12 +122,17 @@
 			type : 'get',
 			success: function(data){
 				var s2 = document.getElementById('id_Arma');
+				console.log(s2);
+				
 
 				s2.innerHTML = "";
 				for (var i=0; i< data.length; i++){
 					var newOption = document.createElement("option");
 					newOption.value = data[i].pk;
-					newOption.innerHTML = data[i].fields.objeto;
+					if(id == 'Fg')
+						newOption.innerHTML = data[i].fields.objeto + ' -- ' +data[i].fields.marca + ' -- ' +data[i].fields.calibre;
+					else
+						newOption.innerHTML = data[i].fields.objeto
 					s2.options.add(newOption);
 				}
 			}
