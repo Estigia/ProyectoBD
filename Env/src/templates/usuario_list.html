@@ -4,25 +4,28 @@
 
 
 <div id="section">
-  <div id="segundoBloque">
+  <div id="dobleBloque">
     <div class = "title">
       <h1>Usuarios</h1>
     </div>
-    <ul>
-        {% for dato in usuarios %}
-            <li>
-                <p>{{ dato.nombre }}</p>
-                <p>
-                	<a href={% url 'appHome:detail' dato.id %}>Ver</a>
-                  <a> | </a>
-                  <a href={% url 'appHome:edit' dato.id %}>Editar</a>
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class = "bloqueUno">
+      {% for dato in usuarios %}
+          <li>
+              <p>{{ dato.nombre }}</p>
+          </li>
+      {% endfor %}
+    </div>
+    <div class = "bloqueDos">
+      {% for dato in usuarios %}
+        <p>
+          <a href={% url 'appHome:detail' dato.id %}>Ver</a>
+          <a> | </a>
+          <a href={% url 'appHome:edit' dato.id %}>Editar</a>
+        </p>
+      {% endfor %}
+    </div>
   </div>
 </div>
-
 
 
 
