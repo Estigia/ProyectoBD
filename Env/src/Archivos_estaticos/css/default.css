@@ -614,6 +614,37 @@
 /***********************/
 
 
+	#dobleBloque
+	{
+		background: #FFF;
+		display: block;
+		color: black;
+	}
+
+	.bloqueUno {
+		text-align: right;
+		color: black;
+		float: left;
+		width: 48%;
+
+	}
+
+	.bloqueDos {
+		text-align: left;
+		float: right;
+		width: 50%;
+	}
+
+	.bloqueUno {
+		margin-right: 15px;
+	}
+
+	.bloqueDos p {
+		margin-left: 15px;
+	}
+
+
+
 	#bloqueForms
 	{
 		text-align: left;
@@ -642,7 +673,6 @@
 	#bloqueForms .formularios{
 		margin: 0 auto;
 		width: 400px;
-
 
 	}
 
