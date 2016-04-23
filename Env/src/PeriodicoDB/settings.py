@@ -93,7 +93,7 @@ DATABASES = {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'PeriodicoBD',
 #         'USER': 'root',
-#         'PASSWORD': 'superroot',
+#         'PASSWORD': 'root',
 #         'HOST': '',
 #         'PORT': '',
 #     }
