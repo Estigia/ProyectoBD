@@ -507,7 +507,7 @@
 	{
 		position: relative;
 		padding: 7em 0em 7em 0em;
-		background: #2651a8;
+		background: rgb(64,64,64);
 		background-size: cover;
 		text-align: center;
 	}
