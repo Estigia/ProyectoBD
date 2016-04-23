@@ -53,6 +53,6 @@ def BusquedaArma(request):
 		print id_Arma
 		print id_Arma
 		Armas = Arma.objects.filter(categoria = id_Arma)				
-		data = serializers.serialize('json', Armas, fields = ('objeto'))
+		data = serializers.serialize('json', Armas, fields = ('objeto','marca','calibre'))
 		print data		
 		return HttpResponse(data, content_type='application/json')

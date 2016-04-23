@@ -10,7 +10,6 @@ class ArmaForm(forms.ModelForm):
 					"objeto",
 					"calibre",
 					"marca",					
-					"serial"					
 				]	
 
 	def __init__(self, *args, **kwargs):
