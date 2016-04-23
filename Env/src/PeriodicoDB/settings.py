@@ -57,6 +57,8 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'PeriodicoDB.urls'
 
+LOGIN_URL =  '/signin'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

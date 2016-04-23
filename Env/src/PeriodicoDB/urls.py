@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from localizaciones.views import BusquedaMunicipio
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^users/', include('home.urls', namespace='appHome')),
     url(r'^registro/', 'home.views.registro', name='Registro'),
     url(r'^$', 'home.views.home', name='home'),
     url(r'^regArmas/', 'Armas.views.Arma', name='arma'),
-    url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='localizacion'),
+    #url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='localizacion'),
     url(r'^regLocal/', BusquedaMunicipio, name='Local'),
-    url(r'^registros/', 'Registros.views.registro', name='registros'),
+    url(r'^registros/', include('Registros.urls',namespace='registros')),
     url(r'^logout/','home.views.cerrar', name='logout'),
     url(r'^signin/','home.views.inicio', name='inicio'),
 

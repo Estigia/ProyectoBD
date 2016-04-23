@@ -21,6 +21,7 @@ class Registro(models.Model):
 	fiscal = models.CharField(max_length=60, blank=True, null=True)
 	fecha = models.DateTimeField()
 	descripcion = models.TextField()
+	is_active = models.BooleanField(default = None, blank=True)
 	movil = models.CharField(max_length=100)
 	no_expediente = models.CharField(max_length=40)
 	Localizacion_id = models.ForeignKey('localizaciones.Localizacion', on_delete=models.CASCADE)
