@@ -18,6 +18,8 @@
       google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
 
+    
+
 
       function drawRegionsMap() {
     
@@ -52,8 +54,8 @@
 
     var options = 
     {
-         backgroundColor: 'rgb(64,64,64)',
-          datalessRegionColor: 'rgb(184,184,184)
+         backgroundColor: '#2651a8',
+          datalessRegionColor: '#2651a8',
           defaultColor: '#f5f5f5',
 
         sizeAxis: { minValue: 1, maxValue: 22 },
@@ -61,15 +63,15 @@
         //tooltip: {trigger:'none'}, 
         region: 'GT',   // region a dibujar en el mapa
         resolution: 'provinces',    //
-        displayMode: 'markers',
+       // displayMode: 'markers',
 
         // color minimo: 'LightYellow' y color maximo: 'Salmon', igual se pueden utilizar los valor rgb.
-        colorAxis: {colors: ['White', 'Yellow','Red'] }
+        colorAxis: {colors: ['#FFFF66', '#FFA500','#B22222'] }
 
     };
     //se instacia y se dibuja el grafico
-    var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
+   var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
 };
     </script>
 </head>
@@ -124,7 +126,7 @@
         <h2>Titulo dos</h2>
       </div>
       <p>aca van estadisticas</p>
-      <div id="chart_div" style="width: 900px; height: 900px;"></div>
+      <div id="chart_div" style="width: 1900px; height: 1900px;"></div>
     </div>
   </div>
 
