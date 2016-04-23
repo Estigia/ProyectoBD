@@ -2,10 +2,123 @@
 
 
 {% block content %}
-
-<form method = 'POST', action=''>
+<!-- onsubmit="this.reset()" -->
+<form method = 'POST', action='' >
 	{% csrf_token %}
-	{{form.as_p}}
+
+	Tipo de Arma:
+	<select id='armas' name='armas'>		
+		<option value="Fg">Arma de Fuego</option>
+		<option value="Bn">Arma Blanca</option>
+		<option value="Ot" selected>Otro</option>		
+	</select>
+	<br/>
+	Arma:
+		{{form.Arma}}<br/>
+	No Casquillos:
+		{{form.no_casquillos}}<br/>
+	Nombres: 
+		{{form.nombres}}<br/>
+	Apellidos:
+		{{form.apellidos}}<br/>
+	Edad:
+		{{form.edad}}<br/>
+	Muerto:
+		{{form.muerto}}<br/>
+	Profesion:
+		{{form.profesion}}<br/>
+	Cui:
+		{{form.cui}}<br/>
+	Sexo:
+		{{form.sexo}}<br/>
+	Ubicacion:
+		{{form.ubicacion}}<br/>
+
+	Fiscal:
+		{{form.fiscal}}<br/>
+	Fecha del Suceso:
+		{{form.fecha}}<br/>
+	Descripcion:
+		{{form.descripcion}}<br/>
+	Movil:
+		{{form.movil}}<br/>
+	No de Expediente:
+		{{form.no_expediente}}<br/>
+
+	Departamento:
+	<select id='dep' name='dep'>
+		<option selected></option>
+		{% for elemento in Departamentos %}
+			<option value="{{elemento.id}}">{{elemento.departamento}}</option>								
+		{% endfor %}
+	</select>
+
+	Municipio:
+		{{form.Municipio}}
+
+	
+
 	<input type='submit' value='Guardar'>
 
 {% endblock %}
+
+{% block js %}
+{% csrf_token %}
+<script type="text/javascript">	
+
+	$('#dep').on('change', BusquedaMunicipio);	
+	$('#armas').on('change', BusquedaArma);
+	document.getElementById("id_Municipio").length=0;
+	document.getElementById("id_Arma").length=0;
+	
+
+	function BusquedaMunicipio(){
+		var id = $(this).val();		
+		console.log(id);		
+		$.ajax({
+			data : {'id' : id},
+			url : '/regLocal/Local',
+			type : 'get',
+			success: function(data){
+				var s2 = document.getElementById('id_Municipio');
+				
+				s2.innerHTML = "";				
+				for (var i=0; i< data.length; i++){			
+					var newOption = document.createElement("option");
+					newOption.value = data[i].pk;
+					newOption.innerHTML = data[i].fields.municipio;
+					s2.options.add(newOption);
+				}		
+			}
+		})
+	}
+
+	function BusquedaArma(){
+		var id = $(this).val();
+		console.log(id);		
+
+		$.ajax({
+			data : {'id' : id},
+			url : '/regArma/Arma',
+			type : 'get',
+			success: function(data){
+				var s2 = document.getElementById('id_Arma');
+
+				s2.innerHTML = "";				
+				for (var i=0; i< data.length; i++){			
+					var newOption = document.createElement("option");
+					newOption.value = data[i].pk;
+					newOption.innerHTML = data[i].fields.objeto;
+					s2.options.add(newOption);
+				}
+			}
+
+		})
+	}
+
+
+
+</script>
+{% endblock %}
+</form>
+

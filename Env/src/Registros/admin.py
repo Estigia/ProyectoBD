@@ -5,8 +5,8 @@ from .forms import RegistroForm
 # Register your models here.
 
 class RegistroAdmin(admin.ModelAdmin):
-	list_display = ["id","nombres","apellidos","edad","muerto",
-					"profesion","cui","sexo","fiscal","fecha",
+	list_display = ["id","no_casquillos","nombres","apellidos","edad","muerto",
+					"profesion","cui","sexo","ubicacion","fiscal","fecha",
 					"fecha_registro","descripcion","movil","no_expediente"]
 	form = RegistroForm
 
