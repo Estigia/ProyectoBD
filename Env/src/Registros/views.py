@@ -7,7 +7,7 @@ from Armas.models import Arma
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='/')
+@login_required(login_url='inicio')
 def registro(request):
 	form = RegistroForm(request.POST or None)
 	Departamentos = Departamento.objects.all()

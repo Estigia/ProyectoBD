@@ -261,11 +261,11 @@
 
 	.tbox1
 	{
-		width: 300px;
+		width: 50%;
 	}
 	.tbox2
 	{
-		width: 300px;
+		width: 50%;
 	}
 
 	.tbox1
@@ -326,7 +326,7 @@
 	{
 		position: relative;
 		padding: 5em 0em 7em 0em;
-		background: #111111 url(images/header-bg.jpg) no-repeat center;
+		background: #111111 url(images/fond.jpg) no-repeat center;
 		background-size: cover;
 	}
 
@@ -336,6 +336,11 @@
 		padding: 5em 0em;
 	}
 
+	.contenedor {
+
+		height: 100%;
+
+	}
 /*********************************************************************************/
 /* Logo                                                                          */
 /*********************************************************************************/
@@ -363,48 +368,79 @@
 /* Menu                                                                          */
 /*********************************************************************************/
 
-	#menu
-	{
-		position: absolute;
-		top: 4.5em;
-		right: 0;
-	}
+#menu
+{
+	position: absolute;
+	top: 4.5em;
+	right: 0;
+}
 
-	#menu ul
-	{
+#menu ul
+{
+	/*display: inline-block;*/
+}
+
+#menu li
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu li a, #menu li span
+{
+	/*padding: 1em 1.5em;*/
+	padding-left: 14px;
+	padding-right: 14px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	align-items:  left;
+	font-size: 1em;
+	color: rgba(255,255,255,0.80);
+	background-color: black;
+}
+
+#menu li:hover a, #menu li.active a, #menu li.active span
+{
+}
+
+#menu .active a
+{
+	background: #2651a8;
+	border-radius: 6px;
+	color: rgba(255,255,255,1);
+}
+
+#menu .icon
+{
+}
+
+
+	/*#menu > li {
 		display: inline-block;
+		padding: 10px 5px;
+		width: 90px;
+	}*/
+
+
+	.submenu li ul{
+		display: none;
 	}
 
-	#menu li
-	{
-		display: block;
-		float: left;
-		text-align: center;
-	}
+	.submenu li ul li{
+		display: none;
+		width: 60%;
+		padding-top: 5px;
+		text-align: left;
 
-	#menu li a, #menu li span
-	{
-		padding: 1em 1.5em;
-		letter-spacing: 1px;
-		text-decoration: none;
-		text-transform: uppercase;
-		font-size: 0.8em;
-		color: rgba(255,255,255,0.80);
 	}
+	.submenu li:hover > ul{
+		display:inherit;
 
-	#menu li:hover a, #menu li.active a, #menu li.active span
-	{
 	}
-
-	#menu .active a
-	{
-		background: #2651a8;
-		border-radius: 6px;
-		color: rgba(255,255,255,1);
-	}
-
-	#menu .icon
-	{
+	.fin{
+		clear: both;
 	}
 
 /*********************************************************************************/
@@ -506,7 +542,8 @@
 	#tercerBloque
 	{
 		position: relative;
-		padding: 7em 0em 7em 0em;
+		/*padding: 7em 0em 7em 0em;*/
+		margin-top: 0;
 		background: #2651a8;
 		background-size: cover;
 		text-align: center;
@@ -521,7 +558,7 @@
 
 	#tercerBloque a
 	{
-		color: rgba(255,255,255,1);
+		color: rgba(255,255,255,0.8);
 	}
 
 	#tercerBloque .button
@@ -572,14 +609,58 @@
 		color: rgba(0,0,0,.5);
 	}
 
-	
+
 
 /***********************/
 
 
 	#bloqueForms
 	{
-		text-align: right;
+		text-align: left;
 		color: rgba(0,0,0,0.6);
 		align-content: right;
+		margin: 0 auto;;
+	}
+	#bloqueForms .formularios p label{
+		background: #FFF;
+		display: block;
+		float: left;
+		width: 48%;
+	}
+	#bloqueForms li {
+		text-align: center;
+		padding-right: 2%;
+		list-style: none;
+	}
+	#bloqueForms h2{
+		text-align: center;
+	}
+	#bloqueForms textarea{
+		margin-left: 48%;
+	}
+
+	#bloqueForms .formularios{
+		margin: 0 auto;
+		width: 400px;
+
+
+	}
+
+	input[type="submit" i], button {
+		margin-left: 40%;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+		/*padding-right:  30px;*/
+    border: 2px outset buttonface;
+
+	}
+
+
+	element.style {
+		background-color: red;
 	}

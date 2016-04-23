@@ -26,6 +26,7 @@ class Registro(models.Model):
 	fecha = models.DateTimeField()
 	fecha_registro = models.DateTimeField(auto_now=False, auto_now_add=True)
 	descripcion = models.TextField()
+	is_active = models.BooleanField(default = None, blank=True)
 	movil = models.CharField(max_length=100)
 	no_expediente = models.CharField(max_length=40)
 	Municipio = models.ForeignKey('localizaciones.Municipio')
