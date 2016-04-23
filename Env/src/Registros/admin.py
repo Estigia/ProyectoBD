@@ -10,7 +10,13 @@ class RegistroAdmin(admin.ModelAdmin):
 					"fecha_registro","descripcion","movil","no_expediente"]
 	form = RegistroForm
 
+class ActividadAdmin(admin.ModelAdmin):
+	list_display = ["id","Registro_id","Usuario_id","actividad"]
+
 admin.site.register(Registro,RegistroAdmin)
+admin.site.register(Actividad,ActividadAdmin)
+
+
 
 
 

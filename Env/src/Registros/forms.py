@@ -17,7 +17,6 @@ class RegistroForm(forms.ModelForm):
 					"descripcion",
 					"movil",
 					"no_expediente",
-					"Localizacion_id",
 					"Arma_id",							
 			]
 

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Registros</h1>
+    <ul>
+        {% for dato in registros %}
+            <li>
+                <p>Registro No.: {{ dato.id }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

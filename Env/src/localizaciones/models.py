@@ -21,10 +21,10 @@ class Municipio(models.Model):
 		#return '%d %s' % (self.id, self.municipio)
 		return self.municipio
 
-class Localizacion(models.Model):
-	id = models.AutoField(primary_key = True)
-	direccion = models.CharField(max_length = 100)
-	especifico = models.BooleanField(blank=True, null=None)
-	Municipio_id = models.ForeignKey("Municipio", on_delete =  models.CASCADE)
-	def __unicode__(self):
-		return self.direccion
+# class Localizacion(models.Model):
+# 	id = models.AutoField(primary_key = True)
+# 	direccion = models.CharField(max_length = 100)
+# 	especifico = models.BooleanField(blank=True, null=None)
+# 	Municipio_id = models.ForeignKey("Municipio", on_delete =  models.CASCADE)
+# 	def __unicode__(self):
+# 		return self.direccion

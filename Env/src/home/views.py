@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse_lazy, reverse
 from .forms import UserCreationForm, InicioForm
 from .models import Usuario
+from Registros.models import Actividad
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -30,6 +31,14 @@ def lista(request):
     usuarios = Usuario.objects.all()
     context = { "usuarios": usuarios }
     return render(request,"usuario_list.html",context)
+
+@login_required(login_url='inicio')
+def privado(request):
+    user = request.user
+    detalles = Actividad.objects.filter(Usuario_id = user.id)
+    print detalles
+    return render(request,'perfil.html',{"user": user})
+
 
 def registro(request):
     if not request.user.is_authenticated():
@@ -62,7 +71,6 @@ def inicio(request):
         form = InicioForm(request.POST or None)
 
         if form.is_valid():
-            #instance = form.save(commit=False)
 
             username = request.POST['usuario']
             password = request.POST['password']
@@ -71,16 +79,12 @@ def inicio(request):
 
             if user is not None:
                 if user.is_active:
-                    login(request, user)
-                    context = {
-                        "form": form,
-                        "titulo": "Login"
-                    }
-
-                    if request.GET['next']:
+                    login(request,user)
+                    
+                    if request.GET:
                         return HttpResponseRedirect(request.GET['next'])
 
-                    return render(request,'login.html',context)
+                    return redirect('appHome:perfil')
                 else:
                     return HttpResponseRedirect('/')
             else:

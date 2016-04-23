@@ -22,7 +22,9 @@ class UserCreationForm(forms.ModelForm):
         password = self.cleaned_data.get("password")
         password1 = self.cleaned_data.get("password1")
         if password and password1 and password != password1:
-            raise forms.ValidationError("Las contraseñas no coinciden")
+            raise forms.ValidationError("Las contraseñas no coinciden.")
+        if password1 and password and len(password) < 8:
+            raise forms.ValidationError("Ingrese una contraseña mas larga.")
         return password1
 
     def save(self, commit=True):

@@ -69,7 +69,7 @@ class Usuario (AbstractBaseUser):
 		return self.nombre
 
 	def __unicode__(self):
-		return self.correo
+		return self.nombre_usuario
 
 	def has_module_perms(self,perm_list):
 		return True

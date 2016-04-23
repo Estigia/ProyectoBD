@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from django.core import serializers
 from django.http import HttpResponse
-from .forms import LocalizacionForm,MunicipioForm,DepartamentoForm
-from .models import Municipio,Departamento,Localizacion
+from .forms import MunicipioForm,DepartamentoForm
+from .models import Municipio,Departamento
 from django.contrib.auth.decorators import login_required
 
 

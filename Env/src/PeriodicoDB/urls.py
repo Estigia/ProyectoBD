@@ -25,7 +25,6 @@ urlpatterns = [
     url(r'^registro/', 'home.views.registro', name='Registro'),
     url(r'^$', 'home.views.home', name='home'),
     url(r'^regArmas/', 'Armas.views.Arma', name='arma'),
-    #url(r'^regLocalizacion/', 'localizaciones.views.localizacion', name='localizacion'),
     url(r'^regLocal/', BusquedaMunicipio, name='Local'),
     url(r'^registros/', include('Registros.urls',namespace='registros')),
     url(r'^logout/','home.views.cerrar', name='logout'),

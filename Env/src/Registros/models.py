@@ -24,11 +24,13 @@ class Registro(models.Model):
 	fecha = models.DateTimeField()
 	fecha_registro = models.DateTimeField(auto_now=False, auto_now_add=True)
 	descripcion = models.TextField()
-	is_active = models.BooleanField(default = None, blank=True)
+	is_active = models.BooleanField(default = True)
 	movil = models.CharField(max_length=100)
 	no_expediente = models.CharField(max_length=40)
-	Localizacion_id = models.ForeignKey('localizaciones.Localizacion', on_delete=models.CASCADE)
 	Arma_id = models.ForeignKey('Armas.Arma', on_delete=models.CASCADE)
+
+	def __unicode__(self):
+		return str(self.id)
 	
 
 class Actividad(models.Model):
@@ -36,3 +38,5 @@ class Actividad(models.Model):
 	Registro_id = models.ForeignKey('Registro',on_delete=models.CASCADE)
 	Usuario_id = models.ForeignKey('home.Usuario',on_delete=models.CASCADE)
 	actividad = models.CharField(max_length=45)
+
+	verbose_name = 'Actividades'
