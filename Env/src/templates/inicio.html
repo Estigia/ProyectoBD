@@ -1,11 +1,21 @@
-{% extends 'base.html' %}	
+{% extends 'base.html' %}
 
 {% block content %}
 
-<form method = 'POST', action=''>
-	{% csrf_token %}
-	{{form.as_p}}
-	<input type='submit' value='Ingresar'>
-</form>	
+<div id="section">
+	<div id="segundoBloque">
+		<div class = "title">
+			<h2>Iniciar sesión</h2>
+		</div>
+		<form method = 'POST', action=''>
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type='submit' value='Ingresar'>
+		</form>
+		<li><a href="/registro" accesskey="1" title="">Registrarse</a></li>
+	</div>
+</div>
+
+
 
 {% endblock %}

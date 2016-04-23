@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <html>
   <head>
     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
@@ -8,8 +9,8 @@
 
       function drawMarkersMap() {
       var data = google.visualization.arrayToDataTable([
-        ['States',   'Population', 'Area'], 
-        //Guatemala-----------------------      
+       // ['City',   'Population', 'Area'], 
+        // //Guatemala-----------------------      
         // ['Amatitlan',      1,    1],
         // ['Chinautla',      1,    1],
         //  ['Chuarrancho',      1,    1],
@@ -26,24 +27,24 @@
         // ['San Raymundo',      1,    1],
         //  ['Santa Catarina Pinula',      1,    1],
         //  ['Villa Canales',      1,    1],
-         //Quetzaltenango-----------------------
-         //['Almolonga',      1,    1],
-         // ['Cabrican',      1,    1],
-         // ['Cajola',      1,    1],
-         // ['Cantel',      1,    1],
-         // ['Coatepeque',      1,    1],
-         // ['Colomba Costa Cuca',      1,    1],
-         // ['Concepcion Chiquirichapa',      1,    1],
-          //['El Palmar Quetzaltenango',      1,    1],
-         // ['Flores Costa Cuca',      1,    1],
-         //['Genova',      1,    1],
-         //['Huitan',      1,    1],
-         //['La Esperanza Quetzaltenango',      1,    1],
-         // ['Olintepeque',      1,    1],
-         // ['Palestina de Los Altos',      1,    1],
-         // ['Quetzaltenango',      1,    1],
-         // ['Salcaja',      1,    1],
-         // ['San Carlos Sija',      1,    1],
+        //  //Quetzaltenango-----------------------
+        //  ['Almolonga',      1,    1],
+        //  ['Cabrican',      1,    1],
+        //  ['Cajola',      1,    1],
+        //  ['Cantel',      1,    1],
+        //  ['Coatepeque',      1,    1],
+        //  ['Colomba Costa Cuca',      1,    1],
+        //  ['Concepcion Chiquirichapa',      1,    1],
+        //   ['El Palmar Quetzaltenango',      1,    1],
+        //  ['Flores Costa Cuca',      1,    1],
+        //  ['Genova',      1,    1],
+        //  ['Huitan',      1,    1],
+        //  ['La Esperanza Quetzaltenango',      1,    1],
+        //  ['Olintepeque',      1,    1],
+        //  ['Palestina de Los Altos',      1,    1],
+        //  ['Quetzaltenango',      1,    1],
+        //  ['Salcaja',      1,    1],
+        //  ['San Carlos Sija',      1,    1],
         //  ['San Francisco La Union Quetzaltenango',      1,    1],
         //  ['San Juan Ostuncalco',      1,    1],
         //  ['San Martin Sacatepequez',      1,    1],
@@ -64,7 +65,7 @@
         // ['San Juan Chamelco',      1,    1],  
         // ['San Pedro Carcha',      1,    1],  
         // ['Santa Cruz Verapaz',      1,    1],    
-        //*verificar*****['Santa Maria Cahabon',      1,    1],
+        // ['Santa Maria Cahabon',      1,    1],
         // ['Senahu',      1,    1],
         // ['Tamahu',      1,    1],
         // ['Tactic',      1,    1],
@@ -152,14 +153,39 @@
       // ['San Mateo Ixtatan',      1,    1],
       // ['San Miguel Acatan',      1,    1],
       // ['San Pedro Necta',      1,    1],
+          ['States','Estado','Casos'],   
+          ['GT-AV','Alta Verapaz',1],
+          ['GT-BV','Baja Verapaz',2],
+          ['GT-CM','Chimaltenango',3],
+          ['GT-CQ','Chiquimula',4],
+          ['GT-PR','El Progreso',5],
+          ['GT-ES','Escuintla',6],  
+          ['GT-GU','Guatemala',7],
+          ['GT-HU','HuehueTenango',8],
+          ['GT-IZ','Izabal',9],
+          ['GT-JA','Jalapa',10],
+          ['GT-JU','Jutiapa',11],
+          ['GT-PE','Peten',12],
+          ['GT-QZ','Quetzaltenango',13],
+          ['GT-QC','Quiche',14],
+          ['GT-RE','Retalhuleu',15],
+          ['GT-SA','Sacatepequez',16],
+          ['GT-SM','San Marcos',17],
+          ['GT-SR','Santa Rosa',18],
+          ['GT-SO','Solola',19],
+          ['GT-SU','Suchitepequez',20],
+          ['GT-TO','Totonicapan',21],
+          ['GT-ZA','Zacapa',22],
       
       ]);
 
 
       var options = {
+
         region: 'GT',
+        resolution: 'provinces',
         displayMode: 'markers',
-        colorAxis: {colors: ['green', 'blue']}
+        colorAxis: {colors: ['White','Yellow', 'Red']}
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
