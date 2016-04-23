@@ -1,25 +1,23 @@
 from django import forms
-from .models import Registro,Victima
+from .models import Registro
 
 class RegistroForm(forms.ModelForm):
 	class Meta:
 		model = Registro
 
-		fields = ["fiscal",
-					"descripcion",
-					"movil",
-					"no_expediente"					
-			]
-
-class VictimaForm(forms.ModelForm):
-	class Meta:
-		model = Victima
-
 		fields = ["nombres",
 					"apellidos",
 					"edad",
-					"muerto_herido",
+					"muerto",
 					"profesion",
 					"cui",
 					"sexo",
-				]
+					"fiscal",
+					"fecha",
+					"descripcion",
+					"movil",
+					"no_expediente",
+					"Localizacion_id",
+					"Arma_id",							
+			]
+
