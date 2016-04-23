@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.db.backends.sqlite3',
+    'django.db.backends.sqlite3',
     'home',
     'Armas',
     'localizaciones',

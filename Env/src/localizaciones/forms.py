@@ -1,11 +1,6 @@
 from django import forms
 from .models import Municipio,Departamento
 
-# class LocalizacionForm(forms.ModelForm):
-# 	class Meta:
-# 		model = Localizacion
-# 		fields = ["Municipio_id","direccion","especifico"]
-
 class MunicipioForm(forms.ModelForm):
 	class Meta:
 		model = Municipio

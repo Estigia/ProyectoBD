@@ -57,6 +57,8 @@ def registro(request):
 
     return HttpResponseRedirect('/')
     
+
+
 def inicio(request):
     if request.user.is_authenticated():
 
@@ -79,8 +81,12 @@ def inicio(request):
 
             if user is not None:
                 if user.is_active:
-                    login(request,user)
-                    
+                    login(request, user)
+                    context = {
+                        "form": form,
+                        "titulo": "Login"
+                    }
+
                     if request.GET:
                         return HttpResponseRedirect(request.GET['next'])
 

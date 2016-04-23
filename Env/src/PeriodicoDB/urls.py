@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
-from localizaciones.views import BusquedaMunicipio
+from Registros.views import BusquedaMunicipio, BusquedaArma
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^regArmas/', 'Armas.views.Arma', name='arma'),
     url(r'^regLocal/', BusquedaMunicipio, name='Local'),
+    url(r'^regArma/', BusquedaArma, name='Arma'),
     url(r'^registros/', include('Registros.urls',namespace='registros')),
     url(r'^logout/','home.views.cerrar', name='logout'),
     url(r'^signin/','home.views.inicio', name='inicio'),
