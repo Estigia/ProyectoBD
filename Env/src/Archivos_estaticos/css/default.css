@@ -336,6 +336,11 @@
 		padding: 5em 0em;
 	}
 
+	.contenedor {
+
+		height: 100%;
+
+	}
 /*********************************************************************************/
 /* Logo                                                                          */
 /*********************************************************************************/
@@ -363,61 +368,54 @@
 /* Menu                                                                          */
 /*********************************************************************************/
 
-	#menu
-	{
-		position: absolute;
-		top: 4.5em;
-		right: 0;
-	}
+#menu
+{
+	position: absolute;
+	top: 4.5em;
+	right: 0;
+}
 
-	#menu ul
-	{
-		/*display: inline-block;*/
-	}
+#menu ul
+{
+	/*display: inline-block;*/
+}
 
-	#menu li
-	{
-		display: block;
-		float: left;
-		text-align: center;
+#menu li
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
 
-	}
+#menu li a, #menu li span
+{
+	/*padding: 1em 1.5em;*/
+	padding-left: 14px;
+	padding-right: 14px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	align-items:  left;
+	font-size: 1em;
+	color: rgba(255,255,255,0.80);
+	background-color: black;
+}
 
-	#menu li a, #menu li span
-	{
-		/*padding: 1em 1.5em;mmm
-		padding-left: 14px;
-		padding-right: 14px;
-		letter-spacing: 1px;
-		text-decoration: none;
-		text-transform: uppercase;
-		align-items:  left;
-		font-size: 1em;
-		color: rgba(255,255,255,0.80);
-		background-color: black*/
-		padding: 1em 1.5em;
-		letter-spacing: 1px;
-		text-decoration: none;
-		text-transform: uppercase;
-		font-size: 0.8em;
-		color: rgba(255,255,255,0.80);
-		padding-bottom:12px;
-	}
+#menu li:hover a, #menu li.active a, #menu li.active span
+{
+}
 
-	#menu li:hover a, #menu li.active a, #menu li.active span
-	{
-	}
+#menu .active a
+{
+	background: #2651a8;
+	border-radius: 6px;
+	color: rgba(255,255,255,1);
+}
 
-	#menu .active a
-	{
-		background: #2651a8;
-		border-radius: 6px;
-		color: rgba(255,255,255,1);
-	}
+#menu .icon
+{
+}
 
-	#menu .icon
-	{
-	}
 
 	/*#menu > li {
 		display: inline-block;
@@ -428,14 +426,13 @@
 
 	.submenu li ul{
 		display: none;
-		width: 10px;
 	}
 
 	.submenu li ul li{
-		text-align: left;
 		display: none;
-		width: 90%;
+		width: 60%;
 		padding-top: 5px;
+		text-align: left;
 
 	}
 	.submenu li:hover > ul{

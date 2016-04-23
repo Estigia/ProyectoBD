@@ -78,7 +78,7 @@ def inicio(request):
                         "titulo": "Login"
                     }
 
-                    if request.GET['next']:
+                    if request.GET:
                         return HttpResponseRedirect(request.GET['next'])
 
                     return render(request,'login.html',context)
