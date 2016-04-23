@@ -2,12 +2,32 @@
 
 {% block content %}
 
-<h1>{{usuario.get_full_name}}</h1>
-<p>Nombre de usuario: <i>{{usuario.nombre_usuario}}</i></p>
-<p>Correo: <i>{{usuario.correo}}</i></p>
-<p>Institucion: <i>{{usuario.institucion}}</i></p>
-<p>Ultima conexion: <i>{{usuario.ultima_conexion}}</i></p>
-<p>Tipo de Usuario: <i>{{usuario.Tipo_Usuario_id}}</i></p>
-<p>Activo: <i>{{usuario.is_active}}</i></p>
+
+<div id="section">
+  <div id="bloqueDesplegar">
+    <div class = "title">
+      <h1>Información de perfil</h1>
+    </div>
+    <div class = "bloqueOne">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <p>
+      <h2>{{usuario.get_full_name}}</h2>
+      </p>
+    </div>
+    <div class = "bloqueTwo">
+      <p>Nombre de usuario: <i>{{usuario.nombre_usuario}}</i></p>
+      <p>Correo: <i>{{usuario.correo}}</i></p>
+      <p>Institucion: <i>{{usuario.institucion}}</i></p>
+      <p>Ultima conexion: <i>{{usuario.ultima_conexion}}</i></p>
+      <p>Tipo de Usuario: <i>{{usuario.Tipo_Usuario_id}}</i></p>
+      <p>Activo: <i>{{usuario.is_active}}</i></p>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}

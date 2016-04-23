@@ -265,7 +265,7 @@
 	}
 	.tbox2
 	{
-		width: 50%;
+		width: 48%;
 	}
 
 	.tbox1
@@ -614,32 +614,63 @@
 /***********************/
 
 
-	#dobleBloque
+#dobleBloque
+{
+	background: #FFF;
+	display: block;
+	color: black;
+}
+
+.bloqueUno {
+	text-align: right;
+	color: black;
+	float: left;
+	width: 48%;
+
+}
+
+.bloqueDos {
+	text-align: left;
+	float: right;
+	width: 50%;
+}
+
+.bloqueUno {
+	margin-right: 15px;
+}
+
+.bloqueDos p {
+	margin-left: 15px;
+}
+
+
+
+	#bloqueDesplegar
 	{
 		background: #FFF;
-		display: block;
+		display: inline-block;
 		color: black;
 	}
 
-	.bloqueUno {
+	.bloqueOne {
 		text-align: right;
 		color: black;
 		float: left;
-		width: 48%;
+		width: 43%;
 
 	}
 
-	.bloqueDos {
+	.bloqueTwo {
 		text-align: left;
 		float: right;
 		width: 50%;
 	}
 
-	.bloqueUno {
+	.bloqueOne {
 		margin-right: 15px;
 	}
 
-	.bloqueDos p {
+	.bloqueTwo p {
 		margin-left: 15px;
 	}
 
