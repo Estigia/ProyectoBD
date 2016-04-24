@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ArmaForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 @login_required(login_url='inicio')
@@ -14,6 +15,8 @@ def Arma(request):
 
 	if form.is_valid():
 		form.save()
+		return HttpResponseRedirect('')
+
 
 	return render(request,'armas.html',context)
 

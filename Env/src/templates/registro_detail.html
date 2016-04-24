@@ -21,6 +21,9 @@
 		{% if registro.no_casquillos %}
 		<p> No. Casquillos: <i> {{registro.no_casquillos}} </i></p>
 		{% endif %}
+		{% if registro.serial %}
+		<p> Serial del Arma: <i> {{registro.serial}} </i></p>
+		{% endif %}
 		<p> Movil: <i> {{registro.movil}} </i></p>
 		<p> Fecha: <i> {{registro.fecha}} </i></p>
 		<p> Fiscal: <i> {{registro.fiscal}} </i></p>

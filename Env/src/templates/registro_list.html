@@ -9,6 +9,7 @@
                 <p>Registro No.: {{ dato.id }}  Victima: {{dato.get_full_name}}</p>
                 <p>
                 	<a href={% url 'registros:detail' dato.id %}>Ver</a>
+                	<a href={% url 'registros:edit' dato.id %}>Editar</a>
                 </p>
             </li>
         {% endfor %}

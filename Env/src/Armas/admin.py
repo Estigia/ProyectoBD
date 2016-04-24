@@ -3,7 +3,7 @@ from .forms import ArmaForm
 from .models import Arma
 
 class ArmaAdmin(admin.ModelAdmin):
-	list_display = ["id","calibre","marca","categoria","objeto","serial"]
+	list_display = ["id","calibre","marca","categoria","objeto"]
 	form = ArmaForm
 
 
