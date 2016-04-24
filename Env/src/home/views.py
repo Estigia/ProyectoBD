@@ -111,16 +111,27 @@ def cerrar(request):
 
 
 def home(request):
-    Registro_Av = Registro.objects.filter(Municipio__Departamento_id = 1)
-    Registro_Bv = Registro.objects.filter(Municipio__Departamento_id = 2)
-    # Registro_Cv = Registro.objects.filter(Municipio__Departamento_id = 3)
-    Casos_Av = len(Registro_Av)
-    Casos_Bv = len(Registro_Bv)
+    Registro_AvM = Registro.objects.filter(Municipio__Departamento_id = 1 , sexo = "M" )
+    Registro_AvF = Registro.objects.filter(Municipio__Departamento_id = 1 , sexo = "F" )
+    Registro_AvD = Registro.objects.filter(Municipio__Departamento_id = 1 , sexo = "D" )
+    Casos_AvM = len(Registro_AvM)
+    Casos_AvF = len(Registro_AvF)
+    Casos_AvD = len(Registro_AvD)
+    Registro_BvM = Registro.objects.filter(Municipio__Departamento_id = 2 , sexo = "M" )
+    Registro_BvF = Registro.objects.filter(Municipio__Departamento_id = 2 , sexo = "F" )
+    Registro_BvD = Registro.objects.filter(Municipio__Departamento_id = 2 , sexo = "D" )
+    Casos_BvM = len(Registro_BvM)
+    Casos_BvF = len(Registro_BvF)
+    Casos_BvD = len(Registro_BvD)
     vDep = Departamento.objects.all()
-    # Casos_Cm = len(Registro_Cm)
+    
     context = {
-        "Registro_Av": Casos_Av,
-        "Registro_Bv": Casos_Bv,
+        "Registro_AvM": Casos_AvM,
+        "Registro_AvF": Casos_AvF,
+        "Registro_AvD": Casos_AvD,
+        "Registro_BvM": Casos_BvM,
+        "Registro_BvF": Casos_BvF,
+        "Registro_BvD": Casos_BvD,
         "Deps": vDep,
         # "Registro_Cm": Casos_Cm,
     }
@@ -129,4 +140,12 @@ def home(request):
 class DepDetail(DetailView):
     model = Departamento
     template_name = "dep_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DepDetail,self).get_context_data(**kwargs)
+
+
+        context.update({
+
+            })
 
