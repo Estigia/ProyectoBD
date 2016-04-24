@@ -14,6 +14,11 @@ from .models import Usuario
 from localizaciones.models import Departamento
 # Create your views here.
 
+@login_required(login_url='inicio')
+def permisos(request):
+    return render(request,'403.html',{})
+
+
 class UserDetail(LoginRequiredMixin, DetailView):
     login_url = 'inicio'
     model = Usuario
@@ -34,8 +39,7 @@ def lista(request):
 @login_required(login_url='inicio')
 def privado(request):
     user = request.user
-    detalles = Actividad.objects.filter(Usuario_id = user.id)
-    print detalles
+
     return render(request,'perfil.html',{"user": user})
 
 
@@ -50,12 +54,12 @@ def registro(request):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/signin')
 
         return render(request,'registro.html',context)
 
     return HttpResponseRedirect('/')
-    
+
 
 
 def inicio(request):
