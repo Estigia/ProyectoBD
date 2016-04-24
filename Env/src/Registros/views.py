@@ -33,6 +33,7 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 		"cui",
 		"sexo",
 		"ubicacion",
+		"fiscal",
 		"Municipio",
 		"Arma",
 		"no_casquillos",
@@ -57,7 +58,7 @@ def registro(request):
 		Armas = Arma.objects.all()
 
 		context = {
-			"form" :form,		
+			"form" :form,
 			"Armas" : Armas,
 			"Departamentos" : Departamentos,
 			"Municipios" : Municipios,
@@ -76,7 +77,7 @@ def registro(request):
 
 
 		return render(request,'registros.html',context)
-	
+
 	return redirect('appHome:403')
 
 @login_required(login_url='inicio')

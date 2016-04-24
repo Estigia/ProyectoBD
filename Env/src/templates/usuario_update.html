@@ -2,10 +2,22 @@
 
 {% block content %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Actualizar" />
-    </form>
+
+
+    <div id="section">
+      <div id="bloqueForms">
+    		<div class = "title">
+          <h2>Editar usuario</h2>
+        </div>
+        <div class = "formularios">
+          <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit" value="Actualizar" />
+          </form>
+        </div>
+      </div>
+    </div>
+
 
 {% endblock %}
