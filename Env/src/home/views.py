@@ -145,15 +145,23 @@ def home(request):
     Casos_BvM = len(Registro_BvM)
     Casos_BvF = len(Registro_BvF)
     Casos_BvD = len(Registro_BvD)
+    Registro_AvE = Registro.objects.filter(Municipio__Departamento_id = 1 ,edad__in=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18] )
+    Casos_AvE = len(Registro_AvE)
+    Registro_BvE = Registro.objects.filter(Municipio__Departamento_id = 2 , edad__in=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18] )
+    Casos_BvE = len(Registro_BvE)
+
     vDep = Departamento.objects.all()
     
     context = {
+    
         "Registro_AvM": Casos_AvM,
         "Registro_AvF": Casos_AvF,
         "Registro_AvD": Casos_AvD,
         "Registro_BvM": Casos_BvM,
         "Registro_BvF": Casos_BvF,
         "Registro_BvD": Casos_BvD,
+        "Registro_AvE": Casos_AvE,
+        "Registro_BvE": Casos_BvE,
         "Deps": vDep,
         # "Registro_Cm": Casos_Cm,
     }

@@ -24,12 +24,13 @@
       google.charts.setOnLoadCallback(drawRegionsMap);
       google.charts.setOnLoadCallback(drawRegionsMap2);
       google.charts.setOnLoadCallback(drawRegionsMap3);
-     
+      google.charts.setOnLoadCallback(drawRegionsMap4);
      
 
       function drawRegionsMap() {
 
         var data = google.visualization.arrayToDataTable([
+
           ['States','Estado','Casos'],
           ['GT-AV','Alta Verapaz',{{Registro_AvM}}+{{Registro_AvF}}+{{Registro_AvD}}],
           ['GT-BV','Baja Verapaz',{{Registro_BvM}}+{{Registro_BvF}}+{{Registro_BvD}}],
@@ -180,6 +181,55 @@ function drawRegionsMap3() {
       chart3.draw(data, options);
 };
 
+function drawRegionsMap4() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['States','Estado','Casos'],
+          ['GT-AV','Alta Verapaz',{{Registro_AvE}}],
+          ['GT-BV','Baja Verapaz',{{Registro_BvE}}],
+          ['GT-CM','Chimaltenango',3],
+          ['GT-CQ','Chiquimula',4],
+          ['GT-PR','El Progreso',5],
+          ['GT-ES','Escuintla',6],
+          ['GT-GU','Guatemala',7],
+          ['GT-HU','HuehueTenango',8],
+          ['GT-IZ','Izabal',9],
+          ['GT-JA','Jalapa',10],
+          ['GT-JU','Jutiapa',11],
+          ['GT-PE','Peten',12],
+          ['GT-QZ','Quetzaltenango',13],
+          ['GT-QC','Quiche',14],
+          ['GT-RE','Retalhuleu',15],
+          ['GT-SA','Sacatepequez',16],
+          ['GT-SM','San Marcos',17],
+          ['GT-SR','Santa Rosa',18],
+          ['GT-SO','Solola',19],
+          ['GT-SU','Suchitepequez',20],
+          ['GT-TO','Totonicapan',21],
+          ['GT-ZA','Zacapa',22],
+        ]);
+
+    var options =
+    {
+         backgroundColor: '#2651a8',
+          datalessRegionColor: '#2651a8',
+          defaultColor: '#f5f5f5',
+
+        //sizeAxis: { minValue: 1, maxValue: 22 },
+        legend: 'True', // se quita el slider indicador de poblacion minima y maxima
+        //tooltip: {trigger:'none'},
+        region: 'GT',   // region a dibujar en el mapa
+        resolution: 'provinces',    //
+       // displayMode: 'markers',
+
+        // color minimo: 'LightYellow' y color maximo: 'Salmon', igual se pueden utilizar los valor rgb.
+        colorAxis: {colors: ['#FFFF66', '#FFA500','#B22222'] }
+
+    };
+    //se instacia y se dibuja el grafico
+   var chart4 = new google.visualization.GeoChart(document.getElementById('chart4_div'));
+      chart4.draw(data, options);
+};
 
 
 
@@ -258,20 +308,31 @@ function drawRegionsMap3() {
 			</div>
 
 			<div class="tbox1">
-				<div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <font color="Black">Total</font> 
+       	<div id="chart_div" style="width: 100%; height: 500px;"></div>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
+        <font color="Black">Hombres</font> 
+         
         <div id="chart3_div" style="width: 100%; height: 500px;"></div>
 			</div>
 
 
 			<div class="tbox2">
-        <div id="chart2_div" style="width: 100%; height: 500px;">
-         <font color="Black">Filtros Mapa</font> 
-         <button onclick="f1()">Botón 1</button>
+        <font color="Black">Menores</font>
+          <div id="chart4_div" style="width: 100%; height: 500px;"></div>         
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black">Mujeres</font>
+        <div id="chart2_div" style="width: 100%; height: 500px;"></div>
+        
+         
 
      
 
