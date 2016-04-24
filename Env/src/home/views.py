@@ -9,10 +9,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from Registros.models import Registro
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import (
-    UpdateView,
-    DeleteView,
-)
+from django.views.generic.edit import UpdateView
 from .models import Usuario
 from localizaciones.models import Departamento
 # Create your views here.

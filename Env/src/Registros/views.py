@@ -1,13 +1,49 @@
 from django.shortcuts import render
 from .forms import RegistroForm
 from .models import Registro, Actividad
+from django.core.urlresolvers import reverse_lazy, reverse
 #from home.models import Usuario
 from django.core import serializers
 from django.http import HttpResponse
 from localizaciones.models import Municipio, Departamento
 from Armas.models import Arma
 from django.contrib.auth.decorators import login_required
+from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import UpdateView
 
+
+class RegistroDetail(LoginRequiredMixin,DetailView):
+	login_url = 'inicio'
+	model = Registro
+	template_name = 'registro_detail.html'
+
+class RegistroUpdate(LoginRequiredMixin,UpdateView):
+	login_url = 'inicio'
+	model = Registro
+	template_name = 'registro_update.html'
+	success_url = reverse_lazy('registros:list')
+	fields = [
+
+		"nombres",
+		"apellidos",
+		"edad",
+		"muerto",
+		"profesion",
+		"cui",
+		"sexo",
+		"ubicacion",
+		"Municipio",
+		"Arma",
+		"no_casquillos",
+		"serial",
+		"fecha",
+		"descripcion",
+		"is_active",
+		"movil",
+		"no_expediente"
+
+		]
 
 @login_required(login_url='inicio')
 def registro(request):
@@ -53,6 +89,6 @@ def BusquedaArma(request):
 		print id_Arma
 		print id_Arma
 		Armas = Arma.objects.filter(categoria = id_Arma)				
-		data = serializers.serialize('json', Armas, fields = ('objeto'))
+		data = serializers.serialize('json', Armas, fields = ('objeto','marca','calibre'))
 		print data		
 		return HttpResponse(data, content_type='application/json')
