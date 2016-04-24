@@ -375,6 +375,7 @@
 	position: absolute;
 	top: 4.5em;
 	right: 0;
+	padding-right: 4%;
 }
 
 #menu ul
@@ -391,16 +392,17 @@
 
 #menu li a, #menu li span
 {
-	/*padding: 1em 1.5em;*/
-	padding-left: 14px;
-	padding-right: 14px;
+	padding: 1em 1.5em;
+	padding-left: 20px;
+	padding-right: 10px;
 	letter-spacing: 1px;
-	text-decoration: none;
+	text-decoration: initial;
 	text-transform: uppercase;
 	align-items:  left;
 	font-size: 1em;
 	color: rgba(255,255,255,0.80);
-	background-color: black;
+	font-weight: bold;
+	font-size: large;
 }
 
 #menu li:hover a, #menu li.active a, #menu li.active span
@@ -432,7 +434,7 @@
 
 	.submenu li ul li{
 		display: none;
-		width: 60%;
+		width: 70%;
 		padding-top: 5px;
 		text-align: left;
 
@@ -634,14 +636,14 @@
 	text-align: right;
 	color: black;
 	float: left;
-	width: 48%;
+	width: 50%;
 	display: inline-block;
 }
 
 .bloqueDos {
 	text-align: left;
 	float: right;
-	width: 50%;
+	width: 49%;
 	/*display: inline-block;*/
 }
 
@@ -680,7 +682,7 @@
 		text-align: right;
 		color: black;
 		float: left;
-		width: 43%;
+		width: 47%;
 
 	}
 
@@ -691,11 +693,13 @@
 	}
 
 	.bloqueOne {
-		margin-right: 15px;
+		margin-right: 10px;
 	}
 
 	.bloqueTwo p {
 		margin-left: 15px;
+		text-align: justify;
+		padding-right: 20%;
 	}
 
 
