@@ -8,10 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import (
-    UpdateView,
-    DeleteView,
-)
+from django.views.generic.edit import UpdateView
 from .models import Usuario
 # Create your views here.
 
@@ -56,7 +53,7 @@ def registro(request):
         return render(request,'registro.html',context)
 
     return HttpResponseRedirect('/')
-    
+
 
 
 def inicio(request):

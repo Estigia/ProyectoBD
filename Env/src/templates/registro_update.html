@@ -29,7 +29,8 @@
 		Serial:
 			{{form.serial}}<br/>
 	</div>
-	Nombres:
+	Nombres: 
+		{{form.Arma}} 
 		{{form.nombres}}<br/>
 	Apellidos:
 		{{form.apellidos}}<br/>
@@ -70,8 +71,7 @@
 
 
 
-	<input type='submit' value='Guardar'>
-  
+	<input type='submit' value='Actualizar'>
 
 {% endblock %}
 
@@ -88,7 +88,7 @@
 
 
 	function BusquedaMunicipio(){
-		var id = $(this).val();
+		var id = $(this).val();		
 		$.ajax({
 			data : {'id' : id},
 			url : '/regLocal/Local',
@@ -110,11 +110,11 @@
 	function BusquedaArma(){
 		var id = $(this).val();
 		$formulario_Fg.hide();
-		console.log(id);
+		console.log(id);	
 
 		if(id == 'Fg'){
-			$formulario_Fg.show();
-		}
+			$formulario_Fg.show();								
+		}	
 
 		$.ajax({
 			data : {'id' : id},
@@ -123,7 +123,7 @@
 			success: function(data){
 				var s2 = document.getElementById('id_Arma');
 				console.log(s2);
-
+				
 
 				s2.innerHTML = "";
 				for (var i=0; i< data.length; i++){

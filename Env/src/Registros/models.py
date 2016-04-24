@@ -10,8 +10,7 @@ class Registro(models.Model):
 			('F','Femenino'),
 			('D','Desconocido'),
 		)
-
-	id = models.AutoField(primary_key=True)
+	
 	nombres = models.CharField(max_length=55, default = 'xx')
 	apellidos = models.CharField(max_length=55, default = 'xx')
 	edad = models.SmallIntegerField(blank=True, null=True)
@@ -36,7 +35,7 @@ class Registro(models.Model):
 		return str(self.id)
 
 	def get_full_name(self):
-		return nombres + apellidos
+		return self.nombres + " " + self.apellidos
 
 	Municipio = models.ForeignKey('localizaciones.Municipio')
 	Arma = models.ForeignKey('Armas.Arma')
