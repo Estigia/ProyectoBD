@@ -49,9 +49,3 @@ class Actividad(models.Model):
 	actividad = models.CharField(max_length=45)
 
 	verbose_name = 'Actividades'
-
-	def __unicode__(self):
-
-		s = ""
-		act = (self.Usuario_id," ",self.actividad," ",self.Registro_id)
-		return s.join(act)

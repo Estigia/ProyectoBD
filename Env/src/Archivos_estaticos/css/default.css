@@ -642,7 +642,7 @@
 	text-align: left;
 	float: right;
 	width: 50%;
-	display: inline-flex;
+	/*display: inline-block;*/
 }
 
 .bloqueUno {
@@ -654,12 +654,26 @@
 }
 
 
+.bDos {
+	text-align: left;
+	float: right;
+	width: 40%;
+	display: grid;
+	margin-left: 15px;
+}
+
+
+
+
+
+
 
 	#bloqueDesplegar
 	{
 		background: #FFF;
 		display: inline-block;
 		color: black;
+		width: 100%;
 	}
 
 	.bloqueOne {

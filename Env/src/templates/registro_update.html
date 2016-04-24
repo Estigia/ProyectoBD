@@ -7,7 +7,7 @@
 <div id="section">
   <div id="bloqueForms">
 		<div class = "title">
-      <h2>Nuevo Registro</h2>
+      <h2>Actualizar Registro</h2>
     </div>
     <div class = "formularios">
 <form method = 'POST', action='' >
@@ -29,8 +29,8 @@
 		Serial:
 			{{form.serial}}<br/>
 	</div>
-	Nombres: 
-		{{form.Arma}} 
+	Nombres:
+		{{form.Arma}}
 		{{form.nombres}}<br/>
 	Apellidos:
 		{{form.apellidos}}<br/>
@@ -88,7 +88,7 @@
 
 
 	function BusquedaMunicipio(){
-		var id = $(this).val();		
+		var id = $(this).val();
 		$.ajax({
 			data : {'id' : id},
 			url : '/regLocal/Local',
@@ -110,11 +110,11 @@
 	function BusquedaArma(){
 		var id = $(this).val();
 		$formulario_Fg.hide();
-		console.log(id);	
+		console.log(id);
 
 		if(id == 'Fg'){
-			$formulario_Fg.show();								
-		}	
+			$formulario_Fg.show();
+		}
 
 		$.ajax({
 			data : {'id' : id},
@@ -123,7 +123,7 @@
 			success: function(data){
 				var s2 = document.getElementById('id_Arma');
 				console.log(s2);
-				
+
 
 				s2.innerHTML = "";
 				for (var i=0; i< data.length; i++){

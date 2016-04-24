@@ -2,19 +2,33 @@
 
 {% block content %}
 
-    <h1>Registros</h1>
-    <ul>
-        {% for dato in registros %}
-            <li>
+
+    <div id="section">
+      <div class = "title">
+        <h1 style="color:black;">Registros</h1>
+      </div>
+      <div id="dobleBloque">
+        <div class = "bloqueUno">
+          {% for dato in registros %}
+              <li>
                 <p>
-                    Registro No.: {{ dato.id }}  Victima: {{dato.get_full_name}}  No. Expediente: {{dato.no_expediente}}
+                    <a>Registro No.: {{ dato.id }}</a>
+                    <a>Victima: {{dato.get_full_name}}</a>
+                    <a>No. Expediente: {{dato.no_expediente}}</a>
                 </p>
-                <p>
-                	<a href={% url 'registros:detail' dato.id %}>Ver</a>
-                	<a href={% url 'registros:edit' dato.id %}>Editar</a>
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+              </li>
+          {% endfor %}
+        </div>
+        <div class = "bDos">
+          {% for dato in registros %}
+            <p>
+              <a href={% url 'registros:detail' dato.id %}>Ver</a>
+              <a> | </a>
+              <a href={% url 'registros:edit' dato.id %}>Editar</a>
+            </p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
 
 {% endblock %}
