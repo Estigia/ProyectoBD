@@ -68,6 +68,8 @@ class UserCreationForm(forms.ModelForm):
 #         return user
 
 class UserChangeForm(forms.Form):
+
+    actual_pass = forms.CharField(label = 'Contraseña actual',widget=forms.PasswordInput())
     password = forms.CharField(label='Password',widget=forms.PasswordInput())
     password1 = forms.CharField(label='Confirmar password',widget=forms.PasswordInput())
     

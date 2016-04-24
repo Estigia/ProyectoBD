@@ -8,7 +8,7 @@ class Tipo_UsuarioAdmin(admin.ModelAdmin):
 	list_display = ["id","__unicode__"]
 
 class UsuarioAdmin(admin.ModelAdmin):
-	list_display = ["id","__unicode__","get_full_name","Tipo_Usuario_id","ultima_conexion"]
+	list_display = ["id","__unicode__","get_full_name","Tipo_Usuario_id","ultima_conexion","password"]
 	form = UserCreationForm
 	#form = UserChangeForm
 	#add_form = UserCreationForm

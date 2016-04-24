@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Armas',
     'localizaciones',
     'Registros',
+    'datetimewidget',
 ]
 
 MIDDLEWARE_CLASSES = [
