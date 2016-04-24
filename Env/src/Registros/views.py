@@ -4,7 +4,7 @@ from .models import Registro, Actividad
 from django.core.urlresolvers import reverse_lazy, reverse
 #from home.models import Usuario
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from localizaciones.models import Municipio, Departamento
 from Armas.models import Arma
 from django.contrib.auth.decorators import login_required
@@ -33,6 +33,7 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 		"cui",
 		"sexo",
 		"ubicacion",
+		"fiscal",
 		"Municipio",
 		"Arma",
 		"no_casquillos",
@@ -47,36 +48,60 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 
 @login_required(login_url='inicio')
 def registro(request):
-	form = RegistroForm(request.POST or None)
-	Departamentos = Departamento.objects.all()
-	Municipios = Municipio.objects.all()
-	Armas = Arma.objects.all()
 
-	context = {
-		"form" :form,
-		"Armas" : Armas,
-		"Departamentos" : Departamentos,
-		"Municipios" : Municipios,
-		"titulo": "Registros"
-	}
+	tipo = request.user.Tipo_Usuario_id.id
 
-	if form.is_valid():
-		rID = form.save()
-		vID = request.user
-		#rID = Registro.objects.latest('id')
-		print vID," ",rID
-		a = Actividad(Registro_id=rID,Usuario_id=vID,actividad="Creado")
-		a.save()
-		return redirect("registros:msg")
+	if tipo == 4 or tipo == 3:
+		form = RegistroForm(request.POST or None)
+		Departamentos = Departamento.objects.all()
+		Municipios = Municipio.objects.all()
+		Armas = Arma.objects.all()
 
-	return render(request,'registros.html',context)
+		context = {
+			"form" :form,
+			"Armas" : Armas,
+			"Departamentos" : Departamentos,
+			"Municipios" : Municipios,
+			"titulo": "Registros"
+		}
 
+		if form.is_valid():
+			rID = form.save()
+			vID = request.user
+			#rID = Registro.objects.latest('id')
+			print vID," ",rID
+			a = Actividad(Registro_id=rID,Usuario_id=vID,actividad="Creado")
+			a.save()
+			return redirect("registros:msg")
+
+
+
+		return render(request,'registros.html',context)
+
+	return redirect('appHome:403')
 
 @login_required(login_url='inicio')
 def lista(request):
-    registros = Registro.objects.all()
-    context = { "registros": registros }
-    return render(request,"registro_list.html",context)
+	tipo = request.user.Tipo_Usuario_id.id
+	registros = Registro.objects.all()
+
+	if tipo == 4 or tipo == 3:
+		context = { "registros": registros }
+		return render(request,"registro_list.html",context)
+
+	return redirect('appHome:403')
+
+@login_required(login_url='inicio')
+def listaDetalles(request):
+	tipo = request.user.Tipo_Usuario_id.id
+
+	if tipo == 4 or tipo == 3:
+		detalles = Actividad.objects.filter(Usuario_id=request.user.id)
+
+		context = {"detalles": detalles}
+		return render(request,"detalles_list.html",context)
+
+	return redirect("appHome:403")
 
 def BusquedaMunicipio(request):
 		id_Departamento = request.GET['id']

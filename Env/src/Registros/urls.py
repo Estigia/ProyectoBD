@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from .views import (
-	registro,lista,
-	RegistroDetail,
+	registro,
+	lista, 
+	RegistroDetail, 
 	RegistroUpdate,
-	correcto,
+	correcto
 	)
 
 urlpatterns = [

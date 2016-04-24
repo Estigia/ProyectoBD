@@ -28,10 +28,45 @@
 		<p> Fecha: <i> {{registro.fecha}} </i></p>
 		<p> Fiscal: <i> {{registro.fiscal}} </i></p>
 		<p> Descripcion: <p> {{registro.descripcion}} </p></p>
-		
+
 		<footer>
 			Fecha de creacion: <i> {{registro.fecha_registro}}</i></footer>
 		</footer>
 	</section>
+
+	<div id="section">
+	  <div id="bloqueDesplegar">
+	    <div class = "title">
+	      <h3>Registro No. {{registro.id}}</h3>
+	    </div>
+	    <div class = "bloqueOne">
+				<p> CUI: <i> {{registro.cui}}</i></p>
+				<p> Nombre: <i> {{registro.get_full_name}}</i></p>
+				<p> Sexo: <i> {{registro.sexo}} </i></p>
+				<p> Edad: <i> {{registro.edad}} </i></p>
+				<p> Muerto: <i> {{registro.muerto}} </i></p>
+				<p> Profesion: <i> {{registro.profesion}} </i></p>
+	    </div>
+	    <div class = "bloqueTwo">
+				<p> Municipio: <i> {{registro.Municipio}} </i></p>
+				<p> Ubicacion:  {{registro.ubicacion}} </p>
+				<p> No. Expediente <i> {{registro.no_expediente}} </i></p>
+				<p> Arma: <i> {{registros.Arma}} </i></p>
+				{% if registro.no_casquillos %}
+				<p> No. Casquillos: <i> {{registro.no_casquillos}} </i></p>
+				{% endif %}
+				{% if registro.serial %}
+				<p> Serial del Arma: <i> {{registro.serial}} </i></p>
+				{% endif %}
+				<p> Movil: <i> {{registro.movil}} </i></p>
+				<p> Fecha: <i> {{registro.fecha}} </i></p>
+				<p> Fiscal: <i> {{registro.fiscal}} </i></p>
+				<p> Descripcion: {{registro.descripcion}} </p>
+	    </div>
+	  </div>
+		<footer style="color:black;">
+			Fecha de creacion: <i> {{registro.fecha_registro}}</i></footer>
+		</footer>
+	</div>
 
 {% endblock %}
