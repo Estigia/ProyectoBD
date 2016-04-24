@@ -16,10 +16,10 @@ class ArmaForm(forms.ModelForm):
 		super(ArmaForm, self).__init__(*args, **kwargs)
 
 		self.fields['objeto'].widget = forms.TextInput(attrs={
-			'placeholder' : 'Herramienta del acto'
+			'placeholder' : 'Clase, ejemplo: Rifle de Asalto'
 			})
 
 		self.fields['marca'].widget = forms.TextInput(attrs={
-			'placeholder' : 'toto'
+			'placeholder' : 'Ejemplo: Bersa'
 			})
 
