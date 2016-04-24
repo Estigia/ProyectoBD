@@ -1,5 +1,9 @@
 from django.conf.urls import url
-from .views import UserDetail, lista, UserUpdate, privado
+from .views import (
+
+	UserDetail, lista, UserUpdate, privado
+
+	)
 
 urlpatterns = [
 

@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <meta name="keywords" content="" />
@@ -18,15 +17,12 @@
       google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
 
-
-
-
       function drawRegionsMap() {
 
         var data = google.visualization.arrayToDataTable([
           ['States','Estado','Casos'],
-          ['GT-AV','Alta Verapaz',1],
-          ['GT-BV','Baja Verapaz',2],
+          ['GT-AV','Alta Verapaz',{{Registro_Av}}],
+          ['GT-BV','Baja Verapaz',{{Registro_Bv}}],
           ['GT-CM','Chimaltenango',3],
           ['GT-CQ','Chiquimula',4],
           ['GT-PR','El Progreso',5],
@@ -136,16 +132,25 @@
 			</div>
 
 			<div class="tbox1">
-				<div id="chart_div" style="width: 1200; height: 1200;"></div>
+				<div id="chart_div" style="width: 100%; height: 500px;"></div>
 			</div>
 			<div class="tbox2">
-				<p>Etiam neque. Vivamus consequat lorem at nisl. Nullam  wisi a sem semper eleifend. Donec mattis. Phasellus pellentesque, ante nec iaculis dapibus, eros justo auctor lectus, a lobortis lorem mauris quis nunc.</p>
+        
+        <ul>
+        {% for dato in Deps %}
+            <li>
+                <p>
+                  <a href={% url 'mapa' dato.id %}>{{ dato.departamento }}</a>
+                </p>
+
+            </li>
+        {% endfor %}
+    </ul>
+
 			</div>
+     
 		</div>
 	</div>
-
-
-  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 {% block js %}
 {% endblock %}
