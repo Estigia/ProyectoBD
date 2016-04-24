@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Actividades del usuario</h1>
+    <ul>
+        {% for dato in detalles %}
+            <li>
+                <p>
+                    {{dato.Usuario_id}} {{dato.actividad}} {{dato.Registro_id}}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

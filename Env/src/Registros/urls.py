@@ -1,6 +1,9 @@
 from django.conf.urls import url
 from .views import (
-	registro,lista, RegistroDetail, RegistroUpdate
+	registro,
+	lista, 
+	RegistroDetail, 
+	RegistroUpdate
 	)
 
 urlpatterns = [
