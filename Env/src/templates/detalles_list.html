@@ -7,7 +7,8 @@
         {% for dato in detalles %}
             <li>
                 <p>
-                    {{dato.Usuario_id}} {{dato.actividad}} {{dato.Registro_id}}
+                    El usuario {{dato.Usuario_id}} a {{dato.actividad}} el Registro No.: {{dato.Registro_id}}
+                    <i>Hora: {{dato.fecha}}</i>
                 </p>
             </li>
         {% endfor %}

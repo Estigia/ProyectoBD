@@ -47,5 +47,6 @@ class Actividad(models.Model):
 	Registro_id = models.ForeignKey('Registro')
 	Usuario_id = models.ForeignKey('home.Usuario')
 	actividad = models.CharField(max_length=45)
+	fecha = models.DateTimeField(auto_now=False,auto_now_add=True)
 
 	verbose_name = 'Actividades'
