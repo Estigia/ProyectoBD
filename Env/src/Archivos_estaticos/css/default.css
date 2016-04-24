@@ -261,11 +261,13 @@
 
 	.tbox1
 	{
-		width: 50%;
+		width: 48%;
+
 	}
 	.tbox2
 	{
 		width: 48%;
+
 	}
 
 	.tbox1
@@ -613,26 +615,34 @@
 
 /***********************/
 
+#grupo{
+	color: black;
+	text-align: center;
+}
+
 
 #dobleBloque
 {
 	background: #FFF;
-	display: block;
+	display: flex;
 	color: black;
 }
+
+
 
 .bloqueUno {
 	text-align: right;
 	color: black;
 	float: left;
 	width: 48%;
-
+	display: inline-block;
 }
 
 .bloqueDos {
 	text-align: left;
 	float: right;
 	width: 50%;
+	display: inline-flex;
 }
 
 .bloqueUno {

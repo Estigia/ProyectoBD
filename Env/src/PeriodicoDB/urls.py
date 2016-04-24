@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 from Registros.views import BusquedaMunicipio, BusquedaArma
+from home.views import DepDetail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^registros/', include('Registros.urls',namespace='registros')),
     url(r'^logout/','home.views.cerrar', name='logout'),
     url(r'^signin/','home.views.inicio', name='inicio'),
+    url(r'^(?P<pk>\d+)$',DepDetail.as_view(),name='mapa'),
 
 ]
 

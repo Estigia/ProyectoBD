@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
-
+from django.http import HttpResponseRedirect
 
 class RegistroDetail(LoginRequiredMixin,DetailView):
 	login_url = 'inicio'
@@ -67,9 +67,13 @@ def registro(request):
 		if form.is_valid():
 			rID = form.save()
 			vID = request.user
-			print vID," ",rID 
+			#rID = Registro.objects.latest('id')
+			print vID," ",rID
 			a = Actividad(Registro_id=rID,Usuario_id=vID,actividad="Creado")
 			a.save()
+			return redirect("registros:msg")
+
+
 
 		return render(request,'registros.html',context)
 	
@@ -100,15 +104,19 @@ def listaDetalles(request):
 
 def BusquedaMunicipio(request):
 		id_Departamento = request.GET['id']
-		muni = Municipio.objects.filter(Departamento_id= id_Departamento)		
-		data = serializers.serialize('json', muni, fields = ('municipio'))	
+		muni = Municipio.objects.filter(Departamento_id= id_Departamento)
+		data = serializers.serialize('json', muni, fields = ('municipio'))
 		return HttpResponse(data, content_type='application/json')
 
 def BusquedaArma(request):
 		id_Arma = request.GET['id']
 		print id_Arma
 		print id_Arma
-		Armas = Arma.objects.filter(categoria = id_Arma)				
+		Armas = Arma.objects.filter(categoria = id_Arma)
 		data = serializers.serialize('json', Armas, fields = ('objeto','marca','calibre'))
-		print data		
+		print data
 		return HttpResponse(data, content_type='application/json')
+
+
+def correcto(request):
+    return render(request, 'agregado.html', {})

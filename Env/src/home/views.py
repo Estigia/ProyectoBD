@@ -7,9 +7,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
+from Registros.models import Registro
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
 from .models import Usuario
+from localizaciones.models import Departamento
 # Create your views here.
 
 @login_required(login_url='inicio')
@@ -57,7 +59,7 @@ def registro(request):
         return render(request,'registro.html',context)
 
     return HttpResponseRedirect('/')
-    
+
 
 
 def inicio(request):
@@ -113,4 +115,22 @@ def cerrar(request):
 
 
 def home(request):
-	return render(request, 'home.html', {})
+    Registro_Av = Registro.objects.filter(Municipio__Departamento_id = 1)
+    Registro_Bv = Registro.objects.filter(Municipio__Departamento_id = 2)
+    # Registro_Cv = Registro.objects.filter(Municipio__Departamento_id = 3)
+    Casos_Av = len(Registro_Av)
+    Casos_Bv = len(Registro_Bv)
+    vDep = Departamento.objects.all()
+    # Casos_Cm = len(Registro_Cm)
+    context = {
+        "Registro_Av": Casos_Av,
+        "Registro_Bv": Casos_Bv,
+        "Deps": vDep,
+        # "Registro_Cm": Casos_Cm,
+    }
+    return render(request,'home.html', context)
+
+class DepDetail(DetailView):
+    model = Departamento
+    template_name = "dep_detail.html"
+
