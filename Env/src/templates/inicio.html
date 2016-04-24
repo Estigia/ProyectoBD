@@ -4,7 +4,9 @@
 
 
 
-
+{% if form.errors %}
+   <p>El usuario o la contraseña no coinciden.</p>
+{% endif %}
 
 <div id="section">
   <div id="bloqueForms">

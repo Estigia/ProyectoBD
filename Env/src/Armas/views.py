@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 @login_required(login_url='inicio')
 def Arma(request):
-	tipo = request.user.Tipo_Usuario.id
+	tipo = request.user.Tipo_Usuario_id.id
 
 	if tipo == 4 or tipo == 3:
 		form = ArmaForm(request.POST or None)

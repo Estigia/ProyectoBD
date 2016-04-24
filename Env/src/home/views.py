@@ -13,7 +13,8 @@ from Registros.models import Registro
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
 from .models import Usuario
-from localizaciones.models import Departamento
+from localizaciones.models import Departamento, Municipio
+from Armas.models import Arma
 # Create your views here.
 
 @login_required(login_url='inicio')
@@ -29,9 +30,12 @@ def cambioPass(request):
     if form.is_valid():
 
         password = request.POST['password1']
-        request.user.password = password
+        usuario = request.user
+        usuario.set_password(password)
+        usuario.save()
 
-        return HttpResponseRedirect('/logout')
+        logout(request)
+        return redirect('/signin')
 
     return render(request,'cambioPass.html',context)
 
@@ -57,8 +61,14 @@ def lista(request):
 @login_required(login_url='inicio')
 def privado(request):
     user = request.user
+    tipo = request.user.Tipo_Usuario_id.id
 
-    return render(request,'perfil.html',{"user": user})
+    if tipo == 4:
+        return render(request,'perfil_a.html',{"user": user})
+    elif tipo == 3:
+        return render(request,'perfil_p.html',{"user":user})
+
+    return render(request,'perfil.html',{"user":user})
 
 
 def registro(request):
@@ -109,7 +119,8 @@ def inicio(request):
                     }
 
                     if request.GET:
-                        return HttpResponseRedirect(request.GET['next'])
+                        if request.GET['next'] != '/logout':
+                            return HttpResponseRedirect(request.GET['next'])
 
                     return redirect('appHome:perfil')
                 else:
@@ -129,7 +140,7 @@ def inicio(request):
 @login_required(login_url='inicio')
 def cerrar(request):
     logout(request)
-    return HttpResponseRedirect('/signin')
+    return HttpResponseRedirect('/')
 
 
 def home(request):
@@ -165,9 +176,16 @@ class DepDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DepDetail,self).get_context_data(**kwargs)
-
+        Departamentos = Departamento.objects.all()
+        Municipios = Municipio.objects.all()
+        Armas = Arma.objects.all()
 
         context.update({
 
+            "Armas": Armas,
+            "Departamentos": Departamentos,
+            "Municipios": Municipios,
+
             })
 
+        return context
