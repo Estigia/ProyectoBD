@@ -16,6 +16,13 @@
       		<p>Ultima conexion: <i>{{user.ultima_conexion}}</i></p>
       		<p>Tipo de Usuario: <i>{{user.Tipo_Usuario_id}}</i></p>
       		<a href = {% url 'appHome:pass' %}>Cambiar contraseña</a>
+		<p>
+			<a href = {% url 'appHome:list' %}>Usuarios</a>
+			<a> | </a>
+			<a href= {% url 'registros:list' %}>Registros</a>
+			<a> | </a>
+			<a href = {% url 'appHome:detail_list' %}>Actividades</a>
+		</p>
 	</div>
 </div>
 

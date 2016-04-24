@@ -12,28 +12,28 @@
 <link href='{% static "css/fonts.css" %}' rel="stylesheet" type="text/css" media="all" />
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-{% block js %}
-{% csrf_token %}
-<script type="text/javascript">
-console.log("cuaquier");
-$('#casos').on('change',drawRegionsMap2);
-</script>
-{% endblock %}
+
+
+
+    
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
       google.charts.load('current', {'packages':['geochart']});
-
       google.charts.setOnLoadCallback(drawRegionsMap);
+      google.charts.setOnLoadCallback(drawRegionsMap2);
+      google.charts.setOnLoadCallback(drawRegionsMap3);
+      google.charts.setOnLoadCallback(drawRegionsMap4);
      
 
       function drawRegionsMap() {
 
         var data = google.visualization.arrayToDataTable([
+
           ['States','Estado','Casos'],
-          ['GT-AV','Alta Verapaz',{{Registro_AvM}}],
-          ['GT-BV','Baja Verapaz',{{Registro_BvM}}],
+          ['GT-AV','Alta Verapaz',{{Registro_AvM}}+{{Registro_AvF}}+{{Registro_AvD}}],
+          ['GT-BV','Baja Verapaz',{{Registro_BvM}}+{{Registro_BvF}}+{{Registro_BvD}}],
           ['GT-CM','Chimaltenango',3],
           ['GT-CQ','Chiquimula',4],
           ['GT-PR','El Progreso',5],
@@ -77,7 +77,7 @@ $('#casos').on('change',drawRegionsMap2);
    var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
       chart.draw(data, options);
 };
-/////////////////////////////mapa mujeres
+
 function drawRegionsMap2() {
 
         var data = google.visualization.arrayToDataTable([
@@ -124,8 +124,111 @@ function drawRegionsMap2() {
 
     };
     //se instacia y se dibuja el grafico
-   var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
+   var chart2 = new google.visualization.GeoChart(document.getElementById('chart2_div'));
+      chart2.draw(data, options);
+};
+
+
+
+
+function drawRegionsMap3() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['States','Estado','Casos'],
+          ['GT-AV','Alta Verapaz',{{Registro_AvM}}],
+          ['GT-BV','Baja Verapaz',{{Registro_BvM}}],
+          ['GT-CM','Chimaltenango',3],
+          ['GT-CQ','Chiquimula',4],
+          ['GT-PR','El Progreso',5],
+          ['GT-ES','Escuintla',6],
+          ['GT-GU','Guatemala',7],
+          ['GT-HU','HuehueTenango',8],
+          ['GT-IZ','Izabal',9],
+          ['GT-JA','Jalapa',10],
+          ['GT-JU','Jutiapa',11],
+          ['GT-PE','Peten',12],
+          ['GT-QZ','Quetzaltenango',13],
+          ['GT-QC','Quiche',14],
+          ['GT-RE','Retalhuleu',15],
+          ['GT-SA','Sacatepequez',16],
+          ['GT-SM','San Marcos',17],
+          ['GT-SR','Santa Rosa',18],
+          ['GT-SO','Solola',19],
+          ['GT-SU','Suchitepequez',20],
+          ['GT-TO','Totonicapan',21],
+          ['GT-ZA','Zacapa',22],
+        ]);
+
+    var options =
+    {
+         backgroundColor: '#2651a8',
+          datalessRegionColor: '#2651a8',
+          defaultColor: '#f5f5f5',
+
+        sizeAxis: { minValue: 1, maxValue: 22 },
+        legend: 'True', // se quita el slider indicador de poblacion minima y maxima
+        //tooltip: {trigger:'none'},
+        region: 'GT',   // region a dibujar en el mapa
+        resolution: 'provinces',    //
+       // displayMode: 'markers',
+
+        // color minimo: 'LightYellow' y color maximo: 'Salmon', igual se pueden utilizar los valor rgb.
+        colorAxis: {colors: ['#FFFF66', '#FFA500','#B22222'] }
+
+    };
+    //se instacia y se dibuja el grafico
+   var chart3 = new google.visualization.GeoChart(document.getElementById('chart3_div'));
+      chart3.draw(data, options);
+};
+
+function drawRegionsMap4() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['States','Estado','Casos'],
+          ['GT-AV','Alta Verapaz',{{Registro_AvE}}],
+          ['GT-BV','Baja Verapaz',{{Registro_BvE}}],
+          ['GT-CM','Chimaltenango',3],
+          ['GT-CQ','Chiquimula',4],
+          ['GT-PR','El Progreso',5],
+          ['GT-ES','Escuintla',6],
+          ['GT-GU','Guatemala',7],
+          ['GT-HU','HuehueTenango',8],
+          ['GT-IZ','Izabal',9],
+          ['GT-JA','Jalapa',10],
+          ['GT-JU','Jutiapa',11],
+          ['GT-PE','Peten',12],
+          ['GT-QZ','Quetzaltenango',13],
+          ['GT-QC','Quiche',14],
+          ['GT-RE','Retalhuleu',15],
+          ['GT-SA','Sacatepequez',16],
+          ['GT-SM','San Marcos',17],
+          ['GT-SR','Santa Rosa',18],
+          ['GT-SO','Solola',19],
+          ['GT-SU','Suchitepequez',20],
+          ['GT-TO','Totonicapan',21],
+          ['GT-ZA','Zacapa',22],
+        ]);
+
+    var options =
+    {
+         backgroundColor: '#2651a8',
+          datalessRegionColor: '#2651a8',
+          defaultColor: '#f5f5f5',
+
+        //sizeAxis: { minValue: 1, maxValue: 22 },
+        legend: 'True', // se quita el slider indicador de poblacion minima y maxima
+        //tooltip: {trigger:'none'},
+        region: 'GT',   // region a dibujar en el mapa
+        resolution: 'provinces',    //
+       // displayMode: 'markers',
+
+        // color minimo: 'LightYellow' y color maximo: 'Salmon', igual se pueden utilizar los valor rgb.
+        colorAxis: {colors: ['#FFFF66', '#FFA500','#B22222'] }
+
+    };
+    //se instacia y se dibuja el grafico
+   var chart4 = new google.visualization.GeoChart(document.getElementById('chart4_div'));
+      chart4.draw(data, options);
 };
 
 
@@ -138,7 +241,10 @@ function drawRegionsMap2() {
 
 
 
-    </script>
+</script>
+
+
+
 </head>
 
 
@@ -153,7 +259,6 @@ function drawRegionsMap2() {
         <ul>
           <li><a href="/" accesskey="1" title="">Inicio</a></li>
           <li><a href="#" accesskey="2" title="">Acerca de</a></li>
-          <li><a href="#" accesskey="3" title="">Contacto</a></li>
           {% if user.is_authenticated %}
           <li><a href="#" accesskey="4" title="">Registros</a>
   					<ul>
@@ -162,6 +267,7 @@ function drawRegionsMap2() {
   						<div class="fin"></div>
   					</ul>
   				</li>
+          <li><a href={% url 'appHome:perfil' %} accesskey="3" title="">Perfil</a></li>
   				<li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
           {% else %}
           <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
@@ -180,6 +286,7 @@ function drawRegionsMap2() {
 
 
 <body>
+
 
   <div id="section">
     <div id="segundoBloque">
@@ -201,26 +308,33 @@ function drawRegionsMap2() {
 			</div>
 
 			<div class="tbox1">
-				<div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <font color="Black">Total</font> 
+       	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black">Hombres</font> 
+         
+        <div id="chart3_div" style="width: 100%; height: 500px;"></div>
 			</div>
-			<div class="tbox2">
-         <font color="Black">Filtros Mapa</font> 
-        <select id='casos' name='casos'>
-    <option value="Ho">Hombres</option>
-    <option value="Mu">Mujeres</option>
-    <option value="De" selected>Desconocido</option>
-   </select>
-        
-        <!-- <ul>
-        {% for dato in Deps %}
-            <li>
-                <p>
-                  <a href={% url 'mapa' dato.id %}>{{ dato.departamento }}</a>
-                </p>
 
-            </li>
-        {% endfor %}
-    </ul> -->
+
+			<div class="tbox2">
+        <font color="Black">Menores</font>
+          <div id="chart4_div" style="width: 100%; height: 500px;"></div>         
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black">Mujeres</font>
+        <div id="chart2_div" style="width: 100%; height: 500px;"></div>
+        
+         
+
+     
 
 			</div>
      

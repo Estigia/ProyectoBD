@@ -46,6 +46,20 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 
 		]
 
+	def get_context_data(self, **kwargs):
+		context = super(RegistroUpdate, self).get_context_data(**kwargs)
+		Departamentos = Departamento.objects.all()
+		Municipios = Municipio.objects.all()
+		Armas = Arma.objects.all()
+
+		context.update({
+			"Armas":Armas, 
+			"Departamentos":Departamentos,
+			"Municipios": Municipios,
+			})
+
+		return context
+
 @login_required(login_url='inicio')
 def registro(request):
 
@@ -96,7 +110,7 @@ def listaDetalles(request):
 	tipo = request.user.Tipo_Usuario_id.id
 
 	if tipo == 4 or tipo == 3:
-		detalles = Actividad.objects.filter(Usuario_id=request.user.id)
+		detalles = Actividad.objects.all()
 
 		context = {"detalles": detalles}
 		return render(request,"detalles_list.html",context)
