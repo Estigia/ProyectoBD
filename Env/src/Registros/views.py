@@ -117,6 +117,10 @@ def BusquedaArma(request):
 		print data
 		return HttpResponse(data, content_type='application/json')
 
-
+@login_required(login_url='inicio')
 def correcto(request):
-    return render(request, 'agregado.html', {})
+	tipo = request.user.Tipo_Usuario_id.id
+	if tipo == 4 or tipo == 3:
+		return render(request, 'agregado.html', {})
+
+	return redirect('appHome:403')

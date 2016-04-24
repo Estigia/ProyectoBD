@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from django import forms
 from django.core.urlresolvers import reverse_lazy, reverse
-from .forms import UserCreationForm, InicioForm
+from .forms import UserCreationForm, InicioForm, UserChangeForm
 from .models import Usuario
 from Registros.models import Actividad
 from django.contrib.auth import login, authenticate, logout
@@ -18,6 +20,21 @@ from localizaciones.models import Departamento
 def permisos(request):
     return render(request,'403.html',{})
 
+@login_required(login_url='inicio')
+def cambioPass(request):
+    form = UserChangeForm(request.POST or None)
+
+    context = { "form": form }
+
+    if form.is_valid():
+
+        password = request.POST['password1']
+        request.user.password = password
+
+        return HttpResponseRedirect('/logout')
+
+    return render(request,'cambioPass.html',context)
+
 
 class UserDetail(LoginRequiredMixin, DetailView):
     login_url = 'inicio'
@@ -25,6 +42,7 @@ class UserDetail(LoginRequiredMixin, DetailView):
     template_name = 'usuario_detail.html'
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
+    login_url = 'inicio'
     model = Usuario
     template_name = 'usuario_update.html'
     success_url = reverse_lazy('appHome:list')
@@ -111,7 +129,7 @@ def inicio(request):
 @login_required(login_url='inicio')
 def cerrar(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/signin')
 
 
 def home(request):
