@@ -101,7 +101,20 @@ def lista(request):
 	registros = Registro.objects.all()
 
 	if tipo == 4 or tipo == 3:
-		context = { "registros": registros }
+		context = { 
+			"registros": registros,
+			"bandera": True, 
+			}
+
+		return render(request,"registro_list.html",context)
+
+	if tipo == 2:
+		registros = Registro.objects.filter(is_active=True)
+		context = {
+			"registros": registros,
+			"bandera": True,
+			}
+
 		return render(request,"registro_list.html",context)
 
 	return redirect('appHome:403')
