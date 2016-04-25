@@ -18,6 +18,18 @@
                 </p>
               </li>
           {% endfor %}
+
+          Buscar por : 
+          <select id='Consulta' name='Consulta'>
+            <option selected></option>
+            <option value='Nombre'>Nombre</option>
+            <option value='Apellidos'>Apellidos</option>
+            <option value='Edad'>Edad</option>
+            <option value='Sexo'>Sexo</option>
+            <option value='Fecha'>Fecha</option>
+          </select>
+
+
         </div>
         <div class = "bDos">
           {% for dato in registros %}
