@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="section">
+  <div id="bloqueDesplegar">
+    <div class = "title">
+      <h1>Datos modificados por: {{usuario.get_full_name}}</h1>
+    </div>
+    <div class = "bloqueOne">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+    <div class = "bloqueTwo">
+    {% for dato in detalles %}
+      <p>Usuario:<i>{{dato.Usuario_id}}</i></p>
+      <p>Accion:<i>{{dato.actividad}}</i></p>
+      <p>Registro:<i>{{dato.Registro_id}}</i></p>
+      <p>Fecha: <i>{{dato.fecha}}</i></p>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

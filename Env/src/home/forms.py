@@ -69,10 +69,18 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.Form):
 
-    actual_pass = forms.CharField(label = 'Contraseña actual',widget=forms.PasswordInput())
+    #actual_pass = forms.CharField(label = 'Contraseña actual',widget=forms.PasswordInput())
     password = forms.CharField(label='Password',widget=forms.PasswordInput())
     password1 = forms.CharField(label='Confirmar password',widget=forms.PasswordInput())
     
+    # def clean_actual_pass(self,vPass):
+    #     actual_pass = self.cleaned_data.get("actual_pass")
+
+    #     if actual_pass and vPass and actual_pass == vPass:
+
+    #         raise forms.ValidationError("Ingrese su contraseña actual.")
+
+    #     return actual_pass
 
     def clean_password1(self):
         # Check that the two password entries match
