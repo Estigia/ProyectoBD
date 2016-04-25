@@ -8,7 +8,11 @@
             <li>
                 <p>
                     El usuario {{dato.Usuario_id}} a {{dato.actividad}} el Registro No.: {{dato.Registro_id}}
-                    <i>Hora: {{dato.fecha}}</i>
+                    <i>Hora: {{dato.fecha}} 
+                        <a href = {% url 'appHome:detailList' dato.Usuario_id.id %}>
+                            Ver todos los registros modificados por este usuario.
+                        </a> 
+                    </i>
                 </p>
             </li>
         {% endfor %}

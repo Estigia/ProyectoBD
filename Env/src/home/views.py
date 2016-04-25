@@ -31,6 +31,7 @@ def cambioPass(request):
 
         password = request.POST['password1']
         usuario = request.user
+        #actual = form.cleaned_data.get("actual_pass",usuario.get_password())
         usuario.set_password(password)
         usuario.save()
 

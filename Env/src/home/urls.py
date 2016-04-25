@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import UserDetail, lista, UserUpdate, privado
-from Registros.views import listaDetalles
+from Registros.views import listaDetalles, detallesUser
 from .views import (
 
 	UserDetail,
@@ -20,6 +20,7 @@ urlpatterns = [
 	url(r'^$', privado, name = 'perfil'),
 	url(r'^perm', permisos, name='403'),
 	url(r'^detalles',listaDetalles,name='detail_list'),
+	url(r'^actividades/(?P<vID>\d+)$', detallesUser, name = 'detailList'),
 	url(r'^pass', cambioPass, name = 'pass'),
 
 ]
