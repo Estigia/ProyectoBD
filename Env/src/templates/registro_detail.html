@@ -17,10 +17,11 @@
 				<p> Profesion: <i> {{registro.profesion}} </i></p>
 	    </div>
 	    <div class = "bloqueTwo">
+				<p> Departamento: <i> {{registro.Municipio.Departamento_id}} </i> </p>
 				<p> Municipio: <i> {{registro.Municipio}} </i></p>
 				<p> Ubicacion:  {{registro.ubicacion}} </p>
 				<p> No. Expediente <i> {{registro.no_expediente}} </i></p>
-				<p> Arma: <i> {{registros.Arma}} </i></p>
+				<p> Arma: <i> {{registro.Arma}} </i></p>
 				{% if registro.no_casquillos %}
 				<p> No. Casquillos: <i> {{registro.no_casquillos}} </i></p>
 				{% endif %}
