@@ -20,6 +20,8 @@
           <a href={% url 'appHome:detail' dato.id %}>Ver</a>
           <a> | </a>
           <a href={% url 'appHome:edit' dato.id %}>Editar</a>
+          <a> | </a>
+          <a href={% url 'appHome:detailList' dato.id %}>Ver actividades del usuario</a>
         </p>
       {% endfor %}
     </div>
