@@ -28,7 +28,9 @@
             <option value='Sexo'>Sexo</option>
             <option value='Fecha'>Fecha</option>
           </select>
-
+          <INPUT id='textbuscar'  TYPE="text"><BR>
+          <INPUT id='buscar' TYPE="submit" value='Buscar'>
+          <table id='nose' border=1 width=300></table>
 
         </div>
         <div class = "bDos">
@@ -44,3 +46,135 @@
     </div>
 
 {% endblock %}
+
+{% block js %}
+  <script type="text/javascript">
+    $('#buscar').on('click', Tabla);
+
+    function Tabla(){
+      var texto = $('#textbuscar').val();
+      console.log(texto);
+
+      $.ajax({
+        data : {'buscar' : texto},
+        url : 'BuscarNombre/Nombre',
+        type : 'get',
+        success: function(data){
+          var tabla   = document.getElementById("nose");
+          var tblBody = document.createElement("tbody");
+          console.log('asdasd');
+
+          var filas = document.createElement("tr");
+          var columnas = document.createElement("td");
+
+          var Arma = document.createTextNode('Arma');
+            columnas.appendChild(Arma);
+            filas.appendChild(columnas);
+
+          var nombres = document.createTextNode('nombres');
+            var columnas = document.createElement("td");
+            columnas.appendChild(nombres);
+            filas.appendChild(columnas);
+
+          var apellidos = document.createTextNode('apellidos');
+            var columnas = document.createElement("td");
+            columnas.appendChild(apellidos);
+            filas.appendChild(columnas);
+          var edad = document.createTextNode('edad');
+            var columnas = document.createElement("td");
+            columnas.appendChild(edad);
+            filas.appendChild(columnas);
+          var sexo = document.createTextNode('sexo');
+            var columnas = document.createElement("td");
+            columnas.appendChild(sexo);
+            filas.appendChild(columnas);
+          var ubicacion = document.createTextNode('ubicacion');
+            var columnas = document.createElement("td");
+            columnas.appendChild(ubicacion);
+            filas.appendChild(columnas);
+          var fecha = document.createTextNode('fecha');
+            var columnas = document.createElement("td");
+            columnas.appendChild(fecha);
+            filas.appendChild(columnas);
+          var descripcion = document.createTextNode('descripcion');
+            var columnas = document.createElement("td");
+            columnas.appendChild(descripcion);
+            filas.appendChild(columnas);
+          var Municipio = document.createTextNode('Municipio');
+            var columnas = document.createElement("td");
+            columnas.appendChild(Municipio);
+            filas.appendChild(columnas);
+
+          tblBody.appendChild(filas);
+
+          for(var i=0; i < data.length; i++){
+            var filas = document.createElement("tr");
+            for(var j=0; j < 9; j++){
+              var columnas = document.createElement("td");
+              if(j==0)
+                var textoCelda = document.createTextNode(data[i].fields.Arma)
+              else if (j==1)
+                var textoCelda = document.createTextNode(data[i].fields.nombres)
+              else if (j==2)
+                var textoCelda = document.createTextNode(data[i].fields.apellidos)
+              else if (j==3)
+                var textoCelda = document.createTextNode(data[i].fields.edad)
+              else if (j==4)
+                var textoCelda = document.createTextNode(data[i].fields.sexo)
+              else if (j==5)
+                var textoCelda = document.createTextNode(data[i].fields.ubicacion)
+              else if (j==6)
+                var textoCelda = document.createTextNode(data[i].fields.fecha)
+              else if (j==7)
+                var textoCelda = document.createTextNode(data[i].fields.descripcion)
+              else if (j==8)
+                var textoCelda = document.createTextNode(data[i].fields.Municipio)
+              columnas.appendChild(textoCelda);
+              filas.appendChild(columnas);
+            }
+            tblBody.appendChild(filas);
+          }
+          tabla.appendChild(tblBody);
+
+          }
+        
+      })
+
+            // Obtener la referencia del elemento body
+      // //var body = document.getElementsByTagName("body")[0];
+     
+      // // Crea un elemento <table> y un elemento <tbody>
+      // var tabla   = document.getElementById("nose");
+      // var tblBody = document.createElement("tbody");
+     
+      // // Crea las celdas
+      // for (var i = 0; i < 9; i++) {
+      //   // Crea las hileras de la tabla
+      //   var hilera = document.createElement("tr");
+     
+      //   for (var j = 0; j < data; j++) {
+      //     // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      //     // texto sea el contenido de <td>, ubica el elemento <td> al final
+      //     // de la hilera de la tabla
+      //     var celda = document.createElement("td");
+      //     var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+      //     celda.appendChild(textoCelda);
+      //     hilera.appendChild(celda);
+      //   }
+     
+      //   // agrega la hilera al final de la tabla (al final del elemento tblbody)
+      //   tblBody.appendChild(hilera);
+      // }
+     
+      // // posiciona el <tbody> debajo del elemento <table>
+      // tabla.appendChild(tblBody);
+      // // appends <table> into <body>
+      // body.appendChild(tabla);
+      // // modifica el atributo "border" de la tabla y lo fija a "2";
+      // tabla.setAttribute("border", "2");
+
+
+
+    }
+  </script>
+{% endblock %} 
