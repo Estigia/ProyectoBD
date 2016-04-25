@@ -1,7 +1,3 @@
 App Arma:
 	Cuando se cree el registro de arma, tiene que tener la capacidad de poder escojer el tipo
 	de arma (Combobox).
-
-
-Instalamos: sudo pip install django-datetime-widget
-

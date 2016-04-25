@@ -7,6 +7,7 @@ from django.core import serializers
 from django.http import HttpResponse, HttpResponseRedirect
 from localizaciones.models import Municipio, Departamento
 from Armas.models import Arma
+from home.models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -116,6 +117,22 @@ def listaDetalles(request):
 		return render(request,"detalles_list.html",context)
 
 	return redirect("appHome:403")
+
+@login_required(login_url='inicio')
+def detallesUser(request,vID):
+	tipo = request.user.Tipo_Usuario_id.id
+
+	if tipo == 4 or tipo == 3:
+		detalles = Actividad.objects.filter(Usuario_id=vID)
+		usuario = Usuario.objects.filter(id=vID)
+
+		context = {
+			"detalles": detalles,
+			"usuario": usuario,
+		}
+		return render(request,"detailList.html",context)
+
+	return redirect("appHome:403")	
 
 def BusquedaMunicipio(request):
 		id_Departamento = request.GET['id']
