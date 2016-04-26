@@ -330,9 +330,9 @@ def home(request):
     
 
     vDep = Departamento.objects.all()
-    
+
     context = {
-    
+
         "Registro_AvM": Casos_AvM,
         "Registro_AvF": Casos_AvF,
         "Registro_AvD": Casos_AvD,
@@ -687,3 +687,7 @@ class DepDetail(DetailView):
             })
 
         return context
+
+
+def acerca(request):
+    return render(request,'acerca.html', {})
