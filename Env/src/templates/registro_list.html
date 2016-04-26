@@ -56,6 +56,8 @@
         <option value='Sexo'>Sexo</option>
         <option value='Fecha'>Fecha</option>
       </select>
+      <!-- <label>Fecha del Suceso:</label>
+            {{form.fecha}} -->
       <INPUT id='textbuscar'  TYPE="text"><BR>
       <INPUT id='buscar' TYPE="submit" value='Buscar'>
       <table id='nose' border=1 width=300></table>
@@ -63,21 +65,28 @@
 
 {% endblock %}
 
-
-
-
-
 {% block js %}
   <script type="text/javascript">
+    $('#Consulta').on('change', Cambiar);
     $('#buscar').on('click', Tabla);
     //$('#nose').html(""); 
     var tabla   = document.getElementById("nose");
     var tblBody = document.createElement("tbody");
+
+    function Cambiar(){
+      var cambio = $(this).val();
+      if(cambio == 'Fecha')
+         $('#textbuscar').hide();
+      else
+        $('#textbuscar').show();
+    }
           
     function Tabla(){
       var texto = $('#textbuscar').val();
+      var fecha = $('#fecha').val();
+
       var seleccionado = $('#Consulta').val();
-      console.log(seleccionado);
+      console.log(fecha);
 
       $.ajax({
         data : {'buscar' : texto, 'select' : seleccionado},
