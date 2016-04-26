@@ -4,28 +4,29 @@
 
 <!-- onsubmit='this.reset()' -->
 <div id="section">
-  <div id="bloqueForms">
+  <div id="BloqueInicio">
             <div class = "title">
       <h2>Nueva arma</h2>
     </div>
-    <div class = "formularios">
-<form method = 'POST', action='' >
+    <div class = "camposForms">
+      <form method = 'POST', action='' >
 	{% csrf_token %}
 	{{form.categoria}}<br/>
 	<div id='fg'>
-		Calibre:
+		<label>Calibre:</label>
 		{{form.calibre}}<br/>
-		Marca:
+		<label>Marca:</label>
 		{{form.marca}}<br/>
 	</div>
 
-	Objeto:
+	<label>Objeto:</label>
 		{{form.objeto}}<br/>
 
 
 	<br/>
 	<hr>
-
+  <br/>
+  <br/>
 	<input type='submit' value='Registrar Arma'>
 
 {% endblock %}
@@ -45,16 +46,14 @@
 
 			if(id == 'Fg'){
 				$formulario_Fg.show();
-			}			
+			}
 		}
 	</script>
 
-{% endblock %}
+
 </form>
 
 </div>
-            <br></br>
-            <br></br>
-            <li><a href="/registro" accesskey="1" title="">Registrarse</a></li>
   </div>
 </div>
+{% endblock %}
