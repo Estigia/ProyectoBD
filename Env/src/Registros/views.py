@@ -9,18 +9,27 @@ from localizaciones.models import Municipio, Departamento
 from Armas.models import Arma
 from home.models import Usuario
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
-from django.contrib.auth.mixins import LoginRequiredMixin
+#from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import ModelFormMixin
 
-class RegistroDetail(LoginRequiredMixin,DetailView):
-	login_url = 'inicio'
+class RegistroDetail(DetailView):
 	model = Registro
 	template_name = 'registro_detail.html'
 
-class RegistroUpdate(LoginRequiredMixin,UpdateView):
-	login_url = 'inicio'
+	@method_decorator(login_required)
+	def dispatch(self,request, *args, **kwargs):
+		tipo = request.user.Tipo_Usuario_id.id
+
+		if tipo == 4 or tipo == 3:
+			return super(RegistroDetail, self).dispatch(request,*args,**kwargs)
+
+		return redirect('appHome:403')
+
+class RegistroUpdate(UpdateView):
 	model = Registro
 	template_name = 'registro_update.html'
 	success_url = reverse_lazy('registros:list')
@@ -47,7 +56,20 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 
 		]
 
+
+	def form_valid(self, form):
+
+		self.object = form.save()
+		rID = self.object
+		vID = self.request.user
+
+		a = Actividad(Registro_id = rID, Usuario_id = vID, actividad = "Modificado")
+		a.save()
+
+		return super(RegistroUpdate, self).form_valid(form)
+
 	def get_context_data(self, **kwargs):
+		
 		context = super(RegistroUpdate, self).get_context_data(**kwargs)
 		Departamentos = Departamento.objects.all()
 		Municipios = Municipio.objects.all()
@@ -60,6 +82,18 @@ class RegistroUpdate(LoginRequiredMixin,UpdateView):
 			})
 
 		return context
+
+	@method_decorator(login_required)
+	def dispatch(self,request, *args, **kwargs):
+		
+		tipo = request.user.Tipo_Usuario_id.id
+
+		if tipo == 4 or tipo == 3:
+
+			return super(RegistroUpdate, self).dispatch(request,*args,**kwargs)
+
+		return redirect('appHome:403')
+
 
 @login_required(login_url='inicio')
 def registro(request):
@@ -89,8 +123,6 @@ def registro(request):
 			a.save()
 			return redirect("registros:msg")
 
-
-
 		return render(request,'registros.html',context)
 
 	return redirect('appHome:403')
@@ -99,9 +131,21 @@ def registro(request):
 def lista(request):
 	tipo = request.user.Tipo_Usuario_id.id
 	registros = Registro.objects.all()
-	form = RegistroForm(request.POST or None)
 	if tipo == 4 or tipo == 3:
-		context = { "registros": registros, "form":form }
+		context = { 
+			"registros": registros,
+			"bandera": True, 
+			}
+
+		return render(request,"registro_list.html",context)
+
+	if tipo == 2:
+		registros = Registro.objects.filter(is_active=True)
+		context = {
+			"registros": registros,
+			"bandera": False,
+			}
+
 		return render(request,"registro_list.html",context)
 
 	return redirect('appHome:403')

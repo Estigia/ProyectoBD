@@ -38,7 +38,9 @@
             <p>
               <a href={% url 'registros:detail' dato.id %}>Ver</a>
               <a> | </a>
+              {% if bandera %}
               <a href={% url 'registros:edit' dato.id %}>Editar</a>
+              {% endif %}
             </p>
           {% endfor %}
         </div>
