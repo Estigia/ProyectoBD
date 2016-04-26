@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+<!--
 	<div id="section">
 	  <div id="bloqueDesplegar">
 	    <div class = "title">
@@ -40,6 +40,90 @@
 			<br/>
 			Fecha de creacion: <i> {{registro.fecha_registro}}</i></footer>
 		</footer>
+	</div> -->
+
+
+
+	<div id="section">
+			<div class = "title">
+				<h3>Registro No. {{registro.id}}</h3>
+			</div>
+			<div class = "alineacionCentral">
+				<table class="table">
+	        <tr>
+						<td>CUI </td>
+						<td><i> {{registro.cui}}</i></td>
+					</tr>
+					<tr>
+						<td>Nombre</td>
+						<td><i> {{registro.get_full_name}}</i></td>
+					</tr>
+					<tr>
+						<td>Sexo</td>
+						<td>{{registro.sexo}}</td>
+					</tr>
+					<tr>
+						<td>Edad</td>
+						<td>{{registro.edad}} </td>
+					</tr>
+					<tr>
+						<td>Muerto</td>
+						<td><i> {{registro.muerto}} </i></td>
+					</tr>
+					<tr>
+						<td>Profesion</td>
+						<td> <i> {{registro.profesion}} </i></td>
+					</tr>
+					<tr>
+						<td>Departamento</td>
+						<td> <i> {{registro.Municipio.Departamento_id}} </i> </td>
+					</tr>
+					<tr>
+						<td>Municipio</td>
+						<td> <i> {{registro.Municipio}} </i></td>
+					</tr>
+					<tr>
+						<td align="justify">Ubicacion</td>
+						<td> {{registro.ubicacion}} </td>
+					</tr>
+					<tr>
+						<td>No. Expediente</td>
+						<td><i> {{registro.no_expediente}} </i></td>
+					</tr>
+					<tr>
+						<td>Arma</td>
+						<td><i> {{registro.Arma}} </i></td>
+					</tr>
+					<tr>
+						{% if registro.no_casquillos %}
+								<td> <i> No. Casquillos</i></td>
+								<td> <i> {{registro.no_casquillos}} </i></td>
+						{% endif %}
+					</tr>
+					<tr>
+					{% if registro.serial %}
+							<td> <i> Serial del Arma</i></td>
+							<td> <i> {{registro.serial}} </i></td>
+					{% endif %}
+				  </tr>
+					<tr>
+						<td>Movil</td>
+						<td><i> {{registro.movil}} </i></td>
+					</tr>
+					<tr>
+						<td>Fecha</td>
+						<td><i> {{registro.fecha}} </i></td>
+					</tr>
+					<tr>
+						<td>Fiscal</td>
+						<td><i> {{registro.fiscal}} </i></td>
+					</tr>
+					<tr>
+						<td>Descripcion</td>
+						<td align="justify">{{registro.descripcion}}</td>
+					</tr>
+	      </table>
+			</div>
 	</div>
 
 {% endblock %}
