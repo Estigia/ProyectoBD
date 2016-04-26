@@ -46,7 +46,8 @@
     </div>
 
 
-    <div id = "section">
+    <div id = "bloqueBusqueda">
+    <div id = "form-group">
       Buscar por :
       <select id='Consulta' name='Consulta'>
         <option selected></option>
@@ -63,6 +64,7 @@
       <INPUT id='Limpiar' TYPE="submit" value='Limpiar'>
       <table id='nose' border=1 width=300></table>
     </div>
+    </div>
 
 {% endblock %}
 
@@ -71,7 +73,7 @@
     // $('#Consulta').on('change', Cambiar);
     $('#buscar').on('click', Tabla);
     $('#Limpiar').on('click', Limpiar);
-    //$('#nose').html(""); 
+    //$('#nose').html("");
     var tabla   = document.getElementById("nose");
     var tblBody = document.createElement("tbody");
 
@@ -82,7 +84,7 @@
     //   else
     //     $('#textbuscar').show();
     // }
-          
+
     function Tabla(){
       var texto = $('#textbuscar').val();
       var fecha = $('#fecha').val();
@@ -94,7 +96,7 @@
         data : {'buscar' : texto, 'select' : seleccionado},
         url : 'BuscarNombre/Nombre',
         type : 'get',
-        success: function(data){      
+        success: function(data){
            // for(var i=0; i<data.length; i++)
            //   document.getElementById("nose").deleteRow(i);
 
@@ -201,7 +203,7 @@
 
 
 
-      //   success: function(data){      
+      //   success: function(data){
       //      for(var i=0; i<data.length+1; i++)
       //       document.getElementById("nose").deleteRow(0);
       //   }
