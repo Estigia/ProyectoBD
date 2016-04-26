@@ -159,4 +159,5 @@ def BuscarPorNombre(request):
 	Reg_Nombre = Registro.objects.filter(nombres__contains = search)
 	data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
 																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	print data
 	return HttpResponse(data, content_type='application/json')
