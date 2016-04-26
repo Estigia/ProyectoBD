@@ -4,12 +4,11 @@ from Registros.views import listaDetalles, detallesUser
 from .views import (
 
 	UserDetail,
-	lista, 
-	UserUpdate, 
+	lista,
+	UserUpdate,
 	privado,
 	permisos,
-	cambioPass
-
+	cambioPass,
 	)
 
 urlpatterns = [

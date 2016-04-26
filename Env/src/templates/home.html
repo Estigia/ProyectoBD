@@ -15,7 +15,7 @@
 
 
 
-    
+
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -25,7 +25,7 @@
       google.charts.setOnLoadCallback(drawRegionsMap2);
       google.charts.setOnLoadCallback(drawRegionsMap3);
       google.charts.setOnLoadCallback(drawRegionsMap4);
-     
+
 
       function drawRegionsMap() {
 
@@ -258,11 +258,10 @@ function drawRegionsMap4() {
       <div id="menu" class="submenu">
         <ul>
           <li><a href="/" accesskey="1" title="">Inicio</a></li>
-          <li><a href="#" accesskey="2" title="">Acerca de</a></li>
+          <li><a href="/acerca" accesskey="2" title="">Acerca de</a></li>
           {% if user.is_authenticated %}
           <li><a href="#" accesskey="4" title="">Registros</a>
   					<ul>
-  						<li><a href="/" accesskey="7" title="">Consulta</a></li>
   						<li><a href="/registros" accesskey="8" title="">Agregar Registro</a></li>
   						<div class="fin"></div>
   					</ul>
@@ -301,29 +300,30 @@ function drawRegionsMap4() {
 
 
   <div id="wrapper">
+    <div class="title">
+      <h2>Titulo dos</h2>
+      <span class="byline">Prueba de tamano de contenedor a</span>
+    </div>
 		<div id="two-column" class="container">
-			<div class="title">
-				<h2>Titulo dos</h2>
-				<span class="byline">Prueba de tamano de contenedor a</span>
-			</div>
+
 
 			<div class="tbox1">
-        <font color="Black">Total</font> 
+        <font color="Black">Total</font>
        	<div id="chart_div" style="width: 100%; height: 500px;"></div>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
-        <font color="Black">Hombres</font> 
-         
+        <font color="Black">Hombres</font>
+
         <div id="chart3_div" style="width: 100%; height: 500px;"></div>
 			</div>
 
 
 			<div class="tbox2">
         <font color="Black">Menores</font>
-          <div id="chart4_div" style="width: 100%; height: 500px;"></div>         
+          <div id="chart4_div" style="width: 100%; height: 500px;"></div>
         <pr></pr>
         <pr></pr>
         <pr></pr>
@@ -331,13 +331,13 @@ function drawRegionsMap4() {
         <pr></pr>
         <font color="Black">Mujeres</font>
         <div id="chart2_div" style="width: 100%; height: 500px;"></div>
-        
-         
 
-     
+
+
+
 
 			</div>
-     
+
 		</div>
 	</div>
 

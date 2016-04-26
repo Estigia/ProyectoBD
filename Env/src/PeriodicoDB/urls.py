@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^logout/','home.views.cerrar', name='logout'),
     url(r'^signin/','home.views.inicio', name='inicio'),
     url(r'^(?P<pk>\d+)$',DepDetail.as_view(),name='mapa'),
+    url(r'^acerca/','home.views.acerca', name='acerca'),
 
 ]
 

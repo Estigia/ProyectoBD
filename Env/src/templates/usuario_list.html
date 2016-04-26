@@ -6,7 +6,7 @@
   <div class = "title">
     <h1 style="color:black;">Usuarios</h1>
   </div>
-  <div id="dobleBloque">
+  <!-- <div id="dobleBloque">
     <div class = "bloqueUno">
       {% for dato in usuarios %}
           <li>
@@ -24,10 +24,38 @@
           <a href={% url 'appHome:detailList' dato.id %}>Ver actividades del usuario</a>
         </p>
       {% endfor %}
-    </div>
+    </div> -->
+
+
+  <!-- </div> -->
+
+
+
+
+  <div class="alineacionCentral">
+    <table class="table">
+
+      {% for dato in usuarios %}
+      <tr>
+        <td>{{ dato.nombre }}</td>
+        <td><a href={% url 'appHome:detail' dato.id %}>Ver</a>
+        </td>
+        <td>
+          <a href={% url 'appHome:edit' dato.id %}>Editar</a>
+
+        </td>
+        <td>
+          <a href={% url 'appHome:detailList' dato.id %}>Ver actividades del usuario</a>
+
+        </td>
+      </tr>
+      {% endfor %}
   </div>
+  </table>
 </div>
 
+
+<!-- gify icons -->
 
 
 {% endblock %}

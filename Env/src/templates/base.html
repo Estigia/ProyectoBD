@@ -36,11 +36,10 @@
 		<div id="menu" class="submenu">
       <ul>
         <li><a href="/" accesskey="1" title="">Inicio</a></li>
-        <li><a href="#" accesskey="2" title="">Acerca de</a></li>
+        <li><a href="/acerca" accesskey="2" title="">Acerca de</a></li>
         {{% if user.is_authenticated %}
           <li><a href="#" accesskey="4" title="">Registros</a>
             <ul>
-              <li><a href="/" accesskey="7" title="">Consulta</a></li>
               <li><a href="/registros" accesskey="8" title="">Agregar Registro</a></li>
               <div class="fin"></div>
             </ul>
@@ -58,7 +57,7 @@
 </header>
 
 <body bgcolor="#black">
-  <div align="CENTER" >
+  <div class = "paranga" align="CENTER" >
   {% block content %}
   {% endblock %}
   </div>
