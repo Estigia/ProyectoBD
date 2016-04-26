@@ -14,6 +14,7 @@
               <td>Accion</td>
               <td>Registro</td>
               <td>Fecha</td>
+              <td>Historial</td>
             </tr>
             {% for dato in detalles %}
             <tr>
@@ -21,6 +22,7 @@
               <td><i>{{dato.actividad}}</i></td>
               <td><i>{{dato.Registro_id}}</td>
               <td><i>{{dato.fecha}}</i></td>
+              <td><a href = {% url 'appHome:detailList' dato.Usuario_id.id %}>Ver todos los registros modificados por este usuario.</a></td>
     				</tr>
             {% endfor %}
           </table>
