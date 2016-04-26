@@ -60,6 +60,7 @@
             {{form.fecha}} -->
       <INPUT id='textbuscar'  TYPE="text"><BR>
       <INPUT id='buscar' TYPE="submit" value='Buscar'>
+      <INPUT id='Limpiar' TYPE="submit" value='Limpiar'>
       <table id='nose' border=1 width=300></table>
     </div>
 
@@ -67,19 +68,20 @@
 
 {% block js %}
   <script type="text/javascript">
-    $('#Consulta').on('change', Cambiar);
+    // $('#Consulta').on('change', Cambiar);
     $('#buscar').on('click', Tabla);
+    $('#Limpiar').on('click', Limpiar);
     //$('#nose').html(""); 
     var tabla   = document.getElementById("nose");
     var tblBody = document.createElement("tbody");
 
-    function Cambiar(){
-      var cambio = $(this).val();
-      if(cambio == 'Fecha')
-         $('#textbuscar').hide();
-      else
-        $('#textbuscar').show();
-    }
+    // function Cambiar(){
+    //   var cambio = $(this).val();
+    //   if(cambio == 'Fecha')
+    //      $('#textbuscar').hide();
+    //   else
+    //     $('#textbuscar').show();
+    // }
           
     function Tabla(){
       var texto = $('#textbuscar').val();
@@ -94,7 +96,7 @@
         type : 'get',
         success: function(data){      
            // for(var i=0; i<data.length; i++)
-           //  document.getElementById("nose").deleteRow(i);
+           //   document.getElementById("nose").deleteRow(i);
 
           var filas = document.createElement("tr");
           var columnas = document.createElement("td");
@@ -173,42 +175,37 @@
 
 
       })
+  }
 
+    function Limpiar(){
+      var texto = $('#textbuscar').val();
+      var fecha = $('#fecha').val();
 
+      var seleccionado = $('#Consulta').val();
+      console.log($('#nose > tbody >tr').length);
+      var aleluya = $('#nose > tBody >tr').length;
+      console.log(aleluya);
 
-            // Obtener la referencia del elemento body
-      // //var body = document.getElementsByTagName("body")[0];
+      for(var i=0; i< aleluya; i++)
+        document.getElementById("nose").deleteRow(0);
 
-      // // Crea un elemento <table> y un elemento <tbody>
-      // var tabla   = document.getElementById("nose");
-      // var tblBody = document.createElement("tbody");
-
-      // // Crea las celdas
-      // for (var i = 0; i < 9; i++) {
-      //   // Crea las hileras de la tabla
-      //   var hilera = document.createElement("tr");
-
-      //   for (var j = 0; j < data; j++) {
-      //     // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      //     // texto sea el contenido de <td>, ubica el elemento <td> al final
-      //     // de la hilera de la tabla
-      //     var celda = document.createElement("td");
-      //     var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-      //     celda.appendChild(textoCelda);
-      //     hilera.appendChild(celda);
-      //   }
-
-      //   // agrega la hilera al final de la tabla (al final del elemento tblbody)
-      //   tblBody.appendChild(hilera);
+      // var Parent = document.getElementById('nose');
+      // while(Parent.hasChildNodes())
+      // {
+      //   Parent.removeChild(Parent.firstChild);
       // }
+      // $.ajax({
+      //   data : {'buscar' : texto, 'select' : seleccionado},
+      //   url : 'BuscarNombre/Nombre',
+      //   type : 'get',
 
-      // // posiciona el <tbody> debajo del elemento <table>
-      // tabla.appendChild(tblBody);
-      // // appends <table> into <body>
-      // body.appendChild(tabla);
-      // // modifica el atributo "border" de la tabla y lo fija a "2";
-      // tabla.setAttribute("border", "2");
-       
+
+
+      //   success: function(data){      
+      //      for(var i=0; i<data.length+1; i++)
+      //       document.getElementById("nose").deleteRow(0);
+      //   }
+      // })
     }
   </script>
 {% endblock %}

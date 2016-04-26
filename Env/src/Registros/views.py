@@ -175,7 +175,7 @@ def BuscarPorNombre(request):
 		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
 																'sexo','ubicacion','fecha','descripcion','Municipio'))
 	elif seleccionado == "Fecha":	
-		Reg_Nombre = Registro.objects.filter(fecha = search)
+		Reg_Nombre = Registro.objects.filter(fecha__contains = search)
 		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
 																'sexo','ubicacion','fecha','descripcion','Municipio'))
 
