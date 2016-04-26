@@ -3,26 +3,27 @@
 {% block content %}
 
 <div id="section">
-  <div id="bloqueDesplegar">
-    <div class = "title">
-      <h1>Datos modificados por: {{usuario.get_full_name}}</h1>
-    </div>
-    <div class = "bloqueOne">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-    </div>
-    <div class = "bloqueTwo">
-    {% for dato in detalles %}
-      <p>Usuario:<i>{{dato.Usuario_id}}</i></p>
-      <p>Accion:<i>{{dato.actividad}}</i></p>
-      <p>Registro:<i>{{dato.Registro_id}}</i></p>
-      <p>Fecha: <i>{{dato.fecha}}</i></p>
-    {% endfor %}
-    </div>
-  </div>
+		<div class = "title">
+			<h1>Datos modificados por {{usuario.get_full_name}}</h1>
+		</div>
+		<div class = "alineacionCentral">
+			<table class="table">
+        <tr>
+          <td>Usuario</td>
+          <td>Accion</td>
+          <td>Registro</td>
+          <td>Fecha</td>
+        </tr>
+        {% for dato in detalles %}
+        <tr>
+          <td><i>{{dato.Usuario_id}}</i></td>
+          <td><i>{{dato.actividad}}</i></td>
+          <td><i>{{dato.Registro_id}}</td>
+          <td><i>{{dato.fecha}}</i></td>
+				</tr>
+        {% endfor %}
+      </table>
+		</div>
 </div>
 
 
