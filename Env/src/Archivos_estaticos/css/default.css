@@ -655,6 +655,12 @@
 		color: rgba(0,0,0,.5);
 	}
 
+	#segundoBloque mapa1, mapa2, .mapa3 {
+		align-items: center;
+		align-content: center;
+		margin-left: 30%;
+	}
+
 	.texto {
 		text-align: justify;
 		width: 47%;
@@ -688,6 +694,14 @@
 		font-weight: bold;
 	}
 
+	.mContenedor {
+		width: 85%;
+		margin-left: 15%;
+		margin-right: 15%;
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+
 /***********************/
 
 #grupo{
@@ -703,6 +717,10 @@
 	color: black;
 }
 
+.bloqueEstadistica {
+	text-align: center;
+	background: #FFF;
+}
 
 
 .bloqueUno {
