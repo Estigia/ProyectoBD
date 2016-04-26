@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^registros/', include('Registros.urls',namespace='registros')),
     url(r'^logout/','home.views.cerrar', name='logout'),
     url(r'^signin/','home.views.inicio', name='inicio'),
+    url(r'^estadisticas/', 'home.views.estadisticas', name='estadisticas'),
     url(r'^(?P<pk>\d+)$',DepDetail.as_view(),name='mapa'),
 
 ]

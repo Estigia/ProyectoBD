@@ -1,0 +1,248 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href='{% static "css/default.css" %}' rel="stylesheet" type="text/css" media="all" />
+<link href='{% static "css/fonts.css" %}' rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.setOnLoadCallback(drawChart4);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['tipo Caso', 'Alta Verapaz', 'Baja Verapaz', 'Chimaltenango','Chiquimula','El Progreso','Escuintla'],
+          ['Mujeres', {{Registro_AvF}}, 4, 2,1,4,8],
+          ['Menores', {{Registro_AvE}}, 4, 2,1,4,5],
+          ['Hombres', {{Registro_AvH}}, 1, 3,1,5,4],
+          ['Total', 1, 5, 3,1,4,3]
+        ]);
+
+        var options = {
+          };
+
+        var chart = new google.charts.Bar(document.getElementById('mapa1'));
+
+        chart.draw(data, options);
+      }
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['tipo Caso', 'Guatemala', 'Huehuetenango', 'Izabal','Jalapa','Jutiapan','Peten'],
+          ['Mujeres', 300, 400, 200,100,400,800],
+          ['Menores', 1170, 460, 250,100,400,500],
+          ['Hombres', 660, 1120, 300,100,500,400],
+          ['Total', 1030, 540, 350,100,400,350]
+        ]);
+
+        var options = {
+          // chart: {
+          //   title: 'Alta Verapaz,Baja Verapaz,Chimaltenango,Chiquimula',
+          //   // subtitle: ', Expenses, and Profit: 2014-2017',
+          // }
+        };
+
+        var chart2 = new google.charts.Bar(document.getElementById('mapa2'));
+
+        chart2.draw(data, options);
+      }
+
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['tipo Caso', 'Quetzaltenango', 'Quiche', 'Retalhuleu','Sacatepequez','San Marcos','Santa Rosa'],
+          ['Mujeres', 300, 400, 200,100,400,800],
+          ['Menores', 1170, 460, 250,100,400,500],
+          ['Hombres', 660, 1120, 300,100,500,400],
+          ['Total', 1030, 540, 350,100,400,350]
+        ]);
+
+        var options = {
+          // chart: {
+          //   title: 'Alta Verapaz,Baja Verapaz,Chimaltenango,Chiquimula',
+          //   // subtitle: ', Expenses, and Profit: 2014-2017',
+          // }
+        };
+
+        var chart3 = new google.charts.Bar(document.getElementById('mapa3'));
+
+        chart3.draw(data, options);
+      }
+
+      function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+          ['tipo Caso', 'Solola', 'Suchitepequez', 'Totonicapan','Zacapa'],
+          ['Mujeres', 300, 400, 200,100],
+          ['Menores', 1170, 460, 250,100],
+          ['Hombres', 660, 1120, 300,100],
+          ['Total', 1030, 540, 350,100]
+        ]);
+
+        var options = {
+          // chart: {
+          //   title: 'Alta Verapaz,Baja Verapaz,Chimaltenango,Chiquimula',
+          //   // subtitle: ', Expenses, and Profit: 2014-2017',
+          // }
+        };
+
+        var chart4 = new google.charts.Bar(document.getElementById('mapa4'));
+
+        chart4.draw(data, options);
+      }
+
+
+
+
+
+
+
+
+
+    </script>
+  </head>
+
+
+
+
+<header>
+  <div id="header-wrapper">
+    <div id="header" class="contenedor">
+      <div id="logo">
+        <!-- Aca debe ir imagen -->
+      </div>
+      <div id="menu" class="submenu">
+        <ul>
+          <li><a href="/" accesskey="1" title="">Inicio</a></li>
+          <li><a href="#" accesskey="2" title="">Acerca de</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="#" accesskey="4" title="">Registros</a>
+            <ul>
+              <li><a href="/" accesskey="7" title="">Consulta</a></li>
+              <li><a href="/registros" accesskey="8" title="">Agregar Registro</a></li>
+              <div class="fin"></div>
+            </ul>
+          </li>
+          <li><a href={% url 'appHome:perfil' %} accesskey="3" title="">Perfil</a></li>
+          <li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
+          {% else %}
+          <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div id="banner" class="container">
+      <div class="title">
+        <h2>Policia Nacional Civil de Guatemala</h2>
+        <span class="byline">Sistema de estadistica y control de hechos violentos</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<body>
+
+
+  <div id="section">
+    <div id="segundoBloque">
+      <div class = "title">
+        <h2>Titulo uno</h2>
+      </div>
+      <div id="mapa1" style="width: 900px; height: 500px;" align='center'></div>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <div id="mapa2" style="width: 900px; height: 500px;"></div>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <div id="mapa3" style="width: 900px; height: 500px;"></div>
+
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <pr></pr>
+      <div id="mapa4" style="width: 900px; height: 500px;"></div>
+      <!-- <p>.Aca va texto o api de estadisticas</p> -->
+    </div>
+  </div>
+
+
+
+
+  <div id="wrapper">
+    <div id="two-column" class="container">
+      <div class="title">
+        <h2>Titulo dos</h2>
+        <span class="byline">Prueba de tamano de contenedor a</span>
+      </div>
+
+      <div class="tbox1">
+        <div ></div> 
+        <div aqui va grafica ></div>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black"><!-- Menores --></font>
+                 
+        <font color="Black"><!-- Hombres --></font> 
+         
+        <!-- <div id="columnchart_material" style="width: 900px; height: 500px;"></div> -->
+      </div>
+
+
+      <div class="tbox2">
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black">Menores</font>
+                 
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <pr></pr>
+        <font color="Black"><!-- Mujeres --></font>
+        <div aqui va grafica></div>
+        
+         
+
+     
+
+      </div>
+     
+    </div>
+  </div>
+
+
+
+<div id="copyright" class="container">
+  <p>&copy;  asdasd </p>
+</div>
+
+</body>
+</html>
