@@ -407,8 +407,9 @@
 	align-items:  left;
 	font-size: 1em;
 	color: rgba(255,255,255,0.80);
-	font-weight: bold;
-	font-size: large;
+	background-color: black;
+	padding-top: 10px;
+
 }
 
 #menu li:hover a, #menu li.active a, #menu li.active span
@@ -436,14 +437,18 @@
 
 	.submenu li ul{
 		display: none;
+		width: 100px;
+		width: 80px;
+		position: relative;
 	}
 
 	.submenu li ul li{
-		display: none;
-		width: 70%;
-		padding-top: 5px;
+		display: block;
+		width: 100%;
 		text-align: left;
-
+		display: none;
+		width: 90%;
+		padding-top: 5px;
 	}
 	.submenu li:hover > ul{
 		display:inherit;
@@ -650,6 +655,12 @@
 		color: rgba(0,0,0,.5);
 	}
 
+	#segundoBloque mapa1, mapa2, .mapa3 {
+		align-items: center;
+		align-content: center;
+		margin-left: 30%;
+	}
+
 	.texto {
 		text-align: justify;
 		width: 47%;
@@ -683,6 +694,14 @@
 		font-weight: bold;
 	}
 
+	.mContenedor {
+		width: 85%;
+		margin-left: 15%;
+		margin-right: 15%;
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+
 /***********************/
 
 #grupo{
@@ -698,6 +717,10 @@
 	color: black;
 }
 
+.bloqueEstadistica {
+	text-align: center;
+	background: #FFF;
+}
 
 
 .bloqueUno {
