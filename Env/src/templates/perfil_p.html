@@ -2,26 +2,41 @@
 
 {% block content %}
 
-
-
 <div id="section">
-	<div id="segundoBloque">
 		<div class = "title">
 			<h1>Bienvenido {{user.get_full_name}}</h1>
 		</div>
-		<h2>Informacion</h2>
-			<p>Nombre de usuario: <i>{{user.nombre_usuario}}</i></p>
-      		<p>Correo: <i>{{user.correo}}</i></p>
-      		<p>Institucion: <i>{{user.institucion}}</i></p>
-      		<p>Ultima conexion: <i>{{user.ultima_conexion}}</i></p>
-      		<p>Tipo de Usuario: <i>{{user.Tipo_Usuario_id}}</i></p>
-      		<a href = {% url 'appHome:pass' %}>Cambiar contraseña</a>
-		<p>
-			<a href= {% url 'registros:list' %}>Registros</a>
-			<a> | </a>
-			<a href = {% url 'appHome:detail_list' %}>Actividades</a>
-		</p>
-	</div>
+		<div class = "alineacionAlCentro">
+			<table class="table">
+				<tr>
+						<td>Nombre de usuario</td>
+						<td><i>{{user.nombre_usuario}}</i></td>
+				</tr>
+				<tr>
+						<td>Correo</td>
+						<td><i>{{user.correo}}</i></td>
+				</tr>
+				<tr>
+						<td>Institucion</td>
+						<td><i>{{user.institucion}}</i></td>
+				</tr>
+				<tr>
+						<td>Ultima conexion</td>
+						<td><i>{{user.ultima_conexion}}</i></td>
+				</tr>
+				<tr>
+						<td>Tipo de Usuario</td>
+						<td><i>{{user.Tipo_Usuario_id}}</i></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<a href= {% url 'registros:list' %}>Registros</a>
+					<a> | </a>
+					<a href = {% url 'appHome:detail_list' %}>Actividades</a>
+				</tr>
+			</table>
+		</div>
 </div>
 
 

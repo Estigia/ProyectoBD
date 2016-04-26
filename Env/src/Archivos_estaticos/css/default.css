@@ -737,6 +737,13 @@
 		text-align: center;
 	}
 
+	.alineacionAlCentro {
+		align-items: center;
+		width: 32%;
+		padding-left: 2%;
+		text-align: center;
+	}
+
 
 	#bloqueForms
 	{
@@ -828,8 +835,8 @@
 		text-align: left;
 		color: rgba(0,0,0,0.6);
 		align-content: right;
-		margin: 0 auto;;
-		min-height: 500px;
+		margin: 0 auto;
+		min-height: 300px;
 	}
 
 	#BloqueInicio .formularios p label{
