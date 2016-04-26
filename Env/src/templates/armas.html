@@ -12,17 +12,17 @@
 <form method = 'POST', action='' >
 	{% csrf_token %}
 	{{form.categoria}}<br/>
-	<div id='fg'>		
+	<div id='fg'>
 		Calibre:
 		{{form.calibre}}<br/>
 		Marca:
 		{{form.marca}}<br/>
 	</div>
-	
+
 	Objeto:
 		{{form.objeto}}<br/>
-	
-	
+
+
 	<br/>
 	<hr>
 
@@ -32,7 +32,7 @@
 
 {% block js %}
 {% csrf_token %}
-	<script type="text/javascript">	
+	<script type="text/javascript">
 		$('#id_categoria').on('change', funcion);
 		$formulario_Fg=$('#fg');
 		$formulario_Fg.hide();
@@ -44,14 +44,14 @@
 			var id = $(this).val();
 
 			if(id == 'Fg'){
-				$formulario_Fg.show();								
+				$formulario_Fg.show();
 			}			
 		}
 	</script>
 
 {% endblock %}
 </form>
-  
+
 </div>
             <br></br>
             <br></br>
