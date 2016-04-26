@@ -67,7 +67,7 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
         tipo = request.user.Tipo_Usuario_id.id
 
         if tipo == 4:
-            return super(RegistroUpdate, self).dispatch(request,*args,**kwargs)
+            return super(UserUpdate, self).dispatch(request,*args,**kwargs)
 
         return redirect('appHome:403')
 
@@ -344,8 +344,8 @@ def home(request):
     Casos_ToE = len(Registro_ToE)
     Registro_ZaE = Registro.objects.filter(Municipio__Departamento_id = 22, edad__in=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17] )
     Casos_ZaE = len(Registro_ZaE)
-    
-    
+
+
 
     vDep = Departamento.objects.all()
 
@@ -357,75 +357,75 @@ def home(request):
         "Registro_AvE": Casos_AvE,
         "Registro_BvM": Casos_BvM,
         "Registro_BvF": Casos_BvF,
-        "Registro_BvD": Casos_BvD,        
+        "Registro_BvD": Casos_BvD,
         "Registro_BvE": Casos_BvE,
         "Registro_CmF": Casos_CmF,
-        "Registro_CmD": Casos_CmD,        
+        "Registro_CmD": Casos_CmD,
         "Registro_CmE": Casos_CmE,
         "Registro_CqF": Casos_CqF,
-        "Registro_CqD": Casos_CqD,        
+        "Registro_CqD": Casos_CqD,
         "Registro_CqE": Casos_CqE,
         "Registro_PrF": Casos_PrF,
-        "Registro_PrD": Casos_PrD,        
+        "Registro_PrD": Casos_PrD,
         "Registro_PrE": Casos_PrE,
         "Registro_EsF": Casos_EsF,
-        "Registro_EsD": Casos_EsD,        
+        "Registro_EsD": Casos_EsD,
         "Registro_EsE": Casos_EsE,
         "Registro_GuF": Casos_GuF,
-        "Registro_GuD": Casos_GuD,        
+        "Registro_GuD": Casos_GuD,
         "Registro_GuE": Casos_GuE,
         "Registro_HuF": Casos_HuF,
-        "Registro_HuD": Casos_HuD,        
+        "Registro_HuD": Casos_HuD,
         "Registro_HuE": Casos_HuE,
         "Registro_IzF": Casos_IzF,
-        "Registro_IzD": Casos_IzD,        
+        "Registro_IzD": Casos_IzD,
         "Registro_IzE": Casos_IzE,
         "Registro_JaF": Casos_JaF,
-        "Registro_JaD": Casos_JaD,        
+        "Registro_JaD": Casos_JaD,
         "Registro_JaE": Casos_JaE,
         "Registro_JuF": Casos_JuF,
-        "Registro_JuD": Casos_JuD,        
+        "Registro_JuD": Casos_JuD,
         "Registro_JuE": Casos_JuE,
         "Registro_PeF": Casos_PeF,
-        "Registro_PeD": Casos_PeD,        
+        "Registro_PeD": Casos_PeD,
         "Registro_PeE": Casos_PeE,
         "Registro_QzF": Casos_QzF,
-        "Registro_QzD": Casos_QzD,        
+        "Registro_QzD": Casos_QzD,
         "Registro_QzE": Casos_QzE,
         "Registro_QcF": Casos_QcF,
-        "Registro_QcD": Casos_QcD,        
+        "Registro_QcD": Casos_QcD,
         "Registro_QcE": Casos_QcE,
         "Registro_ReF": Casos_ReF,
-        "Registro_ReD": Casos_ReD,        
+        "Registro_ReD": Casos_ReD,
         "Registro_ReE": Casos_ReE,
         "Registro_SaF": Casos_SaF,
-        "Registro_SaD": Casos_SaD,        
+        "Registro_SaD": Casos_SaD,
         "Registro_SaE": Casos_SaE,
         "Registro_SmF": Casos_SmF,
-        "Registro_SmD": Casos_SmD,        
+        "Registro_SmD": Casos_SmD,
         "Registro_SmE": Casos_SmE,
         "Registro_SrF": Casos_SrF,
-        "Registro_SrD": Casos_SrD,        
+        "Registro_SrD": Casos_SrD,
         "Registro_SrE": Casos_SrE,
         "Registro_SoF": Casos_SoF,
-        "Registro_SoD": Casos_SoD,        
+        "Registro_SoD": Casos_SoD,
         "Registro_SoE": Casos_SoE,
         "Registro_SuF": Casos_SuF,
-        "Registro_SuD": Casos_SuD,        
+        "Registro_SuD": Casos_SuD,
         "Registro_SuE": Casos_SuE,
         "Registro_ToF": Casos_ToF,
-        "Registro_ToD": Casos_ToD,        
+        "Registro_ToD": Casos_ToD,
         "Registro_ToE": Casos_ToE,
         "Registro_ZaF": Casos_ZaF,
-        "Registro_ZaD": Casos_ZaD,        
+        "Registro_ZaD": Casos_ZaD,
         "Registro_ZaE": Casos_ZaE,
         "Deps": vDep,
-        
+
     }
     return render(request,'home.html', context)
 
 
-    
+
 
 def estadisticas(request):
     Registro_AvM = Registro.objects.filter(Municipio__Departamento_id = 1 , sexo = "M" )
@@ -609,80 +609,80 @@ def estadisticas(request):
     Casos_ToE = len(Registro_ToE)
     Registro_ZaE = Registro.objects.filter(Municipio__Departamento_id = 22, edad__in=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17] )
     Casos_ZaE = len(Registro_ZaE)
-    
-    
+
+
 
     vDep = Departamento.objects.all()
-    
+
     context = {
-    
+
         "Registro_AvM": Casos_AvM,
         "Registro_AvF": Casos_AvF,
         "Registro_AvD": Casos_AvD,
         "Registro_AvE": Casos_AvE,
         "Registro_BvM": Casos_BvM,
         "Registro_BvF": Casos_BvF,
-        "Registro_BvD": Casos_BvD,        
+        "Registro_BvD": Casos_BvD,
         "Registro_BvE": Casos_BvE,
         "Registro_CmF": Casos_CmF,
-        "Registro_CmD": Casos_CmD,        
+        "Registro_CmD": Casos_CmD,
         "Registro_CmE": Casos_CmE,
         "Registro_CqF": Casos_CqF,
-        "Registro_CqD": Casos_CqD,        
+        "Registro_CqD": Casos_CqD,
         "Registro_CqE": Casos_CqE,
         "Registro_PrF": Casos_PrF,
-        "Registro_PrD": Casos_PrD,        
+        "Registro_PrD": Casos_PrD,
         "Registro_PrE": Casos_PrE,
         "Registro_EsF": Casos_EsF,
-        "Registro_EsD": Casos_EsD,        
+        "Registro_EsD": Casos_EsD,
         "Registro_EsE": Casos_EsE,
         "Registro_GuF": Casos_GuF,
-        "Registro_GuD": Casos_GuD,        
+        "Registro_GuD": Casos_GuD,
         "Registro_GuE": Casos_GuE,
         "Registro_HuF": Casos_HuF,
-        "Registro_HuD": Casos_HuD,        
+        "Registro_HuD": Casos_HuD,
         "Registro_HuE": Casos_HuE,
         "Registro_IzF": Casos_IzF,
-        "Registro_IzD": Casos_IzD,        
+        "Registro_IzD": Casos_IzD,
         "Registro_IzE": Casos_IzE,
         "Registro_JaF": Casos_JaF,
-        "Registro_JaD": Casos_JaD,        
+        "Registro_JaD": Casos_JaD,
         "Registro_JaE": Casos_JaE,
         "Registro_JuF": Casos_JuF,
-        "Registro_JuD": Casos_JuD,        
+        "Registro_JuD": Casos_JuD,
         "Registro_JuE": Casos_JuE,
         "Registro_PeF": Casos_PeF,
-        "Registro_PeD": Casos_PeD,        
+        "Registro_PeD": Casos_PeD,
         "Registro_PeE": Casos_PeE,
         "Registro_QzF": Casos_QzF,
-        "Registro_QzD": Casos_QzD,        
+        "Registro_QzD": Casos_QzD,
         "Registro_QzE": Casos_QzE,
         "Registro_QcF": Casos_QcF,
-        "Registro_QcD": Casos_QcD,        
+        "Registro_QcD": Casos_QcD,
         "Registro_QcE": Casos_QcE,
         "Registro_ReF": Casos_ReF,
-        "Registro_ReD": Casos_ReD,        
+        "Registro_ReD": Casos_ReD,
         "Registro_ReE": Casos_ReE,
         "Registro_SaF": Casos_SaF,
-        "Registro_SaD": Casos_SaD,        
+        "Registro_SaD": Casos_SaD,
         "Registro_SaE": Casos_SaE,
         "Registro_SmF": Casos_SmF,
-        "Registro_SmD": Casos_SmD,        
+        "Registro_SmD": Casos_SmD,
         "Registro_SmE": Casos_SmE,
         "Registro_SrF": Casos_SrF,
-        "Registro_SrD": Casos_SrD,        
+        "Registro_SrD": Casos_SrD,
         "Registro_SrE": Casos_SrE,
         "Registro_SoF": Casos_SoF,
-        "Registro_SoD": Casos_SoD,        
+        "Registro_SoD": Casos_SoD,
         "Registro_SoE": Casos_SoE,
         "Registro_SuF": Casos_SuF,
-        "Registro_SuD": Casos_SuD,        
+        "Registro_SuD": Casos_SuD,
         "Registro_SuE": Casos_SuE,
         "Registro_ToF": Casos_ToF,
-        "Registro_ToD": Casos_ToD,        
+        "Registro_ToD": Casos_ToD,
         "Registro_ToE": Casos_ToE,
         "Registro_ZaF": Casos_ZaF,
-        "Registro_ZaD": Casos_ZaD,        
+        "Registro_ZaD": Casos_ZaD,
         "Registro_ZaE": Casos_ZaE,
         "Deps": vDep,
         }

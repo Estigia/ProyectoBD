@@ -3,14 +3,26 @@
 
 {% block content %}
 
-<h1>Cambio de contraseña</h1>
-<form method = 'POST', action = ''>
 
-	{% csrf_token %}
-	{{form.as_p}}
 
-	<input type='submit' value='Actualizar'>
 
-</form>
+<div id="section">
+  <div id="BloqueInicio">
+		<div class = "title">
+      <h2>Cambio de contraseña</h2>
+    </div>
+    <div class = "formularios">
+			<form method = 'POST', action = ''>
+
+				{% csrf_token %}
+				{{form.as_p}}
+
+				<input type='submit' value='Actualizar'>
+
+			</form>
+    </div>
+
+  </div>
+</div>
 
 {% endblock %}
