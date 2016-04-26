@@ -4,7 +4,7 @@
 {% block content %}
 
 <div id="section">
-  <div id="bloqueForms">
+  <div id="BloqueInicio">
 		<div class = "title">
       <h2>Registrarse</h2>
     </div>
@@ -13,6 +13,7 @@
         {% csrf_token %}
         {{form.as_p}}
         {{form2.as_p}}
+        <br/>
         <span class="byline"><input type='submit' value='Registrarse'></span>
       </form>
     </div>

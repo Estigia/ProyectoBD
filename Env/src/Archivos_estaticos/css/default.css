@@ -55,7 +55,12 @@
 	{
 		overflow: hidden;
 		margin: 0em auto;
-		width: 1200px;
+		width: 100%;
+	}
+
+	.paranga{
+		min-height: 600px;
+		clear: both;
 	}
 
 /*********************************************************************************/
@@ -262,12 +267,12 @@
 	.tbox1
 	{
 		width: 48%;
-
+		clear: both;
 	}
 	.tbox2
 	{
 		width: 48%;
-
+		clear: both;
 	}
 
 	.tbox1
@@ -310,6 +315,7 @@
 		position: relative;
 		padding: 5em 0em 7em 0em;
 		background: #FFF;
+		color: black;
 	}
 
 	#section
@@ -615,7 +621,27 @@
 		color: rgba(0,0,0,.5);
 	}
 
+	.texto {
+		text-align: justify;
+		width: 47%;
+		margin-left: 27%;
+		font-size: 121%;
 
+	}
+
+	.titulo {
+		text-align: left;
+		margin-left: 27%;
+	}
+
+	.firma{
+		width: 100%;
+		text-align: right;
+	}
+
+	.firmaBold {
+		font-weight: bold;
+	}
 
 /***********************/
 
@@ -704,6 +730,12 @@
 		padding-right: 20%;
 	}
 
+	.alineacionCentral {
+		align-items: center;
+		width: 40%;
+		padding-left: 2%;
+		text-align: center;
+	}
 
 
 	#bloqueForms
@@ -712,6 +744,7 @@
 		color: rgba(0,0,0,0.6);
 		align-content: right;
 		margin: 0 auto;;
+		min-height: 900px;
 	}
 	#bloqueForms .formularios p label{
 		background: #FFF;
@@ -727,15 +760,30 @@
 	#bloqueForms h2{
 		text-align: center;
 	}
-	#bloqueForms textarea{
-		margin-left: 48%;
-	}
+
 
 	#bloqueForms .formularios{
 		margin: 0 auto;
 		width: 400px;
 
 	}
+
+	.camposForms{
+		  margin-bottom: 15px;
+		  width: 100%;
+	}
+	.camposForms form{
+		width: 30%;
+		margin: 0 auto;
+	}
+	.camposForms form label, .camposForms form input, .camposForms form textarea, .camposForms form select, .camposForms form a{
+		width: 100%;
+		float: left;
+		display: block;
+		padding: 3px;
+		margin: 3px;
+	}
+
 
 	input[type="submit" i], button {
 		margin-left: 40%;
@@ -751,7 +799,57 @@
 
 	}
 
+	.camposForms form input[type="submit" i]{
+		width: 200px;
+		float: none;
+		margin: 10px auto;
+	}
 
 	element.style {
 		background-color: red;
+	}
+
+
+	/* Nuevo estilo para cuerpo   */
+
+	#cuerpo {
+		align-self: center;
+		background-color: red;
+		width: 80%;
+		height: auto;
+		min-height: 600px;
+		clear: both;
+	}
+
+
+
+	#BloqueInicio
+	{
+		text-align: left;
+		color: rgba(0,0,0,0.6);
+		align-content: right;
+		margin: 0 auto;;
+		min-height: 500px;
+	}
+
+	#BloqueInicio .formularios p label{
+		background: #FFF;
+		display: block;
+		float: left;
+		width: 48%;
+	}
+	#BloqueInicio li {
+		text-align: center;
+		padding-right: 2%;
+		list-style: none;
+	}
+	#BloqueInicio h2{
+		text-align: center;
+	}
+
+
+	#BloqueInicio .formularios{
+		margin: 0 auto;
+		width: 400px;
+
 	}

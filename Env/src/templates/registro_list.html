@@ -7,7 +7,21 @@
       <div class = "title">
         <h1 style="color:black;">Registros</h1>
       </div>
-      <div id="dobleBloque">
+      <div class = "alineacionCentral">
+        <table class="table">
+          {% for dato in registros %}
+          <tr>
+            <td>Registro No.: {{ dato.id }}</td>
+            <td>Victima: {{ dato.get_full_name }}</td>
+            <td>No. Expediente.: {{ dato.no_expediente }}</td>
+            <td><a href={% url 'registros:detail' dato.id %}>Ver</a></td>
+            <td><a href={% url 'registros:edit' dato.id %}>Editar</a></td>
+          </tr>
+          {% endfor %}
+      </div>
+      </table>
+
+      <!-- <div id="dobleBloque">
         <div class = "bloqueUno">
           {% for dato in registros %}
               <li>
@@ -18,20 +32,6 @@
                 </p>
               </li>
           {% endfor %}
-
-          Buscar por : 
-          <select id='Consulta' name='Consulta'>
-            <option selected></option>
-            <option value='Nombre'>Nombre</option>
-            <option value='Apellidos'>Apellidos</option>
-            <option value='Edad'>Edad</option>
-            <option value='Sexo'>Sexo</option>
-            <option value='Fecha'>Fecha</option>
-          </select>
-          <INPUT id='textbuscar'  TYPE="text"><BR>
-          <INPUT id='buscar' TYPE="submit" value='Buscar'>
-          <table id='nose' border=1 width=300></table>
-
         </div>
         <div class = "bDos">
           {% for dato in registros %}
@@ -42,10 +42,30 @@
             </p>
           {% endfor %}
         </div>
-      </div>
+      </div> -->
+    </div>
+
+
+    <div id = "section">
+      Buscar por :
+      <select id='Consulta' name='Consulta'>
+        <option selected></option>
+        <option value='Nombre'>Nombre</option>
+        <option value='Apellidos'>Apellidos</option>
+        <option value='Edad'>Edad</option>
+        <option value='Sexo'>Sexo</option>
+        <option value='Fecha'>Fecha</option>
+      </select>
+      <INPUT id='textbuscar'  TYPE="text"><BR>
+      <INPUT id='buscar' TYPE="submit" value='Buscar'>
+      <table id='nose' border=1 width=300></table>
     </div>
 
 {% endblock %}
+
+
+
+
 
 {% block js %}
   <script type="text/javascript">
@@ -137,21 +157,21 @@
           tabla.appendChild(tblBody);
 
           }
-        
+
       })
 
             // Obtener la referencia del elemento body
       // //var body = document.getElementsByTagName("body")[0];
-     
+
       // // Crea un elemento <table> y un elemento <tbody>
       // var tabla   = document.getElementById("nose");
       // var tblBody = document.createElement("tbody");
-     
+
       // // Crea las celdas
       // for (var i = 0; i < 9; i++) {
       //   // Crea las hileras de la tabla
       //   var hilera = document.createElement("tr");
-     
+
       //   for (var j = 0; j < data; j++) {
       //     // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       //     // texto sea el contenido de <td>, ubica el elemento <td> al final
@@ -161,11 +181,11 @@
       //     celda.appendChild(textoCelda);
       //     hilera.appendChild(celda);
       //   }
-     
+
       //   // agrega la hilera al final de la tabla (al final del elemento tblbody)
       //   tblBody.appendChild(hilera);
       // }
-     
+
       // // posiciona el <tbody> debajo del elemento <table>
       // tabla.appendChild(tblBody);
       // // appends <table> into <body>
@@ -177,4 +197,4 @@
 
     }
   </script>
-{% endblock %} 
+{% endblock %}

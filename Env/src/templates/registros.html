@@ -9,55 +9,49 @@
 		<div class = "title">
       <h2>Nuevo Registro</h2>
     </div>
-    <div class = "formularios">
+    <div class = "camposForms">
 <form method = 'POST', action='' >
 	{% csrf_token %}
 
-	Tipo de Arma:
+	<label>Tipo de Arma:</label>
 	<select id='armas' name='armas'>
 		<option value="Fg">Arma de Fuego</option>
 		<option value="Bn">Arma Blanca</option>
 		<option value="Ot" selected>Otro</option>
 	</select>
 	<br/>
-	Arma:
+	<label>Arma:</label>
 
-		{{form.Arma}}<a href = "/regArmas">Registrar nueva arma</a><br/>
+		{{form.Arma}}<br/> <a href = "/regArmas">Registrar nueva arma</a><br/>
 	<div id='fg'>
-		No Casquillos:
+		<label>No Casquillos:</label>
 			{{form.no_casquillos}}<br/>
-		Serial:
+		<label>Serial:</label>
 			{{form.serial}}<br/>
 	</div>
-	Nombres:
+	<label>Nombres:</label>
 		{{form.nombres}}<br/>
-	Apellidos:
+	<label>Apellidos:</label>
 		{{form.apellidos}}<br/>
-	Edad:
+	<label>Edad:</label>
 		{{form.edad}}<br/>
-	Muerto:
+	<label>Muerto:</label>
 		{{form.muerto}}<br/>
-	Profesion:
-		{{form.profesion}}<br/>
-	Cui:
-		{{form.cui}}<br/>
-	Sexo:
-		{{form.sexo}}<br/>
-	Ubicacion:
-		{{form.ubicacion}}<br/>
+	<label>Profesion:</label>
+		{{form.profesion}}<br/>		
 
-	Fiscal:
+	<label>Fiscal:</label>
 		{{form.fiscal}}<br/>
-	Fecha del Suceso:
+	<label>Fecha del Suceso:</label>
 		{{form.fecha}}<br/>
-	Descripcion:
+	<label>Descripcion:</label>
 		{{form.descripcion}}<br/>
-	Movil:
+	<label>Movil:</label>
 		{{form.movil}}<br/>
-	No de Expediente:
+	<label>No de Expediente:</label>
 		{{form.no_expediente}}<br/>
 
-	Departamento:
+	<label>Departamento:</label>
 	<select id='dep' name='dep'>
 		<option selected></option>
 		{% for elemento in Departamentos %}
@@ -65,13 +59,13 @@
 		{% endfor %}
 	</select>
 
-	Municipio:
+	<label>Municipio:</label>
 		{{form.Municipio}}
 
 
 
 	<input type='submit' value='Guardar'>
-  
+
 
 {% endblock %}
 
@@ -140,14 +134,10 @@
 		})
 	}
 
-
-
 </script>
-{% endblock %}
+
 </form>
-
-
-
     </div>
   </div>
 </div>
+{% endblock %}
