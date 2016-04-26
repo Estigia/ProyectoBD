@@ -13,11 +13,20 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['', 'Alta Verapaz', 'Baja Verapaz', 'Guatemala','Chiquimula','El Progreso','Izabal'],
-          ['Mujeres', {{Registro_AvF}}, 4, 2,1,4,8],
-          ['Menores', {{Registro_AvE}}, 4, 2,1,4,5],
-          ['Hombres', {{Registro_AvH}}, 1, 3,1,5,4],
-          ['Total', 1, 5, 3,1,4,3]
+
+          ['tipo Caso', 'Alta Verapaz', 'Baja Verapaz', 'Guatemala','Chiquimula','El Progreso','Izabal'],
+          ['Mujeres', {{Registro_AvF}}, {{Registro_BvF}}, {{Registro_GuF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_IzF}}],
+          ['Menores', {{Registro_AvE}}, {{Registro_BvE}}, {{Registro_GuE}},{{Registro_CqE}},{{Registro_PrE}},{{Registro_IzE}}],
+          ['Hombres', {{Registro_AvH}}, {{Registro_BvH}}, {{Registro_GuH}},{{Registro_CqH}},{{Registro_PrH}},{{Registro_Iz}}],
+          ['Total', 
+           {{Registro_AvF}}+{{Registro_AvE}}+{{Registro_AvH}},
+           {{Registro_BvF}}+{{Registro_BvE}}+{{Registro_BvH}},
+           {{Registro_GuF}}+{{Registro_GuE}}+{{Registro_GuH}},
+           {{Registro_CqF}}+{{Registro_CqE}}+{{Registro_CqH}},
+           {{Registro_PrF}}+{{Registro_PrE}}+{{Registro_PrH}},
+           {{Registro_IzF}}+{{Registro_IzE}}{{Registro_IzH}}
+          ]
+
         ]);
 
         var options = {
@@ -30,11 +39,21 @@
 
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
-          ['', 'Quetzaltenango', 'Retalhuleu', 'San Marcos','Suchitepequez','Solola','Totonicapan'],
-          ['Mujeres', 300, 400, 200,100,400,800],
-          ['Menores', 1170, 460, 250,100,400,500],
-          ['Hombres', 660, 1120, 300,100,500,400],
-          ['Total', 1030, 540, 350,100,400,350]
+
+          ['tipo Caso', 'Quetzaltenango', 'Retalhuleu', 'San Marcos','Suchitepequez','Solola','Totonicapan'],
+          ['Mujeres', {{Registro_QzF}}, {{Registro_ReF}}, {{Registro_SmF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_ToF}}],
+          ['Menores', {{Registro_QzE}}, {{Registro_ReE}}, {{Registro_SmE}},{{Registro_SuE}},{{Registro_SoE}},{{Registro_ToE}}],
+          ['Hombres', {{Registro_QzH}}, {{Registro_ReH}}, {{Registro_SmH}},{{Registro_SuH}},{{Registro_SoH}},{{Registro_To}}],
+          ['Total', 
+           {{Registro_QzF}}+{{Registro_QzE}}+{{Registro_QzH}},
+           {{Registro_ReF}}+{{Registro_ReE}}+{{Registro_ReH}},
+           {{Registro_SmF}}+{{Registro_SmE}}+{{Registro_SmH}},
+           {{Registro_SuF}}+{{Registro_SuE}}+{{Registro_SuH}},
+           {{Registro_SoF}}+{{Registro_SoE}}+{{Registro_SoH}},
+           {{Registro_ToF}}+{{Registro_ToE}}{{Registro_ToH}}
+          ]
+
+
         ]);
 
         var options = {
@@ -51,11 +70,20 @@
 
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
-          ['', 'Zacapa', 'Jutiapa', 'Jalapa','Santa Rosa','Chimaltenango','Escuintla'],
-          ['Mujeres', 300, 400, 200,100,400,800],
-          ['Menores', 1170, 460, 250,100,400,500],
-          ['Hombres', 660, 1120, 300,100,500,400],
-          ['Total', 1030, 540, 350,100,400,350]
+
+          ['tipo Caso', 'Zacapa', 'Jutiapa', 'Jalapa','Santa Rosa','Chimaltenango','Escuintla'],
+          ['Mujeres', {{Registro_ZaF}}, {{Registro_JuF}}, {{Registro_JaF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_ToF}}],
+          ['Menores', {{Registro_ZaE}}, {{Registro_JuE}}, {{Registro_JaE}},{{Registro_SuE}},{{Registro_SoE}},{{Registro_ToE}}],
+          ['Hombres', {{Registro_ZaH}}, {{Registro_JuH}}, {{Registro_JaH}},{{Registro_SrH}},{{Registro_CmH}},{{Registro_To}}],
+          ['Total', 
+           {{Registro_ZaF}}+{{Registro_ZaE}}+{{Registro_ZaH}},
+           {{Registro_JuF}}+{{Registro_JuE}}+{{Registro_JuH}},
+           {{Registro_JaF}}+{{Registro_JaE}}+{{Registro_JaH}},
+           {{Registro_SrF}}+{{Registro_SrE}}+{{Registro_SrH}},
+           {{Registro_CmF}}+{{Registro_CmE}}+{{Registro_CmH}},
+           {{Registro_ToF}}+{{Registro_ToE}}{{Registro_ToH}}
+          ]
+
         ]);
 
         var options = {
@@ -72,11 +100,18 @@
 
       function drawChart4() {
         var data = google.visualization.arrayToDataTable([
-          ['', 'Sacatepequez', 'Huhuetenango', 'Quiche','Peten'],
-          ['Mujeres', 300, 400, 200,100],
-          ['Menores', 1170, 460, 250,100],
-          ['Hombres', 660, 1120, 300,100],
-          ['Total', 1030, 540, 350,100]
+
+          ['tipo Caso', 'Sacatepequez', 'Huhuetenango', 'Quiche','Peten'],
+          ['Mujeres', {{Registro_SaF}}, {{Registro_HuF}}, {{Registro_QcF}},{{Registro_PeF}}],
+          ['Menores', {{Registro_SaE}}, {{Registro_HuE}}, {{Registro_QcE}},{{Registro_PeE}}],
+          ['Hombres', {{Registro_SaH}}, {{Registro_HuH}}, {{Registro_QcH}},{{Registro_PeH}}],
+          ['Total', 
+           {{Registro_SaF}}+{{Registro_SaE}}+{{Registro_SaH}},
+           {{Registro_HuF}}+{{Registro_HuE}}+{{Registro_HuH}},
+           {{Registro_QcF}}+{{Registro_QcE}}+{{Registro_QcH}},
+           {{Registro_PeF}}+{{Registro_PeE}}+{{Registro_PeH}}
+          ]
+
         ]);
 
         var options = {
