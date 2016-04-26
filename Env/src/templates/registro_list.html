@@ -70,19 +70,22 @@
 {% block js %}
   <script type="text/javascript">
     $('#buscar').on('click', Tabla);
-
+    //$('#nose').html(""); 
+    var tabla   = document.getElementById("nose");
+    var tblBody = document.createElement("tbody");
+          
     function Tabla(){
       var texto = $('#textbuscar').val();
-      console.log(texto);
+      var seleccionado = $('#Consulta').val();
+      console.log(seleccionado);
 
       $.ajax({
-        data : {'buscar' : texto},
+        data : {'buscar' : texto, 'select' : seleccionado},
         url : 'BuscarNombre/Nombre',
         type : 'get',
-        success: function(data){
-          var tabla   = document.getElementById("nose");
-          var tblBody = document.createElement("tbody");
-          console.log('asdasd');
+        success: function(data){      
+           // for(var i=0; i<data.length; i++)
+           //  document.getElementById("nose").deleteRow(i);
 
           var filas = document.createElement("tr");
           var columnas = document.createElement("td");
@@ -158,7 +161,11 @@
 
           }
 
+
+
       })
+
+
 
             // Obtener la referencia del elemento body
       // //var body = document.getElementsByTagName("body")[0];
@@ -192,9 +199,7 @@
       // body.appendChild(tabla);
       // // modifica el atributo "border" de la tabla y lo fija a "2";
       // tabla.setAttribute("border", "2");
-
-
-
+       
     }
   </script>
 {% endblock %}

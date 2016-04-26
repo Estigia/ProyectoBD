@@ -156,8 +156,27 @@ def correcto(request):
 
 def BuscarPorNombre(request):
 	search = request.GET['buscar']
-	Reg_Nombre = Registro.objects.filter(nombres__contains = search)
-	data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+	seleccionado = request.GET['select']
+	if seleccionado == "Nombre":
+		Reg_Nombre = Registro.objects.filter(nombres__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
 																'sexo','ubicacion','fecha','descripcion','Municipio'))
-	print data
+	elif seleccionado == "Apellidos":	
+		Reg_Nombre = Registro.objects.filter(apellidos__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Edad":	
+		Reg_Nombre = Registro.objects.filter(edad__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Sexo":	
+		Reg_Nombre = Registro.objects.filter(sexo__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Fecha":	
+		Reg_Nombre = Registro.objects.filter(nombres__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+
+
 	return HttpResponse(data, content_type='application/json')
