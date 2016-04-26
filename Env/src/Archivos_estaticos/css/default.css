@@ -618,7 +618,15 @@
 /* Extra                                                                         */
 /*********************************************************************************/
 
+#bloqueChartAzul
+{
+	position: absolute;
 
+	background: #2651a8;
+	background-size: cover;
+	text-align: center;
+	width: 100%;
+}
 
 	#segundoBloque
 	{
@@ -655,11 +663,6 @@
 		color: rgba(0,0,0,.5);
 	}
 
-	#segundoBloque mapa1, mapa2, .mapa3 {
-		align-items: center;
-		align-content: center;
-		margin-left: 30%;
-	}
 
 	.texto {
 		text-align: justify;
@@ -709,6 +712,19 @@
 	text-align: center;
 }
 
+
+#bloqueChart
+{
+	text-align: center;
+	color: rgba(0,0,0,0.6);
+}
+
+
+#bloqueChart
+{
+	text-align: center;
+	color: rgba(0,0,0,0.6);
+}
 
 #dobleBloque
 {
@@ -940,4 +956,12 @@
 		margin: 0 auto;
 		width: 400px;
 
+	}
+
+
+	#bloqueBusqueda {
+		align-items: center;
+		width: 60%;
+		padding-left: 2%;
+		text-align: center;
 	}
