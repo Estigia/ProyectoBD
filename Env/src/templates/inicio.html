@@ -9,7 +9,7 @@
 {% endif %}
 
 <div id="section">
-  <div id="bloqueForms">
+  <div id="BloqueInicio">
 		<div class = "title">
       <h2>Iniciar sesión</h2>
     </div>
@@ -17,6 +17,7 @@
 			<form method = 'POST', action=''>
 				{% csrf_token %}
 				{{form.as_p}}
+        <br/>
 				<input type='submit' value='Entrar'>
 			</form>
     </div>

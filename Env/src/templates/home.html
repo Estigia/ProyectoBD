@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <meta name="keywords" content="" />
@@ -15,7 +16,7 @@
 
 
 
-    
+
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -25,7 +26,7 @@
       google.charts.setOnLoadCallback(drawRegionsMap2);
       google.charts.setOnLoadCallback(drawRegionsMap3);
       google.charts.setOnLoadCallback(drawRegionsMap4);
-     
+
 
       function drawRegionsMap() {
 
@@ -34,26 +35,26 @@
           ['States','Estado','Casos'],
           ['GT-AV','Alta Verapaz',{{Registro_AvM}}+{{Registro_AvF}}+{{Registro_AvD}}],
           ['GT-BV','Baja Verapaz',{{Registro_BvM}}+{{Registro_BvF}}+{{Registro_BvD}}],
-          ['GT-CM','Chimaltenango',300],
-          ['GT-CQ','Chiquimula',4],
-          ['GT-PR','El Progreso',5],
-          ['GT-ES','Escuintla',6],
-          ['GT-GU','Guatemala',7],
-          ['GT-HU','HuehueTenango',8],
-          ['GT-IZ','Izabal',9],
-          ['GT-JA','Jalapa',10],
-          ['GT-JU','Jutiapa',11],
-          ['GT-PE','Peten',12],
-          ['GT-QZ','Quetzaltenango',13],
-          ['GT-QC','Quiche',14],
-          ['GT-RE','Retalhuleu',15],
-          ['GT-SA','Sacatepequez',16],
-          ['GT-SM','San Marcos',17],
-          ['GT-SR','Santa Rosa',18],
-          ['GT-SO','Solola',19],
-          ['GT-SU','Suchitepequez',20],
-          ['GT-TO','Totonicapan',21],
-          ['GT-ZA','Zacapa',22],
+          ['GT-CM','Chimaltenango',{{Registro_CmM}}+{{Registro_CmF}}+{{Registro_CmD}}],
+          ['GT-CQ','Chiquimula',{{Registro_CqM}}+{{Registro_CqF}}+{{Registro_CqD}}],
+          ['GT-PR','El Progreso',{{Registro_PrM}}+{{Registro_PrF}}+{{Registro_PrD}}],
+          ['GT-ES','Escuintla',{{Registro_EsM}}+{{Registro_EsF}}+{{Registro_EsD}}],
+          ['GT-GU','Guatemala',{{Registro_GuM}}+{{Registro_GuF}}+{{Registro_GuD}}],
+          ['GT-HU','HuehueTenango',{{Registro_HuM}}+{{Registro_HuF}}+{{Registro_HuD}}],
+          ['GT-IZ','Izabal',{{Registro_IzM}}+{{Registro_IzF}}+{{Registro_IzD}}],
+          ['GT-JA','Jalapa',{{Registro_JaM}}+{{Registro_JaF}}+{{Registro_JaD}}],
+          ['GT-JU','Jutiapa',{{Registro_JuM}}+{{Registro_JuF}}+{{Registro_JuD}}],
+          ['GT-PE','Peten',{{Registro_PeM}}+{{Registro_PeF}}+{{Registro_PeD}}],
+          ['GT-QZ','Quetzaltenango',{{Registro_QzM}}+{{Registro_QzF}}+{{Registro_QzD}}],
+          ['GT-QC','Quiche',{{Registro_QcM}}+{{Registro_QcF}}+{{Registro_QcD}}],
+          ['GT-RE','Retalhuleu',{{Registro_ReM}}+{{Registro_ReF}}+{{Registro_ReD}}],
+          ['GT-SA','Sacatepequez',{{Registro_SaM}}+{{Registro_SaF}}+{{Registro_SaD}}],
+          ['GT-SM','San Marcos',{{Registro_SmM}}+{{Registro_SmF}}+{{Registro_SmD}}],
+          ['GT-SR','Santa Rosa',{{Registro_SrM}}+{{Registro_SrF}}+{{Registro_SrD}}],
+          ['GT-SO','Solola',{{Registro_SoM}}+{{Registro_SoF}}+{{Registro_SoD}}],
+          ['GT-SU','Suchitepequez',{{Registro_SuM}}+{{Registro_SuF}}+{{Registro_SuD}}],
+          ['GT-TO','Totonicapan',{{Registro_ToM}}+{{Registro_ToF}}+{{Registro_ToD}}],
+          ['GT-ZA','Zacapa',{{Registro_ToM}}+{{Registro_ToF}}+{{Registro_ToD}}],
         ]);
 
     var options =
@@ -84,32 +85,32 @@ function drawRegionsMap2() {
           ['States','Estado','Casos'],
           ['GT-AV','Alta Verapaz',{{Registro_AvF}}],
           ['GT-BV','Baja Verapaz',{{Registro_BvF}}],
-          ['GT-CM','Chimaltenango',3],
-          ['GT-CQ','Chiquimula',4],
-          ['GT-PR','El Progreso',5],
-          ['GT-ES','Escuintla',6],
-          ['GT-GU','Guatemala',7],
-          ['GT-HU','HuehueTenango',8],
-          ['GT-IZ','Izabal',9],
-          ['GT-JA','Jalapa',10],
-          ['GT-JU','Jutiapa',11],
-          ['GT-PE','Peten',12],
-          ['GT-QZ','Quetzaltenango',13],
-          ['GT-QC','Quiche',14],
-          ['GT-RE','Retalhuleu',15],
-          ['GT-SA','Sacatepequez',16],
-          ['GT-SM','San Marcos',17],
-          ['GT-SR','Santa Rosa',18],
-          ['GT-SO','Solola',19],
-          ['GT-SU','Suchitepequez',20],
-          ['GT-TO','Totonicapan',21],
-          ['GT-ZA','Zacapa',22],
+          ['GT-CM','Chimaltenango'{{Registro_CmF}}],
+          ['GT-CQ','Chiquimula'{{Registro_CqF}}],
+          ['GT-PR','El Progreso'{{Registro_PrF}}],
+          ['GT-ES','Escuintla'{{Registro_EsF}}],
+          ['GT-GU','Guatemala'{{Registro_GuF}}],
+          ['GT-HU','HuehueTenango'{{Registro_HuF}}],
+          ['GT-IZ','Izabal'{{Registro_IzF}}],
+          ['GT-JA','Jalapa',{{Registro_JaF}}],
+          ['GT-JU','Jutiapa',{{Registro_JuF}}],
+          ['GT-PE','Peten',{{Registro_PeF}}],
+          ['GT-QZ','Quetzaltenango',{{Registro_QzF}}],
+          ['GT-QC','Quiche',{{Registro_QcF}}],
+          ['GT-RE','Retalhuleu',{{Registro_ReF}}],
+          ['GT-SA','Sacatepequez',{{Registro_SaF}}],
+          ['GT-SM','San Marcos',{{Registro_SmF}}],
+          ['GT-SR','Santa Rosa',{{Registro_SrF}}],
+          ['GT-SO','Solola',{{Registro_SoF}}],
+          ['GT-SU','Suchitepequez',{{Registro_SuF}}],
+          ['GT-TO','Totonicapan',{{Registro_ToF}}],
+          ['GT-ZA','Zacapa',{{Registro_ZaF}}],
         ]);
 
     var options =
     {
-         backgroundColor: '#2651a8',
-          datalessRegionColor: '#2651a8',
+         backgroundColor: '#white',
+          datalessRegionColor: '#white',
           defaultColor: '#f5f5f5',
 
         sizeAxis: { minValue: 1, maxValue: 22 },
@@ -137,32 +138,32 @@ function drawRegionsMap3() {
           ['States','Estado','Casos'],
           ['GT-AV','Alta Verapaz',{{Registro_AvM}}],
           ['GT-BV','Baja Verapaz',{{Registro_BvM}}],
-          ['GT-CM','Chimaltenango',3],
-          ['GT-CQ','Chiquimula',4],
-          ['GT-PR','El Progreso',5],
-          ['GT-ES','Escuintla',6],
-          ['GT-GU','Guatemala',7],
-          ['GT-HU','HuehueTenango',8],
-          ['GT-IZ','Izabal',9],
-          ['GT-JA','Jalapa',10],
-          ['GT-JU','Jutiapa',11],
-          ['GT-PE','Peten',12],
-          ['GT-QZ','Quetzaltenango',13],
-          ['GT-QC','Quiche',14],
-          ['GT-RE','Retalhuleu',15],
-          ['GT-SA','Sacatepequez',16],
-          ['GT-SM','San Marcos',17],
-          ['GT-SR','Santa Rosa',18],
-          ['GT-SO','Solola',19],
-          ['GT-SU','Suchitepequez',20],
-          ['GT-TO','Totonicapan',21],
-          ['GT-ZA','Zacapa',22],
+          ['GT-CM','Chimaltenango',{{Registro_CmM}}],
+          ['GT-CQ','Chiquimula',{{Registro_CqM}}],
+          ['GT-PR','El Progreso',{{Registro_PrM}}],
+          ['GT-ES','Escuintla',{{Registro_EsM}}],
+          ['GT-GU','Guatemala',{{Registro_GuM}}],
+          ['GT-HU','HuehueTenango',{{Registro_HuM}}],
+          ['GT-IZ','Izabal',{{Registro_IzM}}],
+          ['GT-JA','Jalapa',{{Registro_JaM}}],
+          ['GT-JU','Jutiapa',{{Registro_JuM}}],
+          ['GT-PE','Peten',{{Registro_PeM}}],
+          ['GT-QZ','Quetzaltenango',{{Registro_QzM}}],
+          ['GT-QC','Quiche',{{Registro_QcM}}],
+          ['GT-RE','Retalhuleu',{{Registro_ReM}}],
+          ['GT-SA','Sacatepequez',{{Registro_SaM}}],
+          ['GT-SM','San Marcos',{{Registro_SmM}}],
+          ['GT-SR','Santa Rosa',{{Registro_SrM}}],
+          ['GT-SO','Solola',{{Registro_SoM}}],
+          ['GT-SU','Suchitepequez',{{Registro_SuM}}],
+          ['GT-TO','Totonicapan',{{Registro_ToM}}],
+          ['GT-ZA','Zacapa',{{Registro_ZaM}}],
         ]);
 
     var options =
     {
-         backgroundColor: '#2651a8',
-          datalessRegionColor: '#2651a8',
+         backgroundColor: '#white',
+          datalessRegionColor: '#white',
           defaultColor: '#f5f5f5',
 
         sizeAxis: { minValue: 1, maxValue: 22 },
@@ -187,26 +188,27 @@ function drawRegionsMap4() {
           ['States','Estado','Casos'],
           ['GT-AV','Alta Verapaz',{{Registro_AvE}}],
           ['GT-BV','Baja Verapaz',{{Registro_BvE}}],
-          ['GT-CM','Chimaltenango',3],
-          ['GT-CQ','Chiquimula',4],
-          ['GT-PR','El Progreso',5],
-          ['GT-ES','Escuintla',6],
-          ['GT-GU','Guatemala',7],
-          ['GT-HU','HuehueTenango',8],
-          ['GT-IZ','Izabal',9],
-          ['GT-JA','Jalapa',10],
-          ['GT-JU','Jutiapa',11],
-          ['GT-PE','Peten',12],
-          ['GT-QZ','Quetzaltenango',13],
-          ['GT-QC','Quiche',14],
-          ['GT-RE','Retalhuleu',15],
-          ['GT-SA','Sacatepequez',16],
-          ['GT-SM','San Marcos',17],
-          ['GT-SR','Santa Rosa',18],
-          ['GT-SO','Solola',19],
-          ['GT-SU','Suchitepequez',20],
-          ['GT-TO','Totonicapan',21],
-          ['GT-ZA','Zacapa',22],
+          ['GT-CM','Chimaltenango',{{Registro_CmE}}],
+          ['GT-CQ','Chiquimula',{{Registro_CqE}}],
+          ['GT-PR','El Progreso',{{Registro_PrE}}],
+          ['GT-ES','Escuintla',{{Registro_EsE}}],
+          ['GT-GU','Guatemala',{{Registro_GuE}}],
+          ['GT-HU','HuehueTenango',{{Registro_HuE}}],
+          ['GT-IZ','Izabal',{{Registro_IzE}}],
+          ['GT-JA','Jalapa',{{Registro_JaE}}],
+          ['GT-JU','Jutiapa',{{Registro_JuE}}],
+          ['GT-PE','Peten',{{Registro_PeE}}],
+          ['GT-QZ','Quetzaltenango',{{Registro_QzE}}],
+          ['GT-QC','Quiche',{{Registro_QcE}}],
+          ['GT-RE','Retalhuleu',{{Registro_ReE}}],
+          ['GT-SA','Sacatepequez',{{Registro_SaE}}],
+          ['GT-SM','San Marcos',{{Registro_SmE}}],
+          ['GT-SR','Santa Rosa',{{Registro_SrE}}],
+          ['GT-SO','Solola',{{Registro_SoE}}],
+          ['GT-SU','Suchitepequez',{{Registro_SuE}}],
+          ['GT-TO','Totonicapan',{{Registro_ToE}}],
+          ['GT-ZA','Zacapa',{{Registro_ZaE}}],
+
         ]);
 
     var options =
@@ -258,12 +260,11 @@ function drawRegionsMap4() {
       <div id="menu" class="submenu">
         <ul>
           <li><a href="/" accesskey="1" title="">Inicio</a></li>
-          <li><a href="#" accesskey="2" title="">Acerca de</a></li>
+          <li><a href="/acerca" accesskey="2" title="">Acerca de</a></li>
           {% if user.is_authenticated %}
           <li><a href="#" accesskey="4" title="">Registros</a>
   					<ul>
-  						<li><a href="/" accesskey="7" title="">Consulta</a></li>
-  						<li><a href="/registros" accesskey="8" title="">Agregar Registro</a></li>
+  						<li><a href="/registros" accesskey="8" title="">Agregar</a></li>
   						<div class="fin"></div>
   					</ul>
   				</li>
@@ -290,40 +291,113 @@ function drawRegionsMap4() {
 
   <div id="section">
     <div id="segundoBloque">
-      <div class = "title">
-        <h2>Titulo uno</h2>
+      <a href="estadisticas"><boton  type="button" class="btn btn-primary">Estadisticas</button></a>
+    </div>
+  </div>
+
+
+  <div id="section">
+    <div id="tercerBloque">
+      <div class = "tHome">
+        <br/>
+        <br/>
+        <h1>Total de casos</h1>
       </div>
-      <p>.Aca va texto o api de estadisticas</p>
+      <br/>
+      <br/>
+      <tContenedor>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+      </tContenedor>
+      <br/>
+      <br/>
+      <br/>
     </div>
   </div>
 
 
 
+  <div id="section">
+    <div id="segundoBloque">
+      <div class = "tHome">
+        <br/>
+        <br/>
+        <h1>Casos mujeres</h1>
+      </div>
+      <br/>
+      <br/>
+      <tContenedor>
+        <div id="chart2_div" style="width: 100%; height: 500px;"></div>
+      </tContenedor>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
 
-  <div id="wrapper">
+
+
+  <div id="section">
+    <div id="tercerBloque">
+      <div class = "tHome">
+        <br/>
+        <br/>
+        <h1>Casos menores</h1>
+      </div>
+      <br/>
+      <br/>
+      <tContenedor>
+        <div id="chart4_div" style="width: 100%; height: 500px;"></div>
+      </tContenedor>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+
+
+  <div id="section">
+    <div id="segundoBloque">
+      <div class = "tHome">
+        <br/>
+        <br/>
+        <h1>Casos hombres</h1>
+      </div>
+      <br/>
+      <br/>
+      <tContenedor>
+        <div id="chart3_div" style="width: 100%; height: 500px;"></div>
+      </tContenedor>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+
+  <!-- <div id="wrapper">
+    <div class="title">
+      <h2>Titulo dos</h2>
+      <span class="byline">Prueba de tamano de contenedor a</span>
+    </div>
 		<div id="two-column" class="container">
-			<div class="title">
-				<h2>Titulo dos</h2>
-				<span class="byline">Prueba de tamano de contenedor a</span>
-			</div>
+
 
 			<div class="tbox1">
-        <font color="Black">Total</font> 
+        <font color="Black">Total</font>
        	<div id="chart_div" style="width: 100%; height: 500px;"></div>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
         <pr></pr>
-        <font color="Black">Hombres</font> 
-         
+        <font color="Black">Hombres</font>
+
         <div id="chart3_div" style="width: 100%; height: 500px;"></div>
 			</div>
 
 
 			<div class="tbox2">
         <font color="Black">Menores</font>
-          <div id="chart4_div" style="width: 100%; height: 500px;"></div>         
+          <div id="chart4_div" style="width: 100%; height: 500px;"></div>
         <pr></pr>
         <pr></pr>
         <pr></pr>
@@ -331,21 +405,25 @@ function drawRegionsMap4() {
         <pr></pr>
         <font color="Black">Mujeres</font>
         <div id="chart2_div" style="width: 100%; height: 500px;"></div>
-        
-         
 
-     
+
+
+
 
 			</div>
-     
+
 		</div>
-	</div>
+	</div> -->
 
 
 
 <div id="copyright" class="container">
-  <p>&copy;  asdasd </p>
+  <p><a>&copy; Organización Estigia</a></p>
+  <p>Parte de la estructura y el estilo de esta aplicacion</p>
+     <p>pertenece a las licencias de TEMPLATED bajo los acuerdos</p>
+    <p>de Creative Commons Attribution 4.0 license.</p>
+  <!-- <img style="-webkit-user-select: none" align="center" src="http://es.creativecommons.org/blog/wp-content/uploads/2013/04/by-nc.eu_petit.png"> -->
 </div>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

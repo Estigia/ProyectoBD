@@ -131,7 +131,6 @@ def registro(request):
 def lista(request):
 	tipo = request.user.Tipo_Usuario_id.id
 	registros = Registro.objects.all()
-
 	if tipo == 4 or tipo == 3:
 		context = { 
 			"registros": registros,
@@ -180,18 +179,15 @@ def detallesUser(request,vID):
 	return redirect("appHome:403")	
 
 def BusquedaMunicipio(request):
-		id_Departamento = request.GET['id']
-		muni = Municipio.objects.filter(Departamento_id= id_Departamento)
-		data = serializers.serialize('json', muni, fields = ('municipio'))
-		return HttpResponse(data, content_type='application/json')
+	id_Departamento = request.GET['id']
+	muni = Municipio.objects.filter(Departamento_id= id_Departamento)
+	data = serializers.serialize('json', muni, fields = ('municipio'))
+	return HttpResponse(data, content_type='application/json')
 
 def BusquedaArma(request):
 		id_Arma = request.GET['id']
-		print id_Arma
-		print id_Arma
 		Armas = Arma.objects.filter(categoria = id_Arma)
 		data = serializers.serialize('json', Armas, fields = ('objeto','marca','calibre'))
-		print data
 		return HttpResponse(data, content_type='application/json')
 
 @login_required(login_url='inicio')
@@ -201,3 +197,31 @@ def correcto(request):
 		return render(request, 'agregado.html', {})
 
 	return redirect('appHome:403')
+
+def BuscarPorNombre(request):
+	search = request.GET['buscar']
+	seleccionado = request.GET['select']
+
+	if seleccionado == "Nombre":
+		Reg_Nombre = Registro.objects.filter(nombres__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Apellidos":	
+		Reg_Nombre = Registro.objects.filter(apellidos__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Edad":	
+		Reg_Nombre = Registro.objects.filter(edad__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Sexo":	
+		Reg_Nombre = Registro.objects.filter(sexo__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+	elif seleccionado == "Fecha":	
+		Reg_Nombre = Registro.objects.filter(fecha__contains = search)
+		data = serializers.serialize('json', Reg_Nombre, fields = ('Arma','nombres','apellidos','edad',
+																'sexo','ubicacion','fecha','descripcion','Municipio'))
+
+
+	return HttpResponse(data, content_type='application/json')

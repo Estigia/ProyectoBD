@@ -4,7 +4,8 @@ from .views import (
 	lista, 
 	RegistroDetail, 
 	RegistroUpdate,
-	correcto
+	correcto,
+	BuscarPorNombre
 	)
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
 	url(r'^(?P<pk>\d+)$', RegistroDetail.as_view(), name='detail'),
 	url(r'^editar/(?P<pk>\d+)$',RegistroUpdate.as_view(), name = 'edit'),
 	url(r'^msg/$',correcto, name = 'msg'),
+	url(r'^BuscarNombre', BuscarPorNombre, name='Nombre'),
 ]

@@ -7,7 +7,21 @@
       <div class = "title">
         <h1 style="color:black;">Registros</h1>
       </div>
-      <div id="dobleBloque">
+      <div class = "alineacionCentral">
+        <table class="table">
+          {% for dato in registros %}
+          <tr>
+            <td>Registro No.: {{ dato.id }}</td>
+            <td>Victima: {{ dato.get_full_name }}</td>
+            <td>No. Expediente.: {{ dato.no_expediente }}</td>
+            <td><a href={% url 'registros:detail' dato.id %}>Ver</a></td>
+            <td><a href={% url 'registros:edit' dato.id %}>Editar</a></td>
+          </tr>
+          {% endfor %}
+      </div>
+      </table>
+
+      <!-- <div id="dobleBloque">
         <div class = "bloqueUno">
           {% for dato in registros %}
               <li>
@@ -30,7 +44,172 @@
             </p>
           {% endfor %}
         </div>
-      </div>
+      </div> -->
     </div>
 
+
+    <div id = "bloqueBusqueda">
+    <div id = "form-group">
+      Buscar por :
+      <select id='Consulta' name='Consulta'>
+        <option selected></option>
+        <option value='Nombre'>Nombre</option>
+        <option value='Apellidos'>Apellidos</option>
+        <option value='Edad'>Edad</option>
+        <option value='Sexo'>Sexo</option>
+        <option value='Fecha'>Fecha</option>
+      </select>
+      <!-- <label>Fecha del Suceso:</label>
+            {{form.fecha}} -->
+      <INPUT id='textbuscar'  TYPE="text"><BR>
+      <INPUT id='buscar' TYPE="submit" value='Buscar'>
+      <INPUT id='Limpiar' TYPE="submit" value='Limpiar'>
+      <table id='nose' border=1 width=300></table>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+  <script type="text/javascript">
+    // $('#Consulta').on('change', Cambiar);
+    $('#buscar').on('click', Tabla);
+    $('#Limpiar').on('click', Limpiar);
+    //$('#nose').html("");
+    var tabla   = document.getElementById("nose");
+    var tblBody = document.createElement("tbody");
+
+    // function Cambiar(){
+    //   var cambio = $(this).val();
+    //   if(cambio == 'Fecha')
+    //      $('#textbuscar').hide();
+    //   else
+    //     $('#textbuscar').show();
+    // }
+
+    function Tabla(){
+      var texto = $('#textbuscar').val();
+      var fecha = $('#fecha').val();
+
+      var seleccionado = $('#Consulta').val();
+      console.log(fecha);
+
+      $.ajax({
+        data : {'buscar' : texto, 'select' : seleccionado},
+        url : 'BuscarNombre/Nombre',
+        type : 'get',
+        success: function(data){
+           // for(var i=0; i<data.length; i++)
+           //   document.getElementById("nose").deleteRow(i);
+
+          var filas = document.createElement("tr");
+          var columnas = document.createElement("td");
+
+          var Arma = document.createTextNode('Arma');
+            columnas.appendChild(Arma);
+            filas.appendChild(columnas);
+
+          var nombres = document.createTextNode('nombres');
+            var columnas = document.createElement("td");
+            columnas.appendChild(nombres);
+            filas.appendChild(columnas);
+
+          var apellidos = document.createTextNode('apellidos');
+            var columnas = document.createElement("td");
+            columnas.appendChild(apellidos);
+            filas.appendChild(columnas);
+          var edad = document.createTextNode('edad');
+            var columnas = document.createElement("td");
+            columnas.appendChild(edad);
+            filas.appendChild(columnas);
+          var sexo = document.createTextNode('sexo');
+            var columnas = document.createElement("td");
+            columnas.appendChild(sexo);
+            filas.appendChild(columnas);
+          var ubicacion = document.createTextNode('ubicacion');
+            var columnas = document.createElement("td");
+            columnas.appendChild(ubicacion);
+            filas.appendChild(columnas);
+          var fecha = document.createTextNode('fecha');
+            var columnas = document.createElement("td");
+            columnas.appendChild(fecha);
+            filas.appendChild(columnas);
+          var descripcion = document.createTextNode('descripcion');
+            var columnas = document.createElement("td");
+            columnas.appendChild(descripcion);
+            filas.appendChild(columnas);
+          var Municipio = document.createTextNode('Municipio');
+            var columnas = document.createElement("td");
+            columnas.appendChild(Municipio);
+            filas.appendChild(columnas);
+
+          tblBody.appendChild(filas);
+
+          for(var i=0; i < data.length; i++){
+            var filas = document.createElement("tr");
+            for(var j=0; j < 9; j++){
+              var columnas = document.createElement("td");
+              if(j==0)
+                var textoCelda = document.createTextNode(data[i].fields.Arma)
+              else if (j==1)
+                var textoCelda = document.createTextNode(data[i].fields.nombres)
+              else if (j==2)
+                var textoCelda = document.createTextNode(data[i].fields.apellidos)
+              else if (j==3)
+                var textoCelda = document.createTextNode(data[i].fields.edad)
+              else if (j==4)
+                var textoCelda = document.createTextNode(data[i].fields.sexo)
+              else if (j==5)
+                var textoCelda = document.createTextNode(data[i].fields.ubicacion)
+              else if (j==6)
+                var textoCelda = document.createTextNode(data[i].fields.fecha)
+              else if (j==7)
+                var textoCelda = document.createTextNode(data[i].fields.descripcion)
+              else if (j==8)
+                var textoCelda = document.createTextNode(data[i].fields.Municipio)
+              columnas.appendChild(textoCelda);
+              filas.appendChild(columnas);
+            }
+            tblBody.appendChild(filas);
+          }
+          tabla.appendChild(tblBody);
+
+          }
+
+
+
+      })
+  }
+
+    function Limpiar(){
+      var texto = $('#textbuscar').val();
+      var fecha = $('#fecha').val();
+
+      var seleccionado = $('#Consulta').val();
+      console.log($('#nose > tbody >tr').length);
+      var aleluya = $('#nose > tBody >tr').length;
+      console.log(aleluya);
+
+      for(var i=0; i< aleluya; i++)
+        document.getElementById("nose").deleteRow(0);
+
+      // var Parent = document.getElementById('nose');
+      // while(Parent.hasChildNodes())
+      // {
+      //   Parent.removeChild(Parent.firstChild);
+      // }
+      // $.ajax({
+      //   data : {'buscar' : texto, 'select' : seleccionado},
+      //   url : 'BuscarNombre/Nombre',
+      //   type : 'get',
+
+
+
+      //   success: function(data){
+      //      for(var i=0; i<data.length+1; i++)
+      //       document.getElementById("nose").deleteRow(0);
+      //   }
+      // })
+    }
+  </script>
 {% endblock %}

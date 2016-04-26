@@ -2,20 +2,29 @@
 
 {% block content %}
 
-    <h1>Actividades del usuario</h1>
-    <ul>
-        {% for dato in detalles %}
-            <li>
-                <p>
-                    El usuario {{dato.Usuario_id}} a {{dato.actividad}} el Registro No.: {{dato.Registro_id}}
-                    <i>Hora: {{dato.fecha}} 
-                        <a href = {% url 'appHome:detailList' dato.Usuario_id.id %}>
-                            Ver todos los registros modificados por este usuario.
-                        </a> 
-                    </i>
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+
+    <div id="section">
+    		<div class = "title">
+    			<h2>Actividades del usuario</h2>
+    		</div>
+    		<div class = "alineacionCentral">
+    			<table class="table">
+            <tr>
+              <td>Usuario</td>
+              <td>Accion</td>
+              <td>Registro</td>
+              <td>Fecha</td>
+            </tr>
+            {% for dato in detalles %}
+            <tr>
+              <td><i>{{dato.Usuario_id}}</i></td>
+              <td><i>{{dato.actividad}}</i></td>
+              <td><i>{{dato.Registro_id}}</td>
+              <td><i>{{dato.fecha}}</i></td>
+    				</tr>
+            {% endfor %}
+          </table>
+    		</div>
+    </div>
 
 {% endblock %}
