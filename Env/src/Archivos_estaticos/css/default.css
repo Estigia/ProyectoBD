@@ -580,6 +580,35 @@
 	}
 
 
+	#cuartoBloque
+	{
+		position: relative;
+		/*padding: 7em 0em 7em 0em;*/
+		margin-top: 0;
+		background: #2651a8;
+		background-size: cover;
+		text-align: center;
+	}
+
+	#cuartoBloque .container
+	{
+		width: 1000px;
+		padding: 0px 100px;
+		color: rgba(255,255,255,0.8);
+	}
+
+	#cuartoBloque a
+	{
+		color: rgba(255,255,255,0.8);
+	}
+
+	#cuartoBloque .button
+	{
+		background: #FFF;
+		color: #2651a8;
+	}
+
+
 /*********************************************************************************/
 /* Extra                                                                         */
 /*********************************************************************************/
@@ -633,6 +662,17 @@
 		text-align: left;
 		margin-left: 27%;
 	}
+
+	.tHome {
+		text-align: left;
+		margin-left: 15%;
+	}
+
+	.tContenedor {
+		width: 85%;
+		margin-left: 15%;
+	}
+
 
 	.firma{
 		width: 100%;
@@ -775,6 +815,10 @@
 
 	}
 
+
+	.bloqueMitadIzq {
+		width: 49%;
+	}
 	.camposForms{
 		  margin-bottom: 15px;
 		  width: 100%;
@@ -801,6 +845,20 @@
     background-color: buttonface;
     box-sizing: border-box;
     padding: 2px 6px 3px;
+		/*padding-right:  30px;*/
+    border: 2px outset buttonface;
+
+	}
+
+
+	.boton {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 4px 12px 6px;
 		/*padding-right:  30px;*/
     border: 2px outset buttonface;
 
