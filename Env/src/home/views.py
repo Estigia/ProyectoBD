@@ -7,6 +7,7 @@ from .models import Usuario
 from Registros.models import Actividad
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from Registros.models import Registro
@@ -41,10 +42,18 @@ def cambioPass(request):
     return render(request,'cambioPass.html',context)
 
 
-class UserDetail(LoginRequiredMixin, DetailView):
-    login_url = 'inicio'
+class UserDetail(DetailView):
     model = Usuario
     template_name = 'usuario_detail.html'
+
+    @method_decorator(login_required)
+    def dispatch(self,request, *args, **kwargs):
+        tipo = request.user.Tipo_Usuario_id.id
+
+        if tipo == 4:
+            return super(UserDetail, self).dispatch(request,*args,**kwargs)
+
+        return redirect('appHome:403')
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
     login_url = 'inicio'
@@ -52,6 +61,15 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'usuario_update.html'
     success_url = reverse_lazy('appHome:list')
     fields = ['Tipo_Usuario_id', 'is_active']
+
+    @method_decorator(login_required)
+    def dispatch(self,request, *args, **kwargs):
+        tipo = request.user.Tipo_Usuario_id.id
+
+        if tipo == 4:
+            return super(RegistroUpdate, self).dispatch(request,*args,**kwargs)
+
+        return redirect('appHome:403')
 
 @login_required(login_url='inicio')
 def lista(request):

@@ -123,17 +123,16 @@ AUTH_USER_MODEL = 'home.Usuario'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
+USE_TZ = True
+
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'GMT'
+TIME_ZONE = 'America/Guatemala'
 
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
