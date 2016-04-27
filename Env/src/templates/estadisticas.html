@@ -1,7 +1,15 @@
-{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-
-{% block content %}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href='{% static "css/default.css" %}' rel="stylesheet" type="text/css" media="all" />
+<link href='{% static "css/fonts.css" %}' rel="stylesheet" type="text/css" media="all" />
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -13,20 +21,11 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-
           ['tipo Caso', 'Alta Verapaz', 'Baja Verapaz', 'Guatemala','Chiquimula','El Progreso','Izabal'],
-          ['Mujeres', {{Registro_AvF}}, {{Registro_BvF}}, {{Registro_GuF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_IzF}}],
-          ['Menores', {{Registro_AvE}}, {{Registro_BvE}}, {{Registro_GuE}},{{Registro_CqE}},{{Registro_PrE}},{{Registro_IzE}}],
-          ['Hombres', {{Registro_AvH}}, {{Registro_BvH}}, {{Registro_GuH}},{{Registro_CqH}},{{Registro_PrH}},{{Registro_Iz}}],
-          ['Total',
-           {{Registro_AvF}}+{{Registro_AvE}}+{{Registro_AvH}},
-           {{Registro_BvF}}+{{Registro_BvE}}+{{Registro_BvH}},
-           {{Registro_GuF}}+{{Registro_GuE}}+{{Registro_GuH}},
-           {{Registro_CqF}}+{{Registro_CqE}}+{{Registro_CqH}},
-           {{Registro_PrF}}+{{Registro_PrE}}+{{Registro_PrH}},
-           {{Registro_IzF}}+{{Registro_IzE}}{{Registro_IzH}}
-          ]
-
+          ['Mujeres', {{Registro_AvF}}, 4, 2,1,4,8],
+          ['Menores', {{Registro_AvE}}, 4, 2,1,4,5],
+          ['Hombres', {{Registro_AvH}}, 1, 3,1,5,4],
+          ['Total', 1, 5, 3,1,4,3]
         ]);
 
         var options = {
@@ -39,21 +38,11 @@
 
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
-
           ['tipo Caso', 'Quetzaltenango', 'Retalhuleu', 'San Marcos','Suchitepequez','Solola','Totonicapan'],
-          ['Mujeres', {{Registro_QzF}}, {{Registro_ReF}}, {{Registro_SmF}},{{Registro_CqF}},{{Registro_SuF}},{{Registro_ToF}}],
-          ['Menores', {{Registro_QzE}}, {{Registro_ReE}}, {{Registro_SmE}},{{Registro_SuE}},{{Registro_SuE}},{{Registro_ToE}}],
-          ['Hombres', {{Registro_QzH}}, {{Registro_ReH}}, {{Registro_SmH}},{{Registro_SuH}},{{Registro_SuH}},{{Registro_ToH}}],
-          ['Total',
-           {{Registro_QzF}}+{{Registro_QzE}}+{{Registro_QzH}},
-           {{Registro_ReF}}+{{Registro_ReE}}+{{Registro_ReH}},
-           {{Registro_SmF}}+{{Registro_SmE}}+{{Registro_SmH}},
-           {{Registro_SuF}}+{{Registro_SuE}}+{{Registro_SuH}},
-           {{Registro_SoF}}+{{Registro_SoE}}+{{Registro_SoH}},
-           {{Registro_ToF}}+{{Registro_ToE}}+{{Registro_ToH}}
-          ]
-
-
+          ['Mujeres', 300, 400, 200,100,400,800],
+          ['Menores', 1170, 460, 250,100,400,500],
+          ['Hombres', 660, 1120, 300,100,500,400],
+          ['Total', 1030, 540, 350,100,400,350]
         ]);
 
         var options = {
@@ -70,20 +59,11 @@
 
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
-
           ['tipo Caso', 'Zacapa', 'Jutiapa', 'Jalapa','Santa Rosa','Chimaltenango','Escuintla'],
-          ['Mujeres', {{Registro_ZaF}}, {{Registro_JuF}}, {{Registro_JaF}},{{Registro_SrF}},{{Registro_CmF}},{{Registro_EsF}}],
-          ['Menores', {{Registro_ZaE}}, {{Registro_JuE}}, {{Registro_JaE}},{{Registro_SrE}},{{Registro_CmE}},{{Registro_EsE}}],
-          ['Hombres', {{Registro_ZaH}}, {{Registro_JuH}}, {{Registro_JaH}},{{Registro_SrH}},{{Registro_CmH}},{{Registro_EsH}}],
-          ['Total',
-           {{Registro_ZaF}}+{{Registro_ZaE}}+{{Registro_ZaH}},
-           {{Registro_JuF}}+{{Registro_JuE}}+{{Registro_JuH}},
-           {{Registro_JaF}}+{{Registro_JaE}}+{{Registro_JaH}},
-           {{Registro_SrF}}+{{Registro_SrE}}+{{Registro_SrH}},
-           {{Registro_CmF}}+{{Registro_CmE}}+{{Registro_CmH}},
-           {{Registro_EsF}}+{{Registro_EsE}}+{{Registro_EsH}}
-          ]
-
+          ['Mujeres', 300, 400, 200,100,400,800],
+          ['Menores', 1170, 460, 250,100,400,500],
+          ['Hombres', 660, 1120, 300,100,500,400],
+          ['Total', 1030, 540, 350,100,400,350]
         ]);
 
         var options = {
@@ -100,18 +80,11 @@
 
       function drawChart4() {
         var data = google.visualization.arrayToDataTable([
-
           ['tipo Caso', 'Sacatepequez', 'Huhuetenango', 'Quiche','Peten'],
-          ['Mujeres', {{Registro_SaF}}, {{Registro_HuF}}, {{Registro_QcF}},{{Registro_PeF}}],
-          ['Menores', {{Registro_SaE}}, {{Registro_HuE}}, {{Registro_QcE}},{{Registro_PeE}}],
-          ['Hombres', {{Registro_SaH}}, {{Registro_HuH}}, {{Registro_QcH}},{{Registro_PeH}}],
-          ['Total',
-           {{Registro_SaF}}+{{Registro_SaE}}+{{Registro_SaH}},
-           {{Registro_HuF}}+{{Registro_HuE}}+{{Registro_HuH}},
-           {{Registro_QcF}}+{{Registro_QcE}}+{{Registro_QcH}},
-           {{Registro_PeF}}+{{Registro_PeE}}+{{Registro_PeH}}
-          ]
-
+          ['Mujeres', {{Casos_PeE}}, 400, 200,100],
+          ['Menores', 1170, 460, 250,100],
+          ['Hombres', 660, 1120, 300,100],
+          ['Total', 1030, 540, 350,100]
         ]);
 
         var options = {
@@ -125,29 +98,86 @@
 
         chart4.draw(data, options);
       }
+
+
+
+
+
+
+
+
+
     </script>
+  </head>
+
+
+
+
+  <header>
+    <div id="header-wrapper">
+      <div id="header" class="contenedor">
+        <div id="logo">
+          <!-- Aca debe ir imagen -->
+        </div>
+        <div id="menu" class="submenu">
+          <ul>
+            <li><a href="/" accesskey="1" title="">Inicio</a></li>
+            <li><a href="/acerca" accesskey="2" title="">Acerca de</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#" accesskey="4" title="">Registros</a>
+    					<ul>
+    						<li><a href="/registros" accesskey="8" title="">Agregar</a></li>
+    						<div class="fin"></div>
+    					</ul>
+    				</li>
+            <li><a href={% url 'appHome:perfil' %} accesskey="3" title="">Perfil</a></li>
+    				<li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
+            {% else %}
+            <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
+            {% endif %}
+          </ul>
+    		</div>
+      </div>
+      <div id="banner" class="container">
+        <div class="title">
+          <h2>Policia Nacional Civil de Guatemala</h2>
+          <span class="byline">Sistema de estadistica y control de hechos violentos</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<body>
 
 
   <div id="section">
-    <div id="center-block">
+      <div id="center-block">
 
-      <mContenedor>
-        <div id="mapa1" style="width: 65%; height: 500px;" align='center'></div>
-      </mContenedor>
+        <mContenedor>
+          <div id="mapa1" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+        </mContenedor>
 
-      <mContenedor>
-        <div id="mapa2" style="width: 65%; height: 500px;" align='center'></div>
-      </mContenedor>
+        <mContenedor>
+          <div id="mapa2" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+        </mContenedor>
 
-      <mContenedor>
-        <div id="mapa3" style="width: 65%; height: 500px;" align='center'></div>
-      </mContenedor>
+        <mContenedor>
+          <div id="mapa3" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+        </mContenedor>
 
-      <mContenedor>
-        <div id="mapa4" style="width: 65%; height: 500px;" align='center'></div>
-      </mContenedor>
-    </div>
+        <mContenedor>
+          <div id="mapa4" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+        </mContenedor>
+      </div>
+
   </div>
 
 
-{% endblock %}
+
+
+<div id="copyright" class="container">
+  <p>&copy;  asdasd </p>
+</div>
+
+</body>
+</html>
