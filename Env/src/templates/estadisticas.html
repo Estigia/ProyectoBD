@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,11 +22,18 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['tipo Caso', 'Alta Verapaz', 'Baja Verapaz', 'Guatemala','Chiquimula','El Progreso','Izabal'],
-          ['Mujeres', {{Registro_AvF}}, 4, 2,1,4,8],
-          ['Menores', {{Registro_AvE}}, 4, 2,1,4,5],
-          ['Hombres', {{Registro_AvH}}, 1, 3,1,5,4],
-          ['Total', 1, 5, 3,1,4,3]
+          ['', 'Alta Verapaz', 'Baja Verapaz', 'Guatemala','Chiquimula','El Progreso','Izabal'],
+          ['Mujeres', {{Registro_AvF}}, {{Registro_BvF}}, {{Registro_GuF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_IzF}}],
+          ['Menores', {{Registro_AvE}}, {{Registro_BvE}}, {{Registro_GuE}},{{Registro_CqE}},{{Registro_PrE}},{{Registro_IzE}}],
+          ['Hombres', {{Registro_AvM}}, {{Registro_BvM}}, {{Registro_GuM}},{{Registro_CqM}},{{Registro_PrM}},{{Registro_IzM}}],
+          ['Total',
+           {{Registro_AvF}}+{{Registro_AvE}}+{{Registro_AvM}},
+           {{Registro_BvF}}+{{Registro_BvE}}+{{Registro_BvM}},
+           {{Registro_GuF}}+{{Registro_GuE}}+{{Registro_GuM}},
+           {{Registro_CqF}}+{{Registro_CqE}}+{{Registro_CqM}},
+           {{Registro_PrF}}+{{Registro_PrE}}+{{Registro_PrM}},
+           {{Registro_IzF}}+{{Registro_IzE}}+{{Registro_IzM}}
+          ]
         ]);
 
         var options = {
@@ -37,12 +45,19 @@
       }
 
       function drawChart2() {
-        var data = google.visualization.arrayToDataTable([
-          ['tipo Caso', 'Quetzaltenango', 'Retalhuleu', 'San Marcos','Suchitepequez','Solola','Totonicapan'],
-          ['Mujeres', 300, 400, 200,100,400,800],
-          ['Menores', 1170, 460, 250,100,400,500],
-          ['Hombres', 660, 1120, 300,100,500,400],
-          ['Total', 1030, 540, 350,100,400,350]
+       var data = google.visualization.arrayToDataTable([
+          ['', 'Quetzaltenango', 'Retalhuleu', 'San Marcos','Suchitepequez','Solola','Totonicapan'],
+          ['Mujeres', {{Registro_QzF}}, {{Registro_ReF}}, {{Registro_SmF}},{{Registro_CqF}},{{Registro_PrF}},{{Registro_ToF}}],
+          ['Menores', {{Registro_QzE}}, {{Registro_ReE}}, {{Registro_SmE}},{{Registro_SuE}},{{Registro_SoE}},{{Registro_ToE}}],
+          ['Hombres', {{Registro_QzM}}, {{Registro_ReM}}, {{Registro_SmM}},{{Registro_SuM}},{{Registro_SoM}},{{Registro_ToM}}],
+          ['Total',
+           {{Registro_QzF}}+{{Registro_QzE}}+{{Registro_QzM}},
+           {{Registro_ReF}}+{{Registro_ReE}}+{{Registro_ReM}},
+           {{Registro_SmF}}+{{Registro_SmE}}+{{Registro_SmM}},
+           {{Registro_SuF}}+{{Registro_SuE}}+{{Registro_SuM}},
+           {{Registro_SoF}}+{{Registro_SoE}}+{{Registro_SoM}},
+           {{Registro_ToF}}+{{Registro_ToE}}{{Registro_ToM}}
+          ]
         ]);
 
         var options = {
@@ -59,11 +74,18 @@
 
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
-          ['tipo Caso', 'Zacapa', 'Jutiapa', 'Jalapa','Santa Rosa','Chimaltenango','Escuintla'],
-          ['Mujeres', 300, 400, 200,100,400,800],
-          ['Menores', 1170, 460, 250,100,400,500],
-          ['Hombres', 660, 1120, 300,100,500,400],
-          ['Total', 1030, 540, 350,100,400,350]
+          ['', 'Zacapa', 'Jutiapa', 'Jalapa','Santa Rosa','Chimaltenango','Escuintla'],
+          ['Mujeres', {{Registro_ZaF}}, {{Registro_JuF}}, {{Registro_JaF}},{{Registro_SrF}},{{Registro_CmF}},{{Registro_EsF}}],
+          ['Menores', {{Registro_ZaE}}, {{Registro_JuE}}, {{Registro_JaE}},{{Registro_SrE}},{{Registro_CmE}},{{Registro_EsE}}],
+          ['Hombres', {{Registro_ZaH}}, {{Registro_JuH}}, {{Registro_JaH}},{{Registro_SrH}},{{Registro_CmH}},{{Registro_EsM}}],
+          ['Total',
+           {{Registro_ZaF}}+{{Registro_ZaE}}+{{Registro_ZaM}},
+           {{Registro_JuF}}+{{Registro_JuE}}+{{Registro_JuM}},
+           {{Registro_JaF}}+{{Registro_JaE}}+{{Registro_JaM}},
+           {{Registro_SrF}}+{{Registro_SrE}}+{{Registro_SrM}},
+           {{Registro_CmF}}+{{Registro_CmE}}+{{Registro_CmM}},
+           {{Registro_EsF}}+{{Registro_EsE}}+{{Registro_EsM}}
+          ]
         ]);
 
         var options = {
@@ -79,12 +101,17 @@
       }
 
       function drawChart4() {
-        var data = google.visualization.arrayToDataTable([
-          ['tipo Caso', 'Sacatepequez', 'Huhuetenango', 'Quiche','Peten'],
-          ['Mujeres', {{Casos_PeE}}, 400, 200,100],
-          ['Menores', 1170, 460, 250,100],
-          ['Hombres', 660, 1120, 300,100],
-          ['Total', 1030, 540, 350,100]
+         var data = google.visualization.arrayToDataTable([
+          ['', 'Sacatepequez', 'Huhuetenango', 'Quiche','Peten'],
+          ['Mujeres', {{Registro_SaF}}, {{Registro_HuF}}, {{Registro_QcF}},{{Registro_PeF}}],
+          ['Menores', {{Registro_SaE}}, {{Registro_HuE}}, {{Registro_QcE}},{{Registro_PeE}}],
+          ['Hombres', {{Registro_SaM}}, {{Registro_HuM}}, {{Registro_QcM}},{{Registro_PeM}}],
+          ['Total',
+           {{Registro_SaF}}+{{Registro_SaE}}+{{Registro_SaM}},
+           {{Registro_HuF}}+{{Registro_HuE}}+{{Registro_HuM}},
+           {{Registro_QcF}}+{{Registro_QcE}}+{{Registro_QcM}},
+           {{Registro_PeF}}+{{Registro_PeE}}+{{Registro_PeM}}
+          ]
         ]);
 
         var options = {
@@ -125,18 +152,18 @@
             <li><a href="/acerca" accesskey="2" title="">Acerca de</a></li>
             {% if user.is_authenticated %}
             <li><a href="#" accesskey="4" title="">Registros</a>
-    					<ul>
-    						<li><a href="/registros" accesskey="8" title="">Agregar</a></li>
-    						<div class="fin"></div>
-    					</ul>
-    				</li>
+              <ul>
+                <li><a href="/registros" accesskey="8" title="">Agregar</a></li>
+                <div class="fin"></div>
+              </ul>
+            </li>
             <li><a href={% url 'appHome:perfil' %} accesskey="3" title="">Perfil</a></li>
-    				<li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
+            <li><a href="/logout" accesskey="5" title="">Cerrar Sesión"</a></li>
             {% else %}
             <li><a href="/signin" accesskey="6" title="">Iniciar sesion</a></li>
             {% endif %}
           </ul>
-    		</div>
+        </div>
       </div>
       <div id="banner" class="container">
         <div class="title">
@@ -151,32 +178,39 @@
 
 
   <div id="section">
-      <div id="center-block">
 
-        <mContenedor>
-          <div id="mapa1" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
-        </mContenedor>
+    <div id="center-block">
 
-        <mContenedor>
-          <div id="mapa2" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
-        </mContenedor>
+      <mContenedor>
 
-        <mContenedor>
-          <div id="mapa3" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
-        </mContenedor>
+        <div id="mapa1" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+      </mContenedor>
 
-        <mContenedor>
-          <div id="mapa4" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
-        </mContenedor>
-      </div>
+      <mContenedor>
+        <div id="mapa2" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+      </mContenedor>
 
-  </div>
+      <mContenedor>
+        <div id="mapa3" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+      </mContenedor>
+
+      <mContenedor>
+        <div id="mapa4" style="width: 85%; height: 500px; margin-left:10%;" align='center'></div>
+      </mContenedor>
+    </div>
+
+</div>
+
 
 
 
 
 <div id="copyright" class="container">
-  <p>&copy;  asdasd </p>
+  <p><a>&copy; Organización Estigia</a></p>
+  <p>Parte de la estructura y el estilo de esta aplicacion</p>
+     <p>pertenece a las licencias de TEMPLATED bajo los acuerdos</p>
+    <p>de Creative Commons Attribution 4.0 license.</p>
+  <!-- <img style="-webkit-user-select: none" align="center" src="http://es.creativecommons.org/blog/wp-content/uploads/2013/04/by-nc.eu_petit.png"> -->
 </div>
 
 </body>

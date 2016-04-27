@@ -7,7 +7,6 @@ from .models import Usuario
 from Registros.models import Actividad
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from Registros.models import Registro
@@ -42,18 +41,10 @@ def cambioPass(request):
     return render(request,'cambioPass.html',context)
 
 
-class UserDetail(DetailView):
+class UserDetail(LoginRequiredMixin, DetailView):
+    login_url = 'inicio'
     model = Usuario
     template_name = 'usuario_detail.html'
-
-    @method_decorator(login_required)
-    def dispatch(self,request, *args, **kwargs):
-        tipo = request.user.Tipo_Usuario_id.id
-
-        if tipo == 4:
-            return super(UserDetail, self).dispatch(request,*args,**kwargs)
-
-        return redirect('appHome:403')
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
     login_url = 'inicio'
@@ -61,15 +52,6 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'usuario_update.html'
     success_url = reverse_lazy('appHome:list')
     fields = ['Tipo_Usuario_id', 'is_active']
-
-    @method_decorator(login_required)
-    def dispatch(self,request, *args, **kwargs):
-        tipo = request.user.Tipo_Usuario_id.id
-
-        if tipo == 4:
-            return super(UserUpdate, self).dispatch(request,*args,**kwargs)
-
-        return redirect('appHome:403')
 
 @login_required(login_url='inicio')
 def lista(request):
@@ -359,63 +341,83 @@ def home(request):
         "Registro_BvF": Casos_BvF,
         "Registro_BvD": Casos_BvD,
         "Registro_BvE": Casos_BvE,
+        "Registro_CmM": Casos_CmM,
         "Registro_CmF": Casos_CmF,
         "Registro_CmD": Casos_CmD,
         "Registro_CmE": Casos_CmE,
+        "Registro_CqM": Casos_CqM,
         "Registro_CqF": Casos_CqF,
         "Registro_CqD": Casos_CqD,
         "Registro_CqE": Casos_CqE,
+        "Registro_PrM": Casos_PrM,
         "Registro_PrF": Casos_PrF,
         "Registro_PrD": Casos_PrD,
         "Registro_PrE": Casos_PrE,
+        "Registro_EsM": Casos_EsM,
         "Registro_EsF": Casos_EsF,
         "Registro_EsD": Casos_EsD,
         "Registro_EsE": Casos_EsE,
+        "Registro_GuM": Casos_GuM,
         "Registro_GuF": Casos_GuF,
         "Registro_GuD": Casos_GuD,
         "Registro_GuE": Casos_GuE,
+        "Registro_HuM": Casos_HuM,
         "Registro_HuF": Casos_HuF,
         "Registro_HuD": Casos_HuD,
         "Registro_HuE": Casos_HuE,
+        "Registro_IzM": Casos_IzM,
         "Registro_IzF": Casos_IzF,
         "Registro_IzD": Casos_IzD,
         "Registro_IzE": Casos_IzE,
+        "Registro_JaM": Casos_JaM,
         "Registro_JaF": Casos_JaF,
         "Registro_JaD": Casos_JaD,
         "Registro_JaE": Casos_JaE,
+        "Registro_JuM": Casos_JuM,
         "Registro_JuF": Casos_JuF,
         "Registro_JuD": Casos_JuD,
         "Registro_JuE": Casos_JuE,
+        "Registro_PeM": Casos_PeM,
         "Registro_PeF": Casos_PeF,
         "Registro_PeD": Casos_PeD,
         "Registro_PeE": Casos_PeE,
+        "Registro_QzM": Casos_QzM,
         "Registro_QzF": Casos_QzF,
         "Registro_QzD": Casos_QzD,
         "Registro_QzE": Casos_QzE,
+        "Registro_QcM": Casos_QcM,
         "Registro_QcF": Casos_QcF,
         "Registro_QcD": Casos_QcD,
         "Registro_QcE": Casos_QcE,
+        "Registro_ReM": Casos_ReM,
         "Registro_ReF": Casos_ReF,
         "Registro_ReD": Casos_ReD,
         "Registro_ReE": Casos_ReE,
+        "Registro_SaM": Casos_SaM,
         "Registro_SaF": Casos_SaF,
         "Registro_SaD": Casos_SaD,
         "Registro_SaE": Casos_SaE,
+        "Registro_SmM": Casos_SmM,
         "Registro_SmF": Casos_SmF,
         "Registro_SmD": Casos_SmD,
         "Registro_SmE": Casos_SmE,
+        "Registro_SrM": Casos_SrM,
         "Registro_SrF": Casos_SrF,
         "Registro_SrD": Casos_SrD,
         "Registro_SrE": Casos_SrE,
+        "Registro_SoM": Casos_SoM,
         "Registro_SoF": Casos_SoF,
         "Registro_SoD": Casos_SoD,
         "Registro_SoE": Casos_SoE,
+        "Registro_SuM": Casos_SuM,
         "Registro_SuF": Casos_SuF,
         "Registro_SuD": Casos_SuD,
         "Registro_SuE": Casos_SuE,
+        "Registro_ToM": Casos_ToM,
         "Registro_ToF": Casos_ToF,
         "Registro_ToD": Casos_ToD,
         "Registro_ToE": Casos_ToE,
+        "Registro_ZaM": Casos_ZaM,
         "Registro_ZaF": Casos_ZaF,
         "Registro_ZaD": Casos_ZaD,
         "Registro_ZaE": Casos_ZaE,
@@ -624,63 +626,83 @@ def estadisticas(request):
         "Registro_BvF": Casos_BvF,
         "Registro_BvD": Casos_BvD,
         "Registro_BvE": Casos_BvE,
+        "Registro_CmM": Casos_CmM,
         "Registro_CmF": Casos_CmF,
         "Registro_CmD": Casos_CmD,
         "Registro_CmE": Casos_CmE,
+        "Registro_CqM": Casos_CqM,
         "Registro_CqF": Casos_CqF,
         "Registro_CqD": Casos_CqD,
         "Registro_CqE": Casos_CqE,
+        "Registro_PrM": Casos_PrM,
         "Registro_PrF": Casos_PrF,
         "Registro_PrD": Casos_PrD,
         "Registro_PrE": Casos_PrE,
+        "Registro_EsM": Casos_EsM,
         "Registro_EsF": Casos_EsF,
         "Registro_EsD": Casos_EsD,
         "Registro_EsE": Casos_EsE,
+        "Registro_GuM": Casos_GuM,
         "Registro_GuF": Casos_GuF,
         "Registro_GuD": Casos_GuD,
         "Registro_GuE": Casos_GuE,
+        "Registro_HuM": Casos_HuM,
         "Registro_HuF": Casos_HuF,
         "Registro_HuD": Casos_HuD,
         "Registro_HuE": Casos_HuE,
+        "Registro_IzM": Casos_IzM,
         "Registro_IzF": Casos_IzF,
         "Registro_IzD": Casos_IzD,
         "Registro_IzE": Casos_IzE,
+        "Registro_JaM": Casos_JaM,
         "Registro_JaF": Casos_JaF,
         "Registro_JaD": Casos_JaD,
         "Registro_JaE": Casos_JaE,
+        "Registro_JuM": Casos_JuM,
         "Registro_JuF": Casos_JuF,
         "Registro_JuD": Casos_JuD,
         "Registro_JuE": Casos_JuE,
+        "Registro_PeM": Casos_PeM,
         "Registro_PeF": Casos_PeF,
         "Registro_PeD": Casos_PeD,
         "Registro_PeE": Casos_PeE,
+        "Registro_QzM": Casos_QzM,
         "Registro_QzF": Casos_QzF,
         "Registro_QzD": Casos_QzD,
         "Registro_QzE": Casos_QzE,
+        "Registro_QcM": Casos_QcM,
         "Registro_QcF": Casos_QcF,
         "Registro_QcD": Casos_QcD,
         "Registro_QcE": Casos_QcE,
+        "Registro_ReM": Casos_ReM,
         "Registro_ReF": Casos_ReF,
         "Registro_ReD": Casos_ReD,
         "Registro_ReE": Casos_ReE,
+        "Registro_SaM": Casos_SaM,
         "Registro_SaF": Casos_SaF,
         "Registro_SaD": Casos_SaD,
         "Registro_SaE": Casos_SaE,
+        "Registro_SmM": Casos_SmM,
         "Registro_SmF": Casos_SmF,
         "Registro_SmD": Casos_SmD,
         "Registro_SmE": Casos_SmE,
+        "Registro_SrM": Casos_SrM,
         "Registro_SrF": Casos_SrF,
         "Registro_SrD": Casos_SrD,
         "Registro_SrE": Casos_SrE,
+        "Registro_SoM": Casos_SoM,
         "Registro_SoF": Casos_SoF,
         "Registro_SoD": Casos_SoD,
         "Registro_SoE": Casos_SoE,
+        "Registro_SuM": Casos_SuM,
         "Registro_SuF": Casos_SuF,
         "Registro_SuD": Casos_SuD,
         "Registro_SuE": Casos_SuE,
+        "Registro_ToM": Casos_ToM,
         "Registro_ToF": Casos_ToF,
         "Registro_ToD": Casos_ToD,
         "Registro_ToE": Casos_ToE,
+        "Registro_ZaM": Casos_ZaM,
         "Registro_ZaF": Casos_ZaF,
         "Registro_ZaD": Casos_ZaD,
         "Registro_ZaE": Casos_ZaE,
